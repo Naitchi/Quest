@@ -1,15 +1,20 @@
 # Quest
 
-required: { node: '^14.18.0 || ^16.14.0 || >=18.0.0' },
+required: { node: '16.11.0' },
 
 ## Documentation
 
 Documentation available on Notion :
 
 https://www.notion.so/Documentations-adad46d23351476dbff4763a1e085e4e
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+
+```bash
+npm i
+```
 
 First, run the development server:
 
