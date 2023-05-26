@@ -35,4 +35,5 @@ yarn-error.log*
 next-env.d.ts
 
 .$Quest.drawio.bkp
+.$Quest.drawio.dtmp
 package-lock.json
