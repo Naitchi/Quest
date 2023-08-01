@@ -1,12 +1,34 @@
-// Import Next
+// Import Next/React/Redux
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setQuestArray } from '../redux/questSlice';
 
-// Import Composants
-const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), { ssr: false });
+// Type
+import QuestList from '../components/QuestList/QuestList';
+import QuestType from '../type/QuestType';
+
+// Components
+const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), {
+  ssr: false,
+});
 
 export default function Quest() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response: Response = await fetch(`/mock/customs.json`);
+      const jsonData: QuestType[] = await response.json();
+      if (jsonData) {
+        dispatch(setQuestArray({ name: 'all', content: jsonData }));
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <React.Fragment>
       <Head>
@@ -16,6 +38,7 @@ export default function Quest() {
         <link rel="icon" href="/favicon.ico" />
         <script src="https://kit.fontawesome.com/bf63fdfe50.js"></script>
       </Head>
+      <QuestList />
       <MapComponent />
     </React.Fragment>
   );

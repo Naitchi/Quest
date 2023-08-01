@@ -1,30 +1,64 @@
+// Import React/Redux
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getQuestArray } from '../../redux/questSlice';
+import { RootState } from '../../redux/store';
 
+// Style
 import styles from './QuestList.module.css';
 
-import Quest from '../../type/quest';
+// Type
+import QuestType from '../../type/QuestType';
 
 export default function QuestList() {
-  const [all, setAll] = useState<Quest[]>([]);
-  const [result, setResult] = useState<Quest[]>([]);
-  const [temporary, setTemporary] = useState<Quest[]>([]);
-  const [main, setMain] = useState<Quest[]>([]);
+  const allQuests = useSelector((state: RootState) => getQuestArray(state, 'all'));
+  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
 
-  const addTemporay = (id: number) => {
-    const newQuest = id; // TODO ajouter une fonction pour trouver un quetes dans le all (la créé dans redux pour l'utilisé partout ?)
-    setTemporary((prev) => ({ ...prev, newQuest }));
+  const [all, setAll] = useState<QuestType[]>([]);
+  const [result, setResult] = useState<QuestType[] | null>([]);
+  const [temporary, setTemporary] = useState<QuestType[] | null>();
+  const [main, setMain] = useState<QuestType[]>([]);
+
+  const addTemporay = (item: QuestType) => {
+    setTemporary((prev) => {
+      if (!prev) {
+        return [item];
+      }
+      return checkForDouble(prev, item) ? prev : [...prev, item];
+    });
+  };
+
+  const checkForDouble = (array: QuestType[] | null, target: QuestType) => {
+    if (array) return array.some((obj) => obj.id === target.id);
+    else return false;
   };
 
   const searchQuest = (text: string) => {
-    const newQuests: Quest[] = all.includes(text); // TODO ajouter une fonction pour trouver un quetes dans le all (la créé dans redux pour l'utilisé partout ?)
-    setResult({ ...newQuests });
+    if (text.length === 0) return all;
+    const data: QuestType[] = all
+      .map((quest) => {
+        if (
+          quest.id.toString().includes(text.toLowerCase()) ||
+          quest.name.toLowerCase().includes(text.toLowerCase())
+        )
+          return quest;
+        else return false;
+      })
+      .filter((quest): quest is QuestType => quest !== false);
+    setResult(data);
+  };
+
+  const removeTemporary = (itemToDelete: QuestType) => {
+    setTemporary((prev) => {
+      const updatedArray = prev?.filter((item) => item.id !== itemToDelete.id);
+      return updatedArray?.length === 0 ? null : updatedArray;
+    });
   };
 
   useEffect(() => {
-    setAll(['0']); // TODO fetch toutes les quetes depuis le store.
-    const mainData: Quest[] = 'fetch localstorage';
-    setMain([...mainData]); // TODO fetch les quetes de la personne depuis le store.
-  });
+    if (allQuests) setAll(allQuests);
+    if (mainQuests) setMain(mainQuests);
+  }, [allQuests, mainQuests]);
 
   return (
     <React.Fragment>
@@ -40,23 +74,39 @@ export default function QuestList() {
           <button className={styles.reset}>x {/** TODO remplacer par une icone propre */}</button>
           <div className={styles.dropdown}>
             {result?.map((quest) => (
-              <p className={styles.result} key={quest.id} onClick={() => addTemporay(quest.id)}>
-                {quest.name}
-              </p>
+              <div key={quest.id}>
+                <p
+                  className={`
+                ${styles.result}
+                ${checkForDouble(result, quest) ? styles.unavailable : ''}
+                `}
+                  onClick={() => addTemporay(quest)}
+                >
+                  {quest.name}
+                </p>
+                {checkForDouble(result, quest) && (
+                  <button onClick={() => removeTemporary(quest)}>
+                    x {/** TODO remplacer par une icone propre */}
+                  </button>
+                )}
+              </div>
             ))}
           </div>
-          <div className={styles.temporary}>
-            <h2>Quêtes temporaires : {/* TODO afficher le s en fonction du nombre de quetes */}</h2>
-            {temporary?.map((quest) => (
-              <p key={quest.id}>{quest.name}</p>
-            ))}
-            {/* TODO mettre le composant à la place */}
-          </div>
+          {temporary && (
+            <div className={styles.temporary}>
+              <h2>
+                Quêtes temporaire{temporary.length > 1 ? 's' : ''} :
+                {/* TODO afficher le s en fonction du nombre de quetes */}
+              </h2>
+              {temporary?.map((quest) => (
+                <p key={quest.id}>{quest.name}</p>
+              ))}
+              {/* TODO mettre le composant à la place */}
+            </div>
+          )}
           <div className={styles.mainQuest}>
             <h2>Vos Quêtes :</h2>
-            {main?.map((quest) => (
-              <p key={quest.id}>{quest.name}</p>
-            ))}
+            {main.length !== 0 && main?.map((quest) => <p key={quest.id}>{quest.name}</p>)}
             {/* TODO mettre le composant à la place */}
           </div>
         </div>
