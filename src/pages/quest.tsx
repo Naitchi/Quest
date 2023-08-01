@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React from 'react';
 
 // Import Composants
-const MapComponent = dynamic(() => import('@/components/map/MapComponent'), { ssr: false });
+const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), { ssr: false });
 
 export default function Quest() {
   return (
