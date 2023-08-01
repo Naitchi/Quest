@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import styles from './QuestList.module.css';
 
+import Quest from '../../type/quest';
+
 export default function QuestList() {
-  const [all, setAll] = useState([]);
-  const [result, setResult] = useState([]);
-  const [temporary, setTemporary] = useState([]);
-  const [main, setMain] = useState([]);
+  const [all, setAll] = useState<Quest[]>([]);
+  const [result, setResult] = useState<Quest[]>([]);
+  const [temporary, setTemporary] = useState<Quest[]>([]);
+  const [main, setMain] = useState<Quest[]>([]);
 
   const addTemporay = (id: number) => {
     const newQuest = id; // TODO ajouter une fonction pour trouver un quetes dans le all (la créé dans redux pour l'utilisé partout ?)
@@ -14,13 +16,13 @@ export default function QuestList() {
   };
 
   const searchQuest = (text: string) => {
-    const newQuests = all.includes(text); // TODO ajouter une fonction pour trouver un quetes dans le all (la créé dans redux pour l'utilisé partout ?)
+    const newQuests: Quest[] = all.includes(text); // TODO ajouter une fonction pour trouver un quetes dans le all (la créé dans redux pour l'utilisé partout ?)
     setResult({ ...newQuests });
   };
 
   useEffect(() => {
     setAll(['0']); // TODO fetch toutes les quetes depuis le store.
-    const mainData = ['fetch localstorage'];
+    const mainData: Quest[] = 'fetch localstorage';
     setMain([...mainData]); // TODO fetch les quetes de la personne depuis le store.
   });
 
@@ -45,15 +47,17 @@ export default function QuestList() {
           </div>
           <div className={styles.temporary}>
             <h2>Quêtes temporaires : {/* TODO afficher le s en fonction du nombre de quetes */}</h2>
-            {temporary?.map((quest) => {
-              return quest; /* TODO supprimer le return et les {} et mettre le composant à la place */
-            })}
+            {temporary?.map((quest) => (
+              <p key={quest.id}>{quest.name}</p>
+            ))}
+            {/* TODO mettre le composant à la place */}
           </div>
           <div className={styles.mainQuest}>
             <h2>Vos Quêtes :</h2>
-            {main?.map((quest) => {
-              return quest; /* TODO supprimer le return et les {} et mettre le composant à la place */
-            })}
+            {main?.map((quest) => (
+              <p key={quest.id}>{quest.name}</p>
+            ))}
+            {/* TODO mettre le composant à la place */}
           </div>
         </div>
       </div>
