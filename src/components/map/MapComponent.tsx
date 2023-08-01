@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import styles from './map.module.css';
+import styles from './MapComponent.module.css';
 
 const colorPicker = (index: number): string | undefined => {
   switch (index) {
@@ -28,7 +28,7 @@ const colorPicker = (index: number): string | undefined => {
   }
 };
 
-const Map = () => {
+const MapComponent = () => {
   const mapRef = useRef<L.Map | null>(null);
 
   useEffect(() => {
@@ -153,4 +153,4 @@ const Map = () => {
   return <div id="map" style={{ height: '100vh', width: '100wh' }}></div>;
 };
 
-export default Map;
+export default MapComponent;
