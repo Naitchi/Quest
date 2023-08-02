@@ -19,7 +19,7 @@ export default function QuestList() {
   const [temporary, setTemporary] = useState<QuestType[] | null>();
   const [main, setMain] = useState<QuestType[]>([]);
 
-  const addTemporay = (item: QuestType) => {
+  const addTemporary = (item: QuestType) => {
     setTemporary((prev) => {
       if (!prev) {
         return [item];
@@ -34,8 +34,8 @@ export default function QuestList() {
   };
 
   const searchQuest = (text: string) => {
-    if (text.length === 0) return all;
-    const data: QuestType[] = all
+    if (!text.length) return all;
+    const data: QuestType[] | null = all
       .map((quest) => {
         if (
           quest.id.toString().includes(text.toLowerCase()) ||
@@ -61,17 +61,17 @@ export default function QuestList() {
   }, [allQuests, mainQuests]);
 
   return (
-    <React.Fragment>
-      <div className={styles.questList}>
-        <button className={styles.onglet}> {/* TODO mettre l'icone */}</button>
-        <div className={styles.main}>
-          <input
-            className={styles.search}
-            onChange={(e) => searchQuest(e.target.value)}
-            type="text"
-            placeholder="Chercher une quête"
-          />
-          <button className={styles.reset}>x {/** TODO remplacer par une icone propre */}</button>
+    <div className={styles.questList}>
+      <button className={styles.onglet}> {/* TODO mettre l'icone */}</button>
+      <div className={styles.main}>
+        <input
+          className={styles.search}
+          onChange={(e) => searchQuest(e.target.value)}
+          type="text"
+          placeholder="Chercher une quête"
+        />
+        <button className={styles.reset}>x {/** TODO remplacer par une icone propre */}</button>
+        {result && (
           <div className={styles.dropdown}>
             {result?.map((quest) => (
               <div key={quest.id}>
@@ -80,7 +80,7 @@ export default function QuestList() {
                 ${styles.result}
                 ${checkForDouble(result, quest) ? styles.unavailable : ''}
                 `}
-                  onClick={() => addTemporay(quest)}
+                  onClick={() => addTemporary(quest)}
                 >
                   {quest.name}
                 </p>
@@ -92,25 +92,25 @@ export default function QuestList() {
               </div>
             ))}
           </div>
-          {temporary && (
-            <div className={styles.temporary}>
-              <h2>
-                Quêtes temporaire{temporary.length > 1 ? 's' : ''} :
-                {/* TODO afficher le s en fonction du nombre de quetes */}
-              </h2>
-              {temporary?.map((quest) => (
-                <p key={quest.id}>{quest.name}</p>
-              ))}
-              {/* TODO mettre le composant à la place */}
-            </div>
-          )}
-          <div className={styles.mainQuest}>
-            <h2>Vos Quêtes :</h2>
-            {main.length !== 0 && main?.map((quest) => <p key={quest.id}>{quest.name}</p>)}
+        )}
+        {temporary && (
+          <div className={styles.temporary}>
+            <h2>
+              Quêtes temporaire{temporary.length > 1 ? 's' : ''} :
+              {/* TODO afficher le s en fonction du nombre de quetes */}
+            </h2>
+            {temporary?.map((quest) => (
+              <p key={quest.id}>{quest.name}</p>
+            ))}
             {/* TODO mettre le composant à la place */}
           </div>
+        )}
+        <div className={styles.mainQuest}>
+          <h2>Vos Quêtes :</h2>
+          {!main?.length && main?.map((quest) => <p key={quest.id}>{quest.name}</p>)}
+          {/* TODO mettre le composant à la place */}
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
