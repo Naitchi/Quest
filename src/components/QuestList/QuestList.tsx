@@ -10,90 +10,31 @@ import styles from './QuestList.module.css';
 // Type
 import QuestType from '../../type/QuestType';
 
-export default function QuestList() {
-  const allQuests = useSelector((state: RootState) => getQuestArray(state, 'all'));
-  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
+// Import Composents
+import SearchInput from '../SearchInput/SearchInput';
 
-  const [all, setAll] = useState<QuestType[]>([]);
-  const [result, setResult] = useState<QuestType[] | null>([]);
+export default function QuestList() {
+  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
+  const TemporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
+
   const [temporary, setTemporary] = useState<QuestType[] | null>();
   const [main, setMain] = useState<QuestType[]>([]);
 
-  const addTemporary = (item: QuestType) => {
-    setTemporary((prev) => {
-      if (!prev) {
-        return [item];
-      }
-      return checkForDouble(prev, item) ? prev : [...prev, item];
-    });
-  };
-
-  const checkForDouble = (array: QuestType[] | null, target: QuestType) => {
-    if (array) return array.some((obj) => obj.id === target.id);
-    else return false;
-  };
-
-  const searchQuest = (text: string) => {
-    if (!text.length) return all;
-    const data: QuestType[] | null = all
-      .map((quest) => {
-        if (
-          quest.id.toString().includes(text.toLowerCase()) ||
-          quest.name.toLowerCase().includes(text.toLowerCase())
-        )
-          return quest;
-        else return false;
-      })
-      .filter((quest): quest is QuestType => quest !== false);
-    setResult(data);
-  };
-
-  const removeTemporary = (itemToDelete: QuestType) => {
-    setTemporary((prev) => {
-      const updatedArray = prev?.filter((item) => item.id !== itemToDelete.id);
-      return updatedArray?.length === 0 ? null : updatedArray;
-    });
-  };
+  const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
-    if (allQuests) setAll(allQuests);
     if (mainQuests) setMain(mainQuests);
-  }, [allQuests, mainQuests]);
+    if (TemporaryQuests) setTemporary(TemporaryQuests);
+  }, [mainQuests, TemporaryQuests]);
 
   return (
-    <div className={styles.questList}>
-      <button className={styles.onglet}> {/* TODO mettre l'icone */}</button>
+    <div className={`${styles.questList} ${show ? styles.show : ''}`}>
+      <button onClick={() => setShow(!show)} className={styles.onglet}>
+        {/* TODO mettre l'icone */} test
+      </button>
       <div className={styles.main}>
-        <input
-          className={styles.search}
-          onChange={(e) => searchQuest(e.target.value)}
-          type="text"
-          placeholder="Chercher une quête"
-        />
-        <button className={styles.reset}>x {/** TODO remplacer par une icone propre */}</button>
-        {result && (
-          <div className={styles.dropdown}>
-            {result?.map((quest) => (
-              <div key={quest.id}>
-                <p
-                  className={`
-                ${styles.result}
-                ${checkForDouble(result, quest) ? styles.unavailable : ''}
-                `}
-                  onClick={() => addTemporary(quest)}
-                >
-                  {quest.name}
-                </p>
-                {checkForDouble(result, quest) && (
-                  <button onClick={() => removeTemporary(quest)}>
-                    x {/** TODO remplacer par une icone propre */}
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-        {temporary && (
+        <SearchInput />
+        {temporary && temporary.length > 0 && (
           <div className={styles.temporary}>
             <h2>
               Quêtes temporaire{temporary.length > 1 ? 's' : ''} :

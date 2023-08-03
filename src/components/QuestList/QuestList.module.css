@@ -4,18 +4,8 @@
 
 .main {}
 
-.search {}
-
-.dropdown {}
-
 .temporary {}
 
 .mainQuest {}
 
-.result {}
-
-.reset {}
-
-.unavailable {
-    color: gray;
-}
+.show {}

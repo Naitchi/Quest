@@ -12,7 +12,7 @@ type QuestArrayName = 'all' | 'main' | 'temporary';
 
 interface SetQuestArrayPayload {
   name: QuestArrayName;
-  content: QuestType[];
+  content: QuestType[] | null;
 }
 
 const initialState: QuestsType = {

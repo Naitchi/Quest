@@ -1,0 +1,11 @@
+.search {}
+
+.dropdown {}
+
+.result {}
+
+.reset {}
+
+.unavailable {
+    color: gray;
+}
