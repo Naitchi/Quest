@@ -12,27 +12,28 @@
         "x": 1063,
         "y": 2294.5,
         "radius": 25,
-        "action": "delivary"
-      }
-    ],
-    "unlock": [2, 3],
-    "unlockBy": [0],
-    "levelNeeded": 2,
-    "equipmentsRequired": [
-      {
-        "name": "Machinery key",
-        "image": "imageName",
-        "type": "key",
-        "x": 406,
-        "y": 1994
+        "action": "delivary",
+        "show": true
       },
       {
         "name": "Machinery key",
         "image": "imageName",
-        "type": "key",
+        "action": "key",
+        "x": 406,
+        "y": 1994,
+        "show": true
+      },
+      {
+        "name": "Machinery key",
+        "image": "imageName",
+        "action": "key",
         "x": 387,
-        "y": 2637
+        "y": 2637,
+        "show": true
       }
-    ]
+    ],
+    "unlock": [2, 3],
+    "unlockBy": [0],
+    "levelNeeded": 2
   }
 ]

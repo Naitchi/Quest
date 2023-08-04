@@ -30,7 +30,7 @@ export default function QuestList() {
   return (
     <div className={`${styles.questList} ${show ? styles.show : ''}`}>
       <button onClick={() => setShow(!show)} className={styles.onglet}>
-        {/* TODO mettre l'icone */} test
+        <img src="/assets/iconQuest.svg" alt="icone Quest" />
       </button>
       <div className={styles.main}>
         <SearchInput />

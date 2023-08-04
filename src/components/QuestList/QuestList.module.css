@@ -1,11 +1,47 @@
-.questList {}
+.questList {
+    display: flex;
+    justify-content: center;
 
-.onglet {}
+    width: 250px;
+    height: 80vh;
+    background-color: black;
+    border-radius: 0 5px 5px 0;
 
-.main {}
+    position: absolute;
+    z-index: 401;
+    top: 100px;
+    left: -250px;
 
-.temporary {}
+    transition: transform 330ms ease-in-out;
+}
 
-.mainQuest {}
+.onglet {
+    border: none;
+    background-color: black;
+    border-radius: 0 10px 10px 0;
+    height: 40px;
+    width: 48px;
+    position: absolute;
+    left: 250px;
+    top: 20px;
+}
 
-.show {}
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.temporary {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mainQuest {
+    display: flex;
+    flex-direction: column;
+}
+
+.show {
+    transform: translateX(250px);
+}

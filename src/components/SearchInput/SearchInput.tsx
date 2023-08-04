@@ -1,5 +1,5 @@
 // Import React/Redux
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getQuestArray, setQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
@@ -45,14 +45,11 @@ export default function SearchInput() {
 
   const searchQuest = (text: string) => {
     if (!text.length) return null;
-    const test = allQuests?.filter(
+    return allQuests?.filter(
       (quest) =>
         quest.id.toString().includes(text.toLowerCase()) ||
         quest.name.toLowerCase().includes(text.toLowerCase()),
     );
-    console.log(test);
-
-    return test;
   };
   const result = searchQuest(searchText);
 
@@ -68,9 +65,11 @@ export default function SearchInput() {
         type="text"
         placeholder="Chercher une quête"
       />
-      <button className={styles.reset} onClick={() => setSearchText('')}>
-        x {/** TODO remplacer par une icone propre */}
-      </button>
+      {searchText && (
+        <button className={styles.reset} onClick={() => setSearchText('')}>
+          <i className="fa-regular fa-circle-xmark"></i>
+        </button>
+      )}
       {result && (
         <div className={styles.dropdown}>
           {result?.map((quest) => (

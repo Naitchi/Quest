@@ -106,8 +106,6 @@ const MapComponent = () => {
                 });
                 L.marker([objectif.x, objectif.y], { icon: questItem }).addTo(mapRef.current!);
               } else if (objectif.action === 'delivary') {
-                console.log('test');
-
                 const questItem = L.divIcon({
                   html: `<i class="fas fa-box fa-2x" style="color:${color}"></i>`,
                   iconSize: [32, 32],
@@ -115,19 +113,14 @@ const MapComponent = () => {
                   className: styles.questItem,
                 });
                 L.marker([objectif.x, objectif.y], { icon: questItem }).addTo(mapRef.current!);
-              }
-            });
-
-            // Affichage des marqueurs pour réqupérer des éléments
-            item.equipmentsRequired.forEach((equipment: any) => {
-              if (equipment.type === 'key') {
+              } else if (objectif.action === 'key') {
                 const questItem = L.divIcon({
                   html: `<i class="fas fa-key fa-2x" style="color:${color}"></i>`,
                   iconSize: [32, 32],
                   iconAnchor: [16, 16],
                   className: styles.questItem,
                 });
-                L.marker([equipment.x, equipment.y], { icon: questItem }).addTo(mapRef.current!);
+                L.marker([objectif.x, objectif.y], { icon: questItem }).addTo(mapRef.current!);
               }
             });
           });
