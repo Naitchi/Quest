@@ -1,18 +1,24 @@
+// Import Redux
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
-// Type
+// Types
 import QuestType from '@/type/QuestType';
 interface QuestsType {
   all: QuestType[] | null;
   main: QuestType[] | null;
   temporary: QuestType[] | null;
 }
-type QuestArrayName = 'all' | 'main' | 'temporary';
+export type QuestArrayName = 'all' | 'main' | 'temporary';
 
 interface SetQuestArrayPayload {
   name: QuestArrayName;
   content: QuestType[] | null;
+}
+
+interface ModifyQuestPayload {
+  name: QuestArrayName;
+  content: QuestType;
 }
 
 const initialState: QuestsType = {
@@ -28,10 +34,18 @@ const questSlice = createSlice({
     setQuestArray: (state, action: PayloadAction<SetQuestArrayPayload>) => {
       state[action.payload.name] = action.payload.content;
     },
+    modifyAQuest: (state, action: PayloadAction<ModifyQuestPayload>) => {
+      const arrayName = action.payload.name;
+      const updatedQuest = action.payload.content;
+
+      state[arrayName] = state[arrayName]!.map((quest: QuestType) =>
+        quest.id === updatedQuest.id ? { ...updatedQuest } : quest,
+      );
+    },
   },
 });
 
-export const { setQuestArray } = questSlice.actions;
+export const { setQuestArray, modifyAQuest } = questSlice.actions;
 
 export default questSlice.reducer;
 

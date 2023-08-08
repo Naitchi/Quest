@@ -1,35 +1,35 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "Checking",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "customs",
+    "map": "Customs",
+    "show": true,
     "objectifs": [
       {
-        "description": "Récuperer la montre en bronze.",
-        "numberNeeded": 1,
-        "x": 1063,
-        "y": 2294.5,
-        "radius": 25,
-        "action": "delivary",
-        "show": true
+        "id": 0,
+        "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Bronze_pocket_watch_on_a_chain' target='_blank'>Bronze pocket watch</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-hand-lizard",
+        "position": [{ "x": 1063, "y": 2294.5 }],
+        "show": true,
+        "popUp": "<p></p>"
       },
       {
-        "name": "Machinery key",
-        "image": "imageName",
-        "action": "key",
-        "x": 406,
-        "y": 1994,
-        "show": true
+        "id": 1,
+        "description": "(Optional) Obtain <a href='https://escapefromtarkov.fandom.com/wiki/Machinery_key' target='_blank'>the key to the fuel tanker truck</a>",
+        "action": "fa-key",
+        "position": [
+          { "x": 406, "y": 1994 },
+          { "x": 387, "y": 2637 }
+        ],
+        "show": true,
+        "popUp": "<p></p>",
+        "subtask": true
       },
       {
-        "name": "Machinery key",
-        "image": "imageName",
-        "action": "key",
-        "x": 387,
-        "y": 2637,
-        "show": true
+        "id": 2,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Bronze_pocket_watch_on_a_chain' target='_blank'>Bronze pocket watch</a> to <a href='https://escapefromtarkov.fandom.com/wiki/Prapor' target='_blank'>Prapor</a>"
       }
     ],
     "unlock": [2, 3],
