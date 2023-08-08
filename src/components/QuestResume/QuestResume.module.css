@@ -1,0 +1,31 @@
+.ul {
+    margin-left: 25px;
+    list-style: none;
+}
+
+.ul li::before {
+    content: "\2022";
+    color: #8a7c64;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.ul a, .link {
+    color: #8a7c64;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.ul a:hover, .link:hover {
+    color: #b7ad9c;
+    text-decoration: underline;
+}
+
+.tabulation {
+    margin-left: 25px;
+}
+
+.row {
+    display: inline-flex;
+}
