@@ -12,10 +12,11 @@ import QuestType from '../../type/QuestType';
 
 // Import Composents
 import SearchInput from '../SearchInput/SearchInput';
+import QuestResume from '../QuestResume/QuestResume';
 
 export default function QuestList() {
   const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
-  const TemporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
+  const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
 
   const [temporary, setTemporary] = useState<QuestType[] | null>();
   const [main, setMain] = useState<QuestType[]>([]);
@@ -24,8 +25,8 @@ export default function QuestList() {
 
   useEffect(() => {
     if (mainQuests) setMain(mainQuests);
-    if (TemporaryQuests) setTemporary(TemporaryQuests);
-  }, [mainQuests, TemporaryQuests]);
+    if (temporaryQuests) setTemporary(temporaryQuests);
+  }, [mainQuests, temporaryQuests]);
 
   return (
     <div className={`${styles.questList} ${show ? styles.show : ''}`}>
@@ -36,20 +37,16 @@ export default function QuestList() {
         <SearchInput />
         {temporary && temporary.length > 0 && (
           <div className={styles.temporary}>
-            <h2>
-              Quêtes temporaire{temporary.length > 1 ? 's' : ''} :
-              {/* TODO afficher le s en fonction du nombre de quetes */}
-            </h2>
+            <h2>Quêtes temporaire{temporary.length > 1 ? 's' : ''} :</h2>
             {temporary?.map((quest) => (
-              <p key={quest.id}>{quest.name}</p>
+              <QuestResume key={quest.id} type={'temporary'} quest={quest} />
             ))}
-            {/* TODO mettre le composant à la place */}
           </div>
         )}
         <div className={styles.mainQuest}>
           <h2>Vos Quêtes :</h2>
-          {!main?.length && main?.map((quest) => <p key={quest.id}>{quest.name}</p>)}
-          {/* TODO mettre le composant à la place */}
+          {!main?.length &&
+            main?.map((quest) => <QuestResume key={quest.id} type={'main'} quest={quest} />)}
         </div>
       </div>
     </div>
