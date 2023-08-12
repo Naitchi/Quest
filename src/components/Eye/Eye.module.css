@@ -1,0 +1,57 @@
+.mainDiv {
+    cursor: pointer;
+    user-select: none;
+}
+
+.eye {
+    width: 40px;
+}
+
+.pupil {
+    width: 17px;
+    position: relative;
+    left: -29px;
+}
+
+.eyelid {
+    width: 40px;
+}
+
+.openedEye {
+    display: flex;
+}
+
+
+.openedEye:hover>.pupil {
+    animation: zieute 3s ease-in-out infinite;
+}
+
+@keyframes zieute {
+    0%, 66% {
+        transform: translateX(0px);
+    }
+
+    22% {
+        transform: translateX(-5px);
+    }
+
+    44% {
+        transform: translateX(5px);
+    }
+}
+
+.closedEye {
+    display: flex;
+    padding-top: 8px;
+}
+
+.closedEye>.pupil {
+    left: -69px;
+    top: -6px;
+}
+
+.closedEye>.eye {
+    position: relative;
+    left: -40px;
+    top: -8px;
+}

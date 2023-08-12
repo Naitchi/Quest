@@ -2,30 +2,26 @@
 import Link from 'next/link';
 import { modifyAQuest, QuestArrayName } from '../../redux/questSlice';
 import { useDispatch } from 'react-redux';
+
 // Type
 import QuestType, { Objectif } from '@/type/QuestType';
 
 // Style
 import styles from './QuestResume.module.css';
 
+// Components
+import Eye from '../Eye/Eye';
+
 export default function QuestResume({ type, quest }: { type: QuestArrayName; quest: QuestType }) {
   const dispatch = useDispatch();
 
   const showEyes = (index: number, objectif: Objectif, quest: QuestType) => {
     if (objectif.show === undefined) return null;
-    return objectif.show ? (
-      <button onClick={() => toggleObjectif(quest, index)}>Caché</button>
-    ) : (
-      <button onClick={() => toggleObjectif(quest, index)}>Montré</button>
-    );
+    return <Eye show={objectif.show} onClick={() => toggleObjectif(quest, index)} />;
   };
   const showMainEyes = (quest: QuestType) => {
     if (quest.show === undefined) return null;
-    return quest.show ? (
-      <button onClick={() => toggleQuest(quest)}>Caché</button>
-    ) : (
-      <button onClick={() => toggleQuest(quest)}>Montré</button>
-    );
+    return <Eye show={quest.show} onClick={() => toggleQuest(quest)} />;
   };
   const updateQuest = (quest: QuestType) => {
     dispatch(modifyAQuest({ name: type, content: quest }));
@@ -59,7 +55,7 @@ export default function QuestResume({ type, quest }: { type: QuestArrayName; que
       <div>
         {showMainEyes(quest)}
         <h3>
-          {/* TODO cheque pour les noms de quete à plusieurs mots et si besoin faire une fonction pour formaté le nom */}
+          {/* TODO faire une fonction pour formaté le nom => replacer tout les espaces par des underscores */}
           <Link
             className={styles.link}
             href={`https://escapefromtarkov.fandom.com/wiki/${quest.name}`}
