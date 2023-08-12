@@ -6,7 +6,6 @@ export default interface QuestType {
   map: map[] | map;
   show?: boolean;
   objectifs: Objectif[];
-  unlock: number[];
   unlockBy: number[];
   levelNeeded: number;
 }
@@ -27,27 +26,27 @@ export interface Position {
   radius?: number;
 }
 
-type map =
-  | 'Customs'
-  | 'Factory'
-  | 'Woods'
-  | 'Town'
-  | 'Reserve'
-  | 'Lighthouse'
-  | 'Shoreline'
-  | 'Terminal'
-  | 'Interchange'
-  | 'Lab'
-  | 'Streets'
-  | 'Suburbs';
+export type map =
+  | 'customs'
+  | 'factory'
+  | 'woods'
+  | 'reserve'
+  | 'lighthouse'
+  | 'shoreline'
+  | 'interchange'
+  | 'streets';
+// | 'town'
+// | 'terminal'
+// | 'lab'
+// | 'suburbs'
 
 type action =
-  | 'fa-hand-lizard' // PickUp
+  | 'fa-hand-lizard fa-rotate-270' // PickUp
   | 'fa-person-hiking' // Scouting
   | 'fa-box' // Delivary
   | 'fa-key' // Key
   | 'fa-skull' // Kill
-  | 'fa-mobile-screen fa-rotate-180'; // Marker
+  | 'fa-mobile-screen fa-rotate-180'; // Marker // TODO class CSS qui rotate 3/4
 
 type traders =
   | 'Prapor'
@@ -59,3 +58,11 @@ type traders =
   | 'Jaeger'
   | 'Fence'
   | 'Lightkeeper';
+
+export type MapProperties = {
+  [key: string]: {
+    lat: number;
+    lng: number;
+    defaultZoom: number;
+  };
+};
