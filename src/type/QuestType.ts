@@ -34,10 +34,10 @@ export type map =
   | 'lighthouse'
   | 'shoreline'
   | 'interchange'
-  | 'streets';
+  | 'streets'
+  | 'lab';
 // | 'town'
 // | 'terminal'
-// | 'lab'
 // | 'suburbs'
 
 type action =
@@ -46,18 +46,18 @@ type action =
   | 'fa-box' // Delivary
   | 'fa-key' // Key
   | 'fa-skull' // Kill
-  | 'fa-mobile-screen fa-rotate-180'; // Marker // TODO class CSS qui rotate 3/4
+  | 'fa-mobile-screen MS2000'; // Marker // TODO class CSS qui rotate 3/4
 
 type traders =
-  | 'Prapor'
-  | 'Therapist'
-  | 'Skier'
-  | 'Peacekeeper'
-  | 'Mechanic'
-  | 'Ragman'
-  | 'Jaeger'
-  | 'Fence'
-  | 'Lightkeeper';
+  | 'prapor'
+  | 'therapist'
+  | 'skier'
+  | 'peacekeeper'
+  | 'mechanic'
+  | 'ragman'
+  | 'jaeger'
+  | 'fence'
+  | 'lightkeeper';
 
 export type MapProperties = {
   [key: string]: {

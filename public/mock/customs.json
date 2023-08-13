@@ -4,7 +4,7 @@
     "name": "Checking",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "Customs",
+    "map": "customs",
     "show": true,
     "objectifs": [
       {
@@ -40,7 +40,7 @@
     "name": "Big Customer",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "Customs",
+    "map": "customs",
     "show": true,
     "objectifs": [
       {
@@ -50,7 +50,7 @@
       {
         "id": 1,
         "description": "Mark the vehicle with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a>",
-        "action": "fa-mobile-screen fa-rotate-180",
+        "action": "fa-mobile-screen MS2000",
         "position": [{ "x": 1332, "y": 792 }],
         "show": true,
         "popUp": "<p></p>"
@@ -62,5 +62,171 @@
     ],
     "unlockBy": [0],
     "levelNeeded": 2
+  },
+  {
+    "id": 2,
+    "name": "BP Depot",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "customs",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Locate and mark the first fuel tank with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 981, "y": 1003 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Locate and mark the second fuel tank with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 1804, "y": 1370 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Locate and mark the third fuel tank with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 1084, "y": 2293 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 3,
+        "description": "Locate and mark the fourth fuel tank with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 1692, "y": 3989 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 4,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 5
+  },
+  {
+    "id": 3,
+    "name": "Bad Rep Evidence",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["customs"],
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Obtain <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0031' target='_blank'>Secure Folder 0031</a> in the <a href='https://escapefromtarkov.fandom.com/wiki/Portable_bunkhouse_key' target='_blank'>bunkhouse</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [{ "x": 987, "y": 1895 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "(Optional) Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Portable_bunkhouse_key' target='_blank'>Portable bunkhouse key</a>",
+        "subtask": true
+      },
+      {
+        "id": 2,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0031' target='_blank'>Secure Folder 0031</a> to <a href='https://escapefromtarkov.fandom.com/wiki/Prapor' target='_blank'>Prapor</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 6
+  },
+  {
+    "id": 4,
+    "name": "Shaking up the Teller",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["customs"],
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Bank_case' target='_blank'>valuable item</a> in <a href='https://escapefromtarkov.fandom.com/wiki/Dorm_room_203_key' target='_blank'>dorm room 203</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [
+          { "x": 445, "y": 3536 },
+          { "x": 468, "y": 1978 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "(Optional) Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Dorm_room_203_key' target='_blank'>dorm room 203 key</a> by gaining access to <a href='https://escapefromtarkov.fandom.com/wiki/Dorm_room_214_key' target='_blank'>dorm room 214</a>",
+        "action": "fa-key",
+        "position": [
+          { "x": 61, "y": 3650 },
+          { "x": 320, "y": 1994 }
+        ],
+        "show": true,
+        "popUp": "<p></p>",
+        "subtask": true
+      },
+      {
+        "id": 2,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Bank_case' target='_blank'>valuable item</a> to <a href='https://escapefromtarkov.fandom.com/wiki/Prapor' target='_blank'>Prapor</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 15
+  },
+  {
+    "id": 5,
+    "name": "The Punisher - Part 3",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "customs",
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 25 <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a> while using an AKS-74U series assault rifle on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>"
+      },
+      {
+        "id": 1,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/Kalashnikov_AKS-74U_5.45x39_assault_rifle' target='_blank'>AKS-74U</a>",
+        "subtask": true
+      },
+      {
+        "id": 2,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/Kalashnikov_AKS-74UN_5.45x39_assault_rifle' target='_blank'>AKS-74UN</a>",
+        "subtask": true
+      },
+      {
+        "id": 3,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/Kalashnikov_AKS-74UB_5.45x39_assault_rifle' target='_blank'>AKS-74UB</a>",
+        "subtask": true
+      },
+      {
+        "id": 4,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/SAG_AK-545_Short_5.45x39_carbine' target='_blank'>SAG AK Short</a>",
+        "subtask": true
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 19
+  },
+  {
+    "id": 6,
+    "name": "Polikhim Hobo",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "customs",
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 25 <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 10
   }
 ]

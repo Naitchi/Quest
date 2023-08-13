@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "name": "Postman Pat - Part 1",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "factory",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Sealed_letter' target='_blank'>letter</a> on the messenger's body on <a href='https://escapefromtarkov.fandom.com/wiki/Factory' target='_blank'>Factory</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [{ "x": 1376, "y": 3406 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Survive and extract from the location"
+      },
+      {
+        "id": 2,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Sealed_letter' target='_blank'>letter</a> to <a href='https://escapefromtarkov.fandom.com/wiki/Therapist' target='_blank'>Therapist</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 10
+  }
+]

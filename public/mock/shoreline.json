@@ -1,0 +1,106 @@
+[
+  {
+    "id": 0,
+    "name": "The Punisher - Part 1",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "shoreline",
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 15 <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a> while using an AKM series weapon on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a>"
+      },
+      {
+        "id": 1,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AKM' target='_blank'>AKM</a>",
+        "subtask": true
+      },
+      {
+        "id": 2,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AKMN' target='_blank'>AKMN</a>",
+        "subtask": true
+      },
+      {
+        "id": 3,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AKMS' target='_blank'>AKMS</a>",
+        "subtask": true
+      },
+      {
+        "id": 4,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AKMSN' target='_blank'>AKMSN</a>",
+        "subtask": true
+      },
+      {
+        "id": 5,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AK-103' target='_blank'>AK-103</a>",
+        "subtask": true
+      },
+      {
+        "id": 6,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AK-104' target='_blank'>AK-104</a>",
+        "subtask": true
+      },
+      {
+        "id": 7,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/VPO-136' target='_blank'>VPO-136</a>",
+        "subtask": true
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 17
+  },
+  {
+    "id": 1,
+    "name": "The Punisher - Part 2",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "shoreline",
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 12 <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> while using a suppressed weapon"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 18
+  },
+  {
+    "id": 2,
+    "name": "Anesthesia",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "shoreline",
+    "levelNeeded": 21,
+    "unlockBy": [0],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Mark the first trading post with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> ",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 1363, "y": 1492 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Mark the second trading post with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> ",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 1010, "y": 774 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Mark the third trading post with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> ",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 238, "y": 1577 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 3,
+        "description": "Survive and extract from the location"
+      }
+    ]
+  }
+]

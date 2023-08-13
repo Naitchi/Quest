@@ -1,0 +1,337 @@
+[
+  {
+    "id": 1000,
+    "name": "Delivery from the Past",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["factory", "customs"],
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0022' target='_blank'>secure folder</a> in the <a href='https://escapefromtarkov.fandom.com/wiki/Tarcone_Director%27s_office_key' target='_blank'>Tarcone Director's office</a> at the <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a> terminal warehouse",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [
+          { "x": 1436, "y": 3466 },
+          { "x": 740, "y": 3698 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Stash the <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0022' target='_blank'>package</a> in the Factory break room (2nd floor near Gate 3)",
+        "action": "fa-box",
+        "position": [{ "x": 2720, "y": 2960 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Survive and extract from <a href='https://escapefromtarkov.fandom.com/wiki/Factory' target='_blank'>Factory</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 5
+  },
+  {
+    "id": 1001,
+    "name": "The Punisher - Part 4",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["woods", "shoreline"],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 10 <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a> while using a 12ga shotgun on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>"
+      },
+      {
+        "id": 1,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/Benelli_M3_Super_90_dual-mode_12ga_shotgun' target='_blank'>M3 Super 90</a>",
+        "subtask": true
+      },
+      {
+        "id": 2,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/M590A1' target='_blank'>M590A1</a>",
+        "subtask": true
+      },
+      {
+        "id": 3,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/M870' target='_blank'>M870</a>",
+        "subtask": true
+      },
+      {
+        "id": 4,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/MP-133' target='_blank'>MP-133</a>",
+        "subtask": true
+      },
+      {
+        "id": 5,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/MP-153' target='_blank'>MP-153</a>",
+        "subtask": true
+      },
+      {
+        "id": 6,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/MP-155' target='_blank'>MP-155</a>",
+        "subtask": true
+      },
+      {
+        "id": 7,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/MP-43-1C' target='_blank'>MP-43-1C</a>",
+        "subtask": true
+      },
+      {
+        "id": 8,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/MP-43_sawed-off' target='_blank'>MP-43 sawed-off</a>",
+        "subtask": true
+      },
+      {
+        "id": 9,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/MTs-255-12' target='_blank'>MTs-255-12</a>",
+        "subtask": true
+      },
+      {
+        "id": 10,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/Saiga-12' target='_blank'>Saiga-12</a>",
+        "subtask": true
+      },
+      {
+        "id": 11,
+        "description": "Eliminate 10 PMC operatives while wearing a <a href='https://escapefromtarkov.fandom.com/wiki/Balaclava' target='_blank'>balaclava</a> (any type except <a href='https://escapefromtarkov.fandom.com/wiki/Twitch_Rivals_2021_balaclava' target='_blank'>Twitch balaclava</a>) and <a href='https://escapefromtarkov.fandom.com/wiki/Scav_Vest' target='_blank'>Scav Vest</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 20
+  },
+  {
+    "id": 1002,
+    "name": "The Punisher - Part 5",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": [
+      "factory",
+      "customs",
+      "woods",
+      "reserve",
+      "lighthouse",
+      "shoreline",
+      "interchange",
+      "streets"
+    ],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 10 PMC operatives while wearing a <a href='https://escapefromtarkov.fandom.com/wiki/PACA_Soft_Armor' target='_blank'>PACA body armor</a> and <a href='https://escapefromtarkov.fandom.com/wiki/6B47_Ratnik-BSh_helmet' target='_blank'>6B47 helmet</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 20
+  },
+  {
+    "id": 1003,
+    "name": "The Punisher - Part 6",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["customs", "woods", "reserve", "lighthouse", "shoreline", "interchange", "streets"],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 15 PMC operatives while using a <a href='https://escapefromtarkov.fandom.com/wiki/SVDS_7.62x54R_sniper_rifle' target='_blank'>SVD rifle</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 21
+  },
+  {
+    "id": 1004,
+    "name": "Grenadier",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": [
+      "factory",
+      "customs",
+      "woods",
+      "reserve",
+      "lighthouse",
+      "shoreline",
+      "interchange",
+      "streets"
+    ],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 8 PMC operatives with <a href='https://escapefromtarkov.fandom.com/wiki/Weapons#Fragmentation_grenades' target='_blank'>grenades</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 20
+  },
+  {
+    "id": 1005,
+    "name": "Insomnia",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["customs", "woods", "reserve", "lighthouse", "shoreline", "interchange", "streets"],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 30 PMC operatives in the time period of 22:00-05:00"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 20
+  },
+  {
+    "id": 1006,
+    "name": "Grenadier",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": [
+      "factory",
+      "customs",
+      "woods",
+      "reserve",
+      "lighthouse",
+      "shoreline",
+      "interchange",
+      "streets"
+    ],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 5 PMC operatives from over 60 meters away while using an <a href='https://escapefromtarkov.fandom.com/wiki/Springfield_Armory_M1A_7.62x51_rifle' target='_blank'>M1A rifle</a> with <a href='https://escapefromtarkov.fandom.com/wiki/SilencerCo_Hybrid_46_multi-caliber_sound_suppressor' target='_blank'>Hybrid 46 suppressor</a> and <a href='https://escapefromtarkov.fandom.com/wiki/Schmidt_%26_Bender_PM_II_1-8x24_30mm_riflescope' target='_blank'>Schmidt & Bender PM II 1-8x24 scope</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 30
+  },
+  {
+    "id": 1007,
+    "name": "Capturing Outposts",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": ["woods", "customs", "shoreline"],
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 8 PMC operatives at the Scav base on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>Customs",
+        "action": "fa-skull",
+        "position": [{ "x": 1569, "y": 1916, "radius": 100 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Eliminate 8 PMC operatives at the Scav base on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>",
+        "action": "fa-skull",
+        "position": [{ "x": 1184, "y": 4164, "radius": 100 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Eliminate 8 PMC operatives at the Scav base on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a>",
+        "action": "fa-skull",
+        "position": [{ "x": 1423, "y": 1462, "radius": 100 }],
+        "show": true,
+        "popUp": "<p></p>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 42
+  },
+  {
+    "id": 1008,
+    "name": "Intimidator",
+    "givenBy": "prapor",
+    "requiredForKappa": false,
+    "map": ["factory", "customs", "woods", "reserve", "shoreline", "interchange", "lab"],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "You must not die or leave the raid while the task is active (Status: KIA, Left the Action, MIA, Ran Through)"
+      },
+      {
+        "id": 1,
+        "description": "Eliminate 4 PMC operatives on daytime <a href='https://escapefromtarkov.fandom.com/wiki/Factory' target='_blank'>Factory</a>"
+      },
+      {
+        "id": 2,
+        "description": "Eliminate 4 PMC operatives on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>"
+      },
+      {
+        "id": 3,
+        "description": "Eliminate 4 PMC operatives on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a>"
+      },
+      {
+        "id": 4,
+        "description": "Eliminate 4 PMC operatives on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>"
+      },
+      {
+        "id": 5,
+        "description": "Eliminate 4 PMC operatives on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>"
+      },
+      {
+        "id": 6,
+        "description": "Eliminate 4 PMC operatives on <a href='https://escapefromtarkov.fandom.com/wiki/Interchange' target='_blank'>Interchange</a>"
+      },
+      {
+        "id": 7,
+        "description": "Eliminate 4 PMC operatives on <a href='https://escapefromtarkov.fandom.com/wiki/The_Lab' target='_blank'>The Lab</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 60
+  },
+  {
+    "id": 1009,
+    "name": "Best Job in the World",
+    "givenBy": "prapor",
+    "requiredForKappa": false,
+    "map": [
+      "customs",
+      "factory",
+      "woods",
+      "reserve",
+      "lighthouse",
+      "shoreline",
+      "interchange",
+      "streets",
+      "lab"
+    ],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate any 30 hostiles from over 100 meters away while using AK-74 series weapons"
+      },
+      {
+        "id": 1,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AK-74' target='_blank'>AK-74</a>",
+        "subtask": true
+      },
+      {
+        "id": 2,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AK-74M' target='_blank'>AK-74M</a>",
+        "subtask": true
+      },
+      {
+        "id": 3,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AK-74N' target='_blank'>AK-74N</a>",
+        "subtask": true
+      },
+      {
+        "id": 4,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AKS-74' target='_blank'>AKS-74</a>",
+        "subtask": true
+      },
+      {
+        "id": 5,
+        "description": "<a href='https://escapefromtarkov.fandom.com/wiki/AKS-74N' target='_blank'>AKS-74N</a>",
+        "subtask": true
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 25
+  }
+]

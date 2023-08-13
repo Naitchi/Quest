@@ -1,0 +1,163 @@
+[
+  {
+    "id": 0,
+    "name": "The Bunker - Part 1",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "reserve",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Locate the underground bunker"
+      },
+      {
+        "id": 1,
+        "description": "Locate the control room in the underground bunker on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>",
+        "action": "fa-person-hiking",
+        "position": [{ "x": 2230, "y": 4333 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 10
+  },
+  {
+    "id": 1,
+    "name": "The Bunker - Part 2",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "reserve",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Locate the hermetic door leading to the hospital (White Bishop)",
+        "action": "fa-person-hiking",
+        "position": [{ "x": 2367, "y": 4158 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Locate one of two hermetic doors leading to the academy building (Black Bishop)",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 2397, "y": 4354 },
+          { "x": 2397, "y": 4504 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Locate one of two hermetic doors leading to barracks #1 (Black Pawn)",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 2272, "y": 4529 },
+          { "x": 2102, "y": 4529 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 3,
+        "description": "Locate one of two hermetic doors leading to barracks #2 (White Pawn)",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 1998, "y": 4429 },
+          { "x": 1998, "y": 4259 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 4,
+        "description": "Locate the hermetic door leading to the building of the air control center (King)",
+        "action": "fa-person-hiking",
+        "position": [{ "x": 2185, "y": 4121 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 5,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 11
+  },
+  {
+    "id": 2,
+    "name": "No Place for Renegades",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "reserve",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 5 <a href='https://escapefromtarkov.fandom.com/wiki/Raiders' target='_blank'>Raiders</a> in the command bunker on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>",
+        "action": "fa-skull",
+        "position": [{ "x": 2220, "y": 4290, "radius": 100 }],
+        "show": true,
+        "popUp": "<p></p>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 12
+  },
+  {
+    "id": 3,
+    "name": "Documents",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "reserve",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Obtain <a href='https://escapefromtarkov.fandom.com/wiki/Military_documents_1' target='_blank'>Military documents #1</a> in the command bunker offices on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [{ "x": 2202, "y": 4335 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Obtain <a href='https://escapefromtarkov.fandom.com/wiki/Military_documents_2' target='_blank'>Military documents #2</a> in the command bunker offices on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [{ "x": 2220, "y": 4352 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Obtain <a href='https://escapefromtarkov.fandom.com/wiki/Military_documents_3' target='_blank'>Military documents #3</a> in the command bunker offices on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [{ "x": 2263, "y": 4292 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 3,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Military_documents_1' target='_blank'>first documents</a>"
+      },
+      {
+        "id": 4,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Military_documents_2' target='_blank'>second documents</a>"
+      },
+      {
+        "id": 5,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Military_documents_3' target='_blank'>third documents</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 10
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "name": "Search Mission",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "woods",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Find Prapor's missing convoy on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>",
+        "action": "fa-person-hiking",
+        "position": [{ "x": 5168, "y": 2316 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Locate the temporary USEC camp",
+        "action": "fa-person-hiking",
+        "position": [{ "x": 4409, "y": 1890 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 5
+  }
+]

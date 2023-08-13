@@ -1,0 +1,123 @@
+[
+  {
+    "id": 0,
+    "name": "Easy Job - Part 1",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "lighthouse",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Locate the helicopter at the water treatment plant on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>"
+      },
+      {
+        "id": 1,
+        "description": "Mark the helicopter with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a>",
+        "action": "fa-mobile-screen MS2000",
+        "position": [{ "x": 2566, "y": 1288 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 18
+  },
+  {
+    "id": 1,
+    "name": "Easy Job - Part 2",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "lighthouse",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Kill 20 <a href='https://escapefromtarkov.fandom.com/wiki/Rogues' target='_blank'>Rogues</a>, <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a>, or PMC's in a specific area of the water treatment plant on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
+        "action": "fa-skull",
+        "position": [{ "x": 2664, "y": 1232, "radius": 200 }],
+        "show": true,
+        "popUp": "<p></p>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 18
+  },
+  {
+    "id": 2,
+    "name": "Our Own Land",
+    "givenBy": "prapor",
+    "requiredForKappa": false,
+    "map": "lighthouse",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "This quest is only obtainable by BEAR PMCs"
+      },
+      {
+        "id": 1,
+        "description": "Eliminate 20 <a href='https://escapefromtarkov.fandom.com/wiki/USEC' target='_blank'>USEC</a> PMC operatives all over the <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>."
+      },
+      {
+        "id": 2,
+        "description": "Hand over 20 found in raid USEC PMC dogtags"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 20
+  },
+  {
+    "id": 3,
+    "name": "Reconnaissance",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "lighthouse",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Look for the ladder on the roof of the first office building on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 2720, "y": 1006 },
+          { "x": 3110, "y": 194 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Look for the ladder on the roof of the second office building on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 3054, "y": 382 },
+          { "x": 2968, "y": 1288 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Look for the ladder on the roof of the third office building on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 2814, "y": 1476 },
+          { "x": 3106, "y": 628 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 3,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 18
+  }
+]
