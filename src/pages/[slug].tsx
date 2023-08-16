@@ -29,6 +29,7 @@ export default function Quest() {
       'shoreline',
       'interchange',
       'streets',
+      'lab',
     ];
 
     const estDeTypeMap = (value: any): value is map => {
@@ -40,10 +41,16 @@ export default function Quest() {
       }
     };
     const fetchData = async (map: map) => {
-      const response: Response = await fetch(`/mock/${map}.json`);
-      const jsonData: QuestType[] = await response.json();
-      if (jsonData) {
-        dispatch(setQuestArray({ name: 'all', content: jsonData }));
+      const mapQuests: Response = await fetch(`/mock/${map}.json`);
+      const multipuleQuests: Response = await fetch(`/mock/multiples.json`);
+
+      const mapJsonData: QuestType[] = await mapQuests.json();
+      const multipleMapsjsonData: QuestType[] = await multipuleQuests.json();
+
+      const quests = mapJsonData.concat(multipleMapsjsonData);
+
+      if (quests) {
+        dispatch(setQuestArray({ name: 'all', content: quests }));
       }
     };
 

@@ -89,9 +89,9 @@
     "map": "streets",
     "show": true,
     "objectifs": [
-      { "id": 3, "description": "This quest is only obtainable by BEAR PMCs." },
+      { "id": 0, "description": "This quest is only obtainable by BEAR PMCs." },
       {
-        "id": 0,
+        "id": 1,
         "description": "Locate the cargo convoy on on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets_of_Tarkov</a>.",
         "action": "fa-person-hiking",
         "position": [],
@@ -99,13 +99,15 @@
         "popUp": "<p></p>"
       },
       {
+        "id": 2,
+        "description": "Locate the ambush emplacement",
         "action": "fa-person-hiking",
         "position": [],
         "show": true,
         "popUp": "<p></p>"
       },
       {
-        "id": 2,
+        "id": 3,
         "description": "Survive and extract from the location"
       }
     ],

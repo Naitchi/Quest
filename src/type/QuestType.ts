@@ -13,6 +13,7 @@ export default interface QuestType {
 export interface Objectif {
   id: number;
   description: string;
+  map?: map;
   position?: Position[];
   action?: action;
   show?: boolean;

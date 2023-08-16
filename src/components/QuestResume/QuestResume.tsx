@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { modifyAQuest, QuestArrayName } from '../../redux/questSlice';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 
 // Type
 import QuestType, { Objectif } from '@/type/QuestType';
@@ -14,9 +15,14 @@ import Eye from '../Eye/Eye';
 
 export default function QuestResume({ type, quest }: { type: QuestArrayName; quest: QuestType }) {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const showEyes = (index: number, objectif: Objectif, quest: QuestType) => {
-    if (objectif.show === undefined) return null;
+    if (
+      objectif.show === undefined ||
+      (objectif.map !== undefined && objectif.map !== router.query.slug)
+    )
+      return null;
     return <Eye show={objectif.show} onClick={() => toggleObjectif(quest, index)} />;
   };
   const showMainEyes = (quest: QuestType) => {

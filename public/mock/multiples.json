@@ -11,6 +11,7 @@
         "id": 0,
         "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0022' target='_blank'>secure folder</a> in the <a href='https://escapefromtarkov.fandom.com/wiki/Tarcone_Director%27s_office_key' target='_blank'>Tarcone Director's office</a> at the <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a> terminal warehouse",
         "action": "fa-hand-lizard fa-rotate-270",
+        "map": "customs",
         "position": [
           { "x": 1436, "y": 3466 },
           { "x": 740, "y": 3698 }
@@ -22,6 +23,7 @@
         "id": 1,
         "description": "Stash the <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0022' target='_blank'>package</a> in the Factory break room (2nd floor near Gate 3)",
         "action": "fa-box",
+        "map": "factory",
         "position": [{ "x": 2720, "y": 2960 }],
         "show": true,
         "popUp": "<p></p>"
@@ -217,6 +219,7 @@
         "id": 0,
         "description": "Eliminate 8 PMC operatives at the Scav base on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>Customs",
         "action": "fa-skull",
+        "map": "customs",
         "position": [{ "x": 1569, "y": 1916, "radius": 100 }],
         "show": true,
         "popUp": "<p></p>"
@@ -225,14 +228,16 @@
         "id": 1,
         "description": "Eliminate 8 PMC operatives at the Scav base on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>",
         "action": "fa-skull",
+        "map": "woods",
         "position": [{ "x": 1184, "y": 4164, "radius": 100 }],
         "show": true,
         "popUp": "<p></p>"
       },
       {
-        "id": 1,
+        "id": 2,
         "description": "Eliminate 8 PMC operatives at the Scav base on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a>",
         "action": "fa-skull",
+        "map": "shoreline",
         "position": [{ "x": 1423, "y": 1462, "radius": 100 }],
         "show": true,
         "popUp": "<p></p>"

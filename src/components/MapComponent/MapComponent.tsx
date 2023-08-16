@@ -41,15 +41,13 @@ const colorPicker = (index: number): string | undefined => {
 export default function MapComponent() {
   const router = useRouter();
 
-  // TODO à Delete puis remplacer partout où il est appelé par mainQuest
-  const allQuests = useSelector((state: RootState) => getQuestArray(state, 'all'));
-
   const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
   const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
+  const circlesRef = useRef<L.Circle[]>([]);
 
   const mapPropreties: MapProperties = {
     customs: { lat: 2142, lng: 4097, defaultZoom: -1.7 },
@@ -58,23 +56,10 @@ export default function MapComponent() {
     reserve: { lat: 2785, lng: 4701, defaultZoom: -2 },
     lighthouse: { lat: 3892, lng: 2242, defaultZoom: -2 },
     shoreline: { lat: 1980, lng: 3820, defaultZoom: -1.6 },
+    lab: { lat: 1980, lng: 3820, defaultZoom: -1.6 },
     interchange: { lat: 0, lng: 0, defaultZoom: 0 }, // TODO dl la map du wiki une fois à jour.
     streets: { lat: 0, lng: 0, defaultZoom: 0 }, // TODO dl la map du wiki une fois à jour.
   };
-
-  // TODO faire en fonction de la slug et charger les différentes missions et la map en fonction.
-  // Récupérer la slug.
-  // Récupérer la map correspondante.
-  // Récupérer la taille de l'image. via :
-  // const img = new Image();
-  // img.onload = function () {
-  //   alert(this.width + 'x' + this.height);
-  // };
-  // img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
-  // Afficher la map.
-  // Récupérer les Quêtes correspondante parmis le quêtes disponible.
-  // Récupérer les Quêtes Multi-Map parmis le quêtes disponible.
-  // Afficher les markers.
 
   useEffect(() => {
     const onMapClick = (e: any) => {
@@ -92,8 +77,8 @@ export default function MapComponent() {
       // Initialisation de la carte
       mapRef.current = L.map(mapContainerRef.current, {
         crs: L.CRS.Simple, // Utilisez le système de coordonnées simple de Leaflet (pour mettre les dimensions en pixel au lieu de latitude longitude)
-        minZoom: slugProperties.defaultZoom, // Zoom minimum
-        maxZoom: 2, // Zoom maximum
+        minZoom: slugProperties.defaultZoom,
+        maxZoom: 2,
       }).setView([slugProperties.lat / 2, slugProperties.lng / 2], slugProperties.defaultZoom); // Latitude, Longitude, Default Zoom
       // TODO ajouter de la couche d'image personnalisée avec le parseUrl string
       const imageUrl = `assets/${router.query.slug}.webp`;
@@ -121,43 +106,53 @@ export default function MapComponent() {
     const showMarker = (array: QuestType[] | null) => {
       // Supprimez les anciens marqueurs de la carte
       markersRef.current.forEach((marker) => marker.remove());
+      circlesRef.current.forEach((circle) => circle.remove());
       // Réinitialisez la référence des marqueurs
       markersRef.current = [];
+      circlesRef.current = [];
       array?.forEach((item: QuestType, index: number) => {
         const color = colorPicker(index);
+
         item.objectifs.forEach((objectif: Objectif) => {
           objectif.position?.forEach((position: Position) => {
             const questItem = L.divIcon({
               html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
-              ${objectif.show ? '' : 'display:none;'}"></i>`,
-              iconSize: [32, 32], // Taille de l'icône en pixels
-              iconAnchor: [16, 16], // Point d'ancrage de l'icône au milieu
+              ${
+                !objectif.show || (objectif.map !== undefined && objectif.map !== router.query.slug)
+                  ? 'display:none;'
+                  : ''
+              }"></i>`,
+
+              iconSize: [24, 24], // Taille de l'icône en pixels
+              iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
               className: styles.questItem,
             });
             const marker = L.marker([position.x, position.y], { icon: questItem }).addTo(
               mapRef.current!,
             );
-            if (position.radius)
-              L.circle([position.x, position.y], {
+            if (position.radius && objectif.show) {
+              const circle = L.circle([position.x, position.y], {
                 color: color,
                 fillColor: color,
                 fillOpacity: 0.25,
                 radius: position.radius,
               }).addTo(mapRef.current!);
-            markersRef.current.push(marker);
-            {
-              /* TODO faire les Popups */
+              circlesRef.current.push(circle);
             }
+            markersRef.current.push(marker);
+
+            // TODO faire les polygons
+            // TODO faire les Popups
           });
         });
       });
     };
 
     // Affichage des objectifs
-    showMarker(allQuests);
+    // showMarker(mainQuests);
     showMarker(temporaryQuests);
     // Fonction pour trouver les coordonnées des points via un click
-  }, [allQuests, temporaryQuests]);
+  }, [mainQuests, temporaryQuests]);
 
   return <div ref={mapContainerRef} id="map" style={{ height: '100vh', width: '100vw' }}></div>;
 }

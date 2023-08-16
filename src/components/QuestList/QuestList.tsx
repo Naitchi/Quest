@@ -43,11 +43,11 @@ export default function QuestList() {
             ))}
           </div>
         )}
-        <div className={styles.mainQuest}>
+        {/* <div className={styles.mainQuest}>
           <h2>Vos Quêtes :</h2>
           {!main?.length &&
             main?.map((quest) => <QuestResume key={quest.id} type={'main'} quest={quest} />)}
-        </div>
+        </div> */}
       </div>
     </div>
   );
