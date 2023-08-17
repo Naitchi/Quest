@@ -104,7 +104,13 @@
         "id": 0,
         "description": "Eliminate 5 <a href='https://escapefromtarkov.fandom.com/wiki/Raiders' target='_blank'>Raiders</a> in the command bunker on <a href='https://escapefromtarkov.fandom.com/wiki/Reserve' target='_blank'>Reserve</a>",
         "action": "fa-skull",
-        "position": [{ "x": 2220, "y": 4290, "radius": 100 }],
+        "position": [{ "x": 2220, "y": 4290 }],
+        "polygon": [
+          { "x": 2100, "y": 4506 },
+          { "x": 2100, "y": 4111 },
+          { "x": 2363, "y": 4111 },
+          { "x": 2363, "y": 4506 }
+        ],
         "show": true,
         "popUp": "<p></p>"
       }

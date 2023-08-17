@@ -39,7 +39,13 @@
         "id": 0,
         "description": "Kill 20 <a href='https://escapefromtarkov.fandom.com/wiki/Rogues' target='_blank'>Rogues</a>, <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a>, or PMC's in a specific area of the water treatment plant on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
         "action": "fa-skull",
-        "position": [{ "x": 2664, "y": 1232, "radius": 200 }],
+        "position": [{ "x": 2664, "y": 1232 }],
+        "polygon": [
+          { "x": 2936, "y": 974 },
+          { "x": 2936, "y": 1428 },
+          { "x": 2372, "y": 1428 },
+          { "x": 2372, "y": 974 }
+        ],
         "show": true,
         "popUp": "<p></p>"
       }

@@ -15,6 +15,7 @@ export interface Objectif {
   description: string;
   map?: map;
   position?: Position[];
+  polygon?: Position[];
   action?: action;
   show?: boolean;
   popUp?: string;

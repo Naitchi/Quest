@@ -48,6 +48,7 @@ export default function MapComponent() {
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
   const circlesRef = useRef<L.Circle[]>([]);
+  const polygonsRef = useRef<L.Polygon[]>([]);
 
   const mapPropreties: MapProperties = {
     customs: { lat: 2142, lng: 4097, defaultZoom: -1.7 },
@@ -57,7 +58,7 @@ export default function MapComponent() {
     lighthouse: { lat: 3892, lng: 2242, defaultZoom: -2 },
     shoreline: { lat: 1980, lng: 3820, defaultZoom: -1.6 },
     lab: { lat: 1980, lng: 3820, defaultZoom: -1.6 },
-    interchange: { lat: 0, lng: 0, defaultZoom: 0 }, // TODO dl la map du wiki une fois à jour.
+    interchange: { lat: 2385, lng: 4227, defaultZoom: -1.7 },
     streets: { lat: 0, lng: 0, defaultZoom: 0 }, // TODO dl la map du wiki une fois à jour.
   };
 
@@ -107,42 +108,55 @@ export default function MapComponent() {
       // Supprimez les anciens marqueurs de la carte
       markersRef.current.forEach((marker) => marker.remove());
       circlesRef.current.forEach((circle) => circle.remove());
+      polygonsRef.current.forEach((polygon) => polygon.remove());
+
       // Réinitialisez la référence des marqueurs
       markersRef.current = [];
       circlesRef.current = [];
+      polygonsRef.current = [];
+
       array?.forEach((item: QuestType, index: number) => {
         const color = colorPicker(index);
 
         item.objectifs.forEach((objectif: Objectif) => {
           objectif.position?.forEach((position: Position) => {
-            const questItem = L.divIcon({
-              html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
-              ${
-                !objectif.show || (objectif.map !== undefined && objectif.map !== router.query.slug)
-                  ? 'display:none;'
-                  : ''
-              }"></i>`,
+            if (objectif.map === undefined || objectif.map === router.query.slug) {
+              const questItem = L.divIcon({
+                html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
+              ${!objectif.show ? 'display:none;' : ''}"></i>`,
 
-              iconSize: [24, 24], // Taille de l'icône en pixels
-              iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
-              className: styles.questItem,
-            });
-            const marker = L.marker([position.x, position.y], { icon: questItem }).addTo(
-              mapRef.current!,
-            );
-            if (position.radius && objectif.show) {
-              const circle = L.circle([position.x, position.y], {
-                color: color,
-                fillColor: color,
-                fillOpacity: 0.25,
-                radius: position.radius,
-              }).addTo(mapRef.current!);
-              circlesRef.current.push(circle);
+                iconSize: [24, 24], // Taille de l'icône en pixels
+                iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
+                className: styles.questItem,
+              });
+              const marker = L.marker([position.x, position.y], { icon: questItem }).addTo(
+                mapRef.current!,
+              );
+              if (position.radius && objectif.show) {
+                const circle = L.circle([position.x, position.y], {
+                  color: color,
+                  fillColor: color,
+                  fillOpacity: 0.05,
+                  radius: position.radius,
+                }).addTo(mapRef.current!);
+                circlesRef.current.push(circle);
+              }
+              markersRef.current.push(marker);
+
+              if (objectif.polygon && objectif.show) {
+                const leafletPolygonCoords: L.LatLngTuple[] = objectif.polygon.map((pt) => [
+                  pt.x,
+                  pt.y,
+                ]);
+                const polygon = L.polygon(leafletPolygonCoords, {
+                  color: color,
+                  fillColor: color,
+                  fillOpacity: 0.25,
+                }).addTo(mapRef.current!);
+                polygonsRef.current.push(polygon);
+              }
+              // TODO faire les Popups
             }
-            markersRef.current.push(marker);
-
-            // TODO faire les polygons
-            // TODO faire les Popups
           });
         });
       });
