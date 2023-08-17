@@ -104,16 +104,56 @@ export default function MapComponent() {
   }, []);
 
   useEffect(() => {
-    const showMarker = (array: QuestType[] | null) => {
-      // Supprimez les anciens marqueurs de la carte
+    const clearPreviousElements = () => {
       markersRef.current.forEach((marker) => marker.remove());
       circlesRef.current.forEach((circle) => circle.remove());
       polygonsRef.current.forEach((polygon) => polygon.remove());
 
-      // Réinitialisez la référence des marqueurs
       markersRef.current = [];
       circlesRef.current = [];
       polygonsRef.current = [];
+    };
+
+    const createQuestItem = (objectif: Objectif, color: string | undefined) => {
+      return L.divIcon({
+        html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
+      ${!objectif.show ? 'display:none;' : ''}"></i>`,
+        iconSize: [24, 24], // Taille de l'icône en pixels
+        iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
+        className: styles.questItem,
+      });
+    };
+
+    const handleObjectifPosition = (
+      objectif: Objectif,
+      color: string | undefined,
+      position: Position,
+    ) => {
+      const questItem = createQuestItem(objectif, color);
+      const marker = L.marker([position.x, position.y], { icon: questItem }).addTo(mapRef.current!);
+      markersRef.current.push(marker);
+      if (position.radius && objectif.show) {
+        const circle = L.circle([position.x, position.y], {
+          color: color,
+          fillColor: color,
+          fillOpacity: 0.05,
+          radius: position.radius,
+        }).addTo(mapRef.current!);
+        circlesRef.current.push(circle);
+      }
+      if (objectif.polygon && objectif.show) {
+        const leafletPolygonCoords: L.LatLngTuple[] = objectif.polygon.map((pt) => [pt.x, pt.y]);
+        const polygon = L.polygon(leafletPolygonCoords, {
+          color: color,
+          fillColor: color,
+          fillOpacity: 0.25,
+        }).addTo(mapRef.current!);
+        polygonsRef.current.push(polygon);
+      }
+    };
+
+    const showMarker = (array: QuestType[] | null) => {
+      clearPreviousElements();
 
       array?.forEach((item: QuestType, index: number) => {
         const color = colorPicker(index);
@@ -121,41 +161,7 @@ export default function MapComponent() {
         item.objectifs.forEach((objectif: Objectif) => {
           objectif.position?.forEach((position: Position) => {
             if (objectif.map === undefined || objectif.map === router.query.slug) {
-              const questItem = L.divIcon({
-                html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
-              ${!objectif.show ? 'display:none;' : ''}"></i>`,
-
-                iconSize: [24, 24], // Taille de l'icône en pixels
-                iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
-                className: styles.questItem,
-              });
-              const marker = L.marker([position.x, position.y], { icon: questItem }).addTo(
-                mapRef.current!,
-              );
-              if (position.radius && objectif.show) {
-                const circle = L.circle([position.x, position.y], {
-                  color: color,
-                  fillColor: color,
-                  fillOpacity: 0.05,
-                  radius: position.radius,
-                }).addTo(mapRef.current!);
-                circlesRef.current.push(circle);
-              }
-              markersRef.current.push(marker);
-
-              if (objectif.polygon && objectif.show) {
-                const leafletPolygonCoords: L.LatLngTuple[] = objectif.polygon.map((pt) => [
-                  pt.x,
-                  pt.y,
-                ]);
-                const polygon = L.polygon(leafletPolygonCoords, {
-                  color: color,
-                  fillColor: color,
-                  fillOpacity: 0.25,
-                }).addTo(mapRef.current!);
-                polygonsRef.current.push(polygon);
-              }
-              // TODO faire les Popups
+              handleObjectifPosition(objectif, color, position);
             }
           });
         });
