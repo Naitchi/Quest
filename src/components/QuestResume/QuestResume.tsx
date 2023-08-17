@@ -57,8 +57,8 @@ export default function QuestResume({ type, quest }: { type: QuestArrayName; que
   };
 
   return (
-    <div>
-      <div>
+    <div className={styles.resume}>
+      <div className={styles.name}>
         {showMainEyes(quest)}
         <h3>
           {/* TODO faire une fonction pour formaté le nom => replacer tout les espaces par des underscores */}

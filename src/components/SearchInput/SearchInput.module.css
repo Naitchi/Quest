@@ -1,15 +1,14 @@
 .search {
     background: none;
     border: none;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid #8a7c64;
     outline: none;
     font-size: 18px;
-    margin-top: 15px;
-    width: 195px;
+    margin: 15px 0 15px 0;
+    width: 90%;
 }
 
 .search:focus-visible {
-    background-color: grey;
     border: none;
     border-bottom: 3px solid white;
 }
@@ -23,10 +22,11 @@
     justify-content: flex-start;
     overflow-y: scroll;
     max-height: 150px;
-    width: 195px;
+    width: 90%;
     border: solid 3px white;
     border-radius: 0 0 15px 15px;
     background-color: black;
+    z-index: 4;
 }
 
 .result {
@@ -40,8 +40,8 @@
     border: none;
 
     position: absolute;
-    left: 210px;
-    top: 20px;
+    left: 267px;
+    top: 18px;
 }
 
 .unavailable {

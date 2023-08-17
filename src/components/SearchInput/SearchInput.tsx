@@ -64,7 +64,7 @@ export default function SearchInput() {
           searchQuest(e.target.value);
         }}
         type="text"
-        placeholder="Chercher une quête"
+        placeholder="Rechercher une quête"
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
