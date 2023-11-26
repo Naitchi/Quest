@@ -1,22 +1,35 @@
-# Quest
+<div align="center">
 
-required: { node: '16.11.0' },
+# 🗝 **Quest**
+<pre>
+  required: { node: '16.11.0' }
+</pre>
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## Documentation
+Vous vous ne y retrouver plus dans la centaine de **Quêtes** proposé par le jeu *Escape From Tarkov* ? 
+<br/>
+**Quest** est là pour vous guider. 
+</div>
 
-Documentation available on Notion :
+## Aperçu
+**Quest** est une Application Web permettant de selectionné une carte des cartes du jeu à la manière de celui-ci, 
+vous accederez alors a une carte intéractive ayant la possibilité d'ajouter toutes les **quêtes** que vous avez actuellement.
+Les **quêtes** seront alors ajoutera sur la carte via des icones coloré.
 
-https://www.notion.so/Documentations-adad46d23351476dbff4763a1e085e4e
+## Technologies Utilisées
+- React.js <a href="https://react.dev/learn">(Doc)</a>
+- Redux <a href="https://redux.js.org/introduction/getting-started">(Doc)</a>
+- Next.js <a href="https://nextjs.org/docs">(Doc)</a>
+- Leaflet <a href="https://leafletjs.com/reference.html">(Doc)</a>
+- TypeScript <a href="https://www.typescriptlang.org/docs/">(Doc)</a>
+- FontAwesome <a href="https://fontawesome.com/docs">(Doc)</a>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
+## Installation :
 ```bash
 npm i
 ```
 
-First, run the development server:
+### Compilé et hot-relaod pour le développement :
 
 ```bash
 npm run dev
@@ -25,28 +38,23 @@ yarn dev
 # or
 pnpm dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Compilé et compacté pour la prod : 
+```
+npm run build
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Contact
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Vous pouvez me contacter via <a href="https://www.linkedin.com/in/benjamin-clairotte/">Linkedin</a> Si vous avez des questions ou si vous voulez me parler 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contribué 
 
-## Learn More
+1. Fork it (<https://github.com/naitchi/Quest/fork>)
+2. Créer la branch de votre fonctionnalité (`git checkout -b feature/fooBar`)
+3. Commit vos changement (`git commit -am 'Add some fooBar'`)
+4. Push sur la branch (`git push origin feature/fooBar`)
+5. Créer une nouvelle Pull Request
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
