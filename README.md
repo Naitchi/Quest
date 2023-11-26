@@ -38,7 +38,7 @@ yarn dev
 # or
 pnpm dev
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aller sur l'url [http://localhost:3000](http://localhost:3000) via votre navigateur pour voir le resultat.
 
 ### Compilé et compacté pour la prod : 
 ```
