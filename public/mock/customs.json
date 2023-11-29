@@ -228,5 +228,82 @@
     ],
     "unlockBy": [0],
     "levelNeeded": 10
+  },
+  {
+    "id": 7,
+    "name": "Operation Aquarius - Part 1",
+    "givenBy": "therapist",
+    "requiredForKappa": true,
+    "map": ["customs"],
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Locate the water hidden inside of the <a href='https://escapefromtarkov.fandom.com/wiki/Dorm_room_206_key' target='_blank'>dorms</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-person-hiking",
+        "position": [
+          { "x": 501, "y": 1771 },
+          { "x": 352, "y": 2536 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 6
+  },
+  {
+    "id": 8,
+    "name": "Operation Aquarius - Part 2",
+    "givenBy": "therapist",
+    "requiredForKappa": true,
+    "map": ["customs"],
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 15 <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 6
+  },
+  {
+    "id": 9,
+    "name": "Pharmacist",
+    "givenBy": "therapist",
+    "requiredForKappa": true,
+    "map": ["customs"],
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Get the <a href='https://escapefromtarkov.fandom.com/wiki/Dorm_room_114_key' target='_blank'>Dorm 114 Key</a>,there is a chance to spawn in the jacket close to the military checkpoint",
+        "action": "fa-key",
+        "position": [{ "x": 1056, "y": 415 }],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Carbon_case' target='_blank'>case containing the device</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Customs' target='_blank'>Customs</a>",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [
+          { "x": 428, "y": 1757 },
+          { "x": 112, "y": 2751 }
+        ],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Carbon_case' target='_blank'>case</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 10
   }
 ]
