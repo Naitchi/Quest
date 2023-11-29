@@ -48,7 +48,7 @@ type action =
   | 'fa-box' // Delivary
   | 'fa-key' // Key
   | 'fa-skull' // Kill
-  | 'fa-mobile-screen MS2000'; // Marker // TODO class CSS qui rotate 3/4
+  | 'fa-mobile-screen MS2000'; // Marker
 
 type traders =
   | 'prapor'
