@@ -1,0 +1,117 @@
+[
+  {
+    "id": 0,
+    "name": "Test Drive - Part 2",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "streets",
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 20 PMC operatives while using an <a href='https://escapefromtarkov.fandom.com/wiki/SR-2M_%22Veresk%22_9x21_submachine_gun' target='_blank'>SR-2M 'Veresk'</a> with a <a href='https://escapefromtarkov.fandom.com/wiki/SR-2M_9x21_sound_suppressor_(SV-1381)' target='_blank'>suppressor</a> and <a href='https://escapefromtarkov.fandom.com/wiki/SR-2M_KP-SR2_reflex_sight' target='_blank'>KP-SR2 reflex sight</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets of Tarkov</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 30
+  },
+  {
+    "id": 1,
+    "name": "You've Got Mail",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "streets",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Registered_letter' target='_blank'>registered mail</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
+        "action": "fa-hand-lizard fa-rotate-270",
+        "position": [],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Hand over the <a href='https://escapefromtarkov.fandom.com/wiki/Registered_letter' target='_blank'>letter</a>"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 10
+  },
+  {
+    "id": 2,
+    "name": "Glory to CPSU",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "streets",
+    "show": true,
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Locate the apartment of Prapor's friend on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets_of_Tarkov</a>.",
+        "action": "fa-person-hiking",
+        "position": [],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 1,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 15
+  },
+  {
+    "id": 3,
+    "name": "Kings of the Rooftops",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "streets",
+    "objectifs": [
+      {
+        "id": 0,
+        "description": "Eliminate 10 snipers on the rooftops on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets_of_Tarkov</a>."
+      },
+      {
+        "id": 1,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 22
+  },
+  {
+    "id": 4,
+    "name": "Green Corridor",
+    "givenBy": "prapor",
+    "requiredForKappa": true,
+    "map": "streets",
+    "show": true,
+    "objectifs": [
+      { "id": 0, "description": "This quest is only obtainable by BEAR PMCs." },
+      {
+        "id": 1,
+        "description": "Locate the cargo convoy on on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets_of_Tarkov</a>.",
+        "action": "fa-person-hiking",
+        "position": [],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 2,
+        "description": "Locate the ambush emplacement",
+        "action": "fa-person-hiking",
+        "position": [],
+        "show": true,
+        "popUp": "<p></p>"
+      },
+      {
+        "id": 3,
+        "description": "Survive and extract from the location"
+      }
+    ],
+    "unlockBy": [0],
+    "levelNeeded": 20
+  }
+]

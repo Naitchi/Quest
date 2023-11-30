@@ -6,7 +6,6 @@ export default interface QuestType {
   map: map[] | map;
   show?: boolean;
   objectifs: Objectif[];
-  unlock: number[];
   unlockBy: number[];
   levelNeeded: number;
 }
@@ -14,7 +13,9 @@ export default interface QuestType {
 export interface Objectif {
   id: number;
   description: string;
+  map?: map;
   position?: Position[];
+  polygon?: Position[];
   action?: action;
   show?: boolean;
   popUp?: string;
@@ -27,35 +28,43 @@ export interface Position {
   radius?: number;
 }
 
-type map =
-  | 'Customs'
-  | 'Factory'
-  | 'Woods'
-  | 'Town'
-  | 'Reserve'
-  | 'Lighthouse'
-  | 'Shoreline'
-  | 'Terminal'
-  | 'Interchange'
-  | 'Lab'
-  | 'Streets'
-  | 'Suburbs';
+export type map =
+  | 'customs'
+  | 'factory'
+  | 'woods'
+  | 'reserve'
+  | 'lighthouse'
+  | 'shoreline'
+  | 'interchange'
+  | 'streets'
+  | 'lab';
+// | 'town'
+// | 'terminal'
+// | 'suburbs'
 
 type action =
-  | 'fa-hand-lizard' // PickUp
+  | 'fa-hand-lizard fa-rotate-270' // PickUp
   | 'fa-person-hiking' // Scouting
   | 'fa-box' // Delivary
   | 'fa-key' // Key
   | 'fa-skull' // Kill
-  | 'fa-mobile-screen fa-rotate-180'; // Marker
+  | 'fa-mobile-screen MS2000'; // Marker
 
 type traders =
-  | 'Prapor'
-  | 'Therapist'
-  | 'Skier'
-  | 'Peacekeeper'
-  | 'Mechanic'
-  | 'Ragman'
-  | 'Jaeger'
-  | 'Fence'
-  | 'Lightkeeper';
+  | 'prapor'
+  | 'therapist'
+  | 'skier'
+  | 'peacekeeper'
+  | 'mechanic'
+  | 'ragman'
+  | 'jaeger'
+  | 'fence'
+  | 'lightkeeper';
+
+export type MapProperties = {
+  [key: string]: {
+    lat: number;
+    lng: number;
+    defaultZoom: number;
+  };
+};

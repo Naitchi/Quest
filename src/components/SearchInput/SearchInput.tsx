@@ -43,6 +43,7 @@ export default function SearchInput() {
     }
   };
 
+  // TODO faire une fonction pour proposé les quetes mutltiple de la map actuelle
   const searchQuest = (text: string) => {
     if (!text.length) return null;
     return allQuests?.filter(
@@ -63,7 +64,7 @@ export default function SearchInput() {
           searchQuest(e.target.value);
         }}
         type="text"
-        placeholder="Chercher une quête"
+        placeholder="Rechercher une quête"
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
