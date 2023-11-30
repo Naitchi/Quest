@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
       </Head>
-      <body className={styles.body}>
+      <div className={styles.body}>
         <div className={styles.left}>
           <div className={styles.user}>
             {/* TODO faire l'icone user via fontawesome */}
@@ -30,7 +30,7 @@ export default function Home() {
           <Link className={styles.interchange} href="/interchange"></Link>
           <Link className={styles.streets} href="/streets"></Link>
         </div>
-      </body>
+      </div>
     </React.Fragment>
   );
 }
