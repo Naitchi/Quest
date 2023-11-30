@@ -1,6 +1,7 @@
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
       </Head>
-      <body>
+      <body className={styles.body}>
         <div className={styles.left}>
           <div className={styles.user}>
             {/* TODO faire l'icone user via fontawesome */}
@@ -19,18 +20,15 @@ export default function Home() {
             {/* TODO afficher la faction */}
           </div>
         </div>
-        <div className={styles.main}>
-          <div className={styles.hide}>
-            <a className={styles.customs} href="/customs"></a>
-            <a className={styles.factory} href="/factory"></a>
-            <a className={styles.woods} href="/woods"></a>
-            <a className={styles.reserve} href="/reserve"></a>
-            <a className={styles.lighthouse} href="/lighthouse"></a>
-            <a className={styles.shoreline} href="/shoreline"></a>
-            <a className={styles.interchange} href="/interchange"></a>
-            <a className={styles.streets} href="/streets"></a>
-          </div>
-          <img src="/assets/TarkovMap.webp" alt="carte de la totalité de Tarkov" />
+        <div className={styles.map}>
+          <Link className={styles.customs} href="/customs"></Link>
+          <Link className={styles.factory} href="/factory"></Link>
+          <Link className={styles.woods} href="/woods"></Link>
+          <Link className={styles.reserve} href="/reserve"></Link>
+          <Link className={styles.lighthouse} href="/lighthouse"></Link>
+          <Link className={styles.shoreline} href="/shoreline"></Link>
+          <Link className={styles.interchange} href="/interchange"></Link>
+          <Link className={styles.streets} href="/streets"></Link>
         </div>
       </body>
     </React.Fragment>
