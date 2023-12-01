@@ -1,10 +1,20 @@
 import Script from 'next/script';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { Info } from '../type/QuestType';
 
 export default function Home() {
+  const [info, setInfo] = useState<Info | undefined>({
+    faction: 'BEAR',
+    level: 13,
+  });
+
+  const infoChange = (e: any) => {
+    if (info) setInfo({ faction: info.faction, level: Number(e.target.value) });
+  };
+
   return (
     <React.Fragment>
       <Head>
@@ -17,9 +27,21 @@ export default function Home() {
       <div className={styles.body}>
         <div className={styles.left}>
           <div className={styles.user}>
-            {/* TODO faire l'icone user via fontawesome */}
-            {/* TODO afficher le niveau de l'utilisateur dans un input pour qu'il puis changer quand il veut */}
-            {/* TODO afficher la faction */}
+            <i className="fa-solid fa-user"></i>
+            {typeof info !== 'undefined' ? (
+              <div className={styles.info}>
+                <p>{info.faction}</p>
+                <label htmlFor="level">Lvl:</label>
+                <input
+                  id="level"
+                  type="number"
+                  value={info.level}
+                  onChange={(e) => infoChange(e)}
+                />
+              </div>
+            ) : (
+              <i className="fa-solid fa-spinner fa-spin"></i>
+            )}
           </div>
         </div>
         <div className={styles.map}>
@@ -32,6 +54,10 @@ export default function Home() {
           <Link className={styles.interchange} href="/interchange"></Link>
           <Link className={styles.streets} href="/streets"></Link>
         </div>
+        <div className={styles.infosBulle}>
+          <p className={styles.infos}>?</p>
+        </div>
+        <p className={styles.credit}>Site by naitchi</p>
       </div>
     </React.Fragment>
   );

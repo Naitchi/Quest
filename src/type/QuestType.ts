@@ -68,3 +68,10 @@ export type MapProperties = {
     defaultZoom: number;
   };
 };
+
+type faction = 'BEAR' | 'USEC';
+
+export interface Info {
+  faction: faction;
+  level: number;
+}

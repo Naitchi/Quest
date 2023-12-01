@@ -7,7 +7,7 @@ type EyeProps = {
 // Style
 import styles from './Eye.module.css';
 
-export default function Eye({ show, onClick }: EyeProps) {
+export default function Eye({ show, onClick }: Readonly<EyeProps>) {
   return (
     <div className={styles.mainDiv} onClick={onClick}>
       {show ? (
