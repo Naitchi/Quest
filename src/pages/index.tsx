@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
 import React from 'react';
@@ -11,6 +12,7 @@ export default function Home() {
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+        <Script src="https://kit.fontawesome.com/bf63fdfe50.js"></Script>
       </Head>
       <div className={styles.body}>
         <div className={styles.left}>
