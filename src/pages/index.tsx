@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
 import React, { useState } from 'react';
@@ -11,8 +10,9 @@ export default function Home() {
     level: 13,
   });
 
-  const infoChange = (e: any) => {
-    if (info) setInfo({ faction: info.faction, level: Number(e.target.value) });
+  // Handle onChange for infos inputs, receive well typed value and name of the variable to change (need to clear the type inside to avoid error ? GL futur me :D)
+  const infoChange = (value: any, name: string) => {
+    if (info) setInfo({ ...info, [name]: value });
   };
 
   return (
@@ -22,22 +22,32 @@ export default function Home() {
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
-        <Script src="https://kit.fontawesome.com/bf63fdfe50.js"></Script>
+        <script src="https://kit.fontawesome.com/bf63fdfe50.js"></script>
       </Head>
       <div className={styles.body}>
         <div className={styles.left}>
           <div className={styles.user}>
-            <i className="fa-solid fa-user"></i>
+            <i className="fa-solid fa-user fa-3x"></i>
             {typeof info !== 'undefined' ? (
               <div className={styles.info}>
-                <p>{info.faction}</p>
-                <label htmlFor="level">Lvl:</label>
-                <input
-                  id="level"
-                  type="number"
-                  value={info.level}
-                  onChange={(e) => infoChange(e)}
-                />
+                <select
+                  className={`${styles.clearInputCSS} ${styles.select}`}
+                  value={info.faction}
+                  onChange={(e) => infoChange(e.target.value, 'faction')}
+                >
+                  <option value="BEAR">BEAR</option>
+                  <option value="USEC">USEC</option>
+                </select>
+                <div className={styles.level}>
+                  <label className={styles.labelLvl} htmlFor="level">Lvl:</label>
+                  <input
+                    className={`${styles.clearInputCSS} ${styles.inputLevel}`}
+                    id="level"
+                    type="number"
+                    value={info.level}
+                    onChange={(e) => infoChange(Number(e.target.value), 'level')}
+                  />
+                </div>
               </div>
             ) : (
               <i className="fa-solid fa-spinner fa-spin"></i>
@@ -54,9 +64,8 @@ export default function Home() {
           <Link className={styles.interchange} href="/interchange"></Link>
           <Link className={styles.streets} href="/streets"></Link>
         </div>
-        <div className={styles.infosBulle}>
-          <p className={styles.infos}>?</p>
-        </div>
+        {/* TODO faire le onClick avec la modale */}
+        <button className={styles.infosBulle}>?</button>
         <p className={styles.credit}>Site by naitchi</p>
       </div>
     </React.Fragment>
