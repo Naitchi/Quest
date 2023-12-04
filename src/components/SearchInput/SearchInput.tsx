@@ -45,7 +45,6 @@ export default function SearchInput() {
     }
   };
 
-  // TODO faire une fonction pour proposé les quetes mutltiple de la map actuelle
   const searchQuest = (text: string) => {
     if (!text.length) return null;
     return allQuests?.filter(
