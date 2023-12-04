@@ -33,6 +33,12 @@
     color: white;
     padding: 10px;
     font-weight: bold;
+    background: none;
+    border: none;
+}
+
+.result:hover {
+    text-decoration: underline;
 }
 
 .reset {

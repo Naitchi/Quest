@@ -78,16 +78,16 @@ export default function SearchInput() {
           {result?.map((quest) => (
             <div key={quest.id}>
               {checkForDouble(temporaryQuests, quest) ? (
-                <p
+                <button
                   className={`${styles.result} ${styles.unavailable}`}
                   onClick={() => removeTemporary(quest)}
                 >
                   {quest.name}
-                </p>
+                </button>
               ) : (
-                <p className={`${styles.result}`} onClick={() => addTemporary(quest)}>
+                <button className={`${styles.result}`} onClick={() => addTemporary(quest)}>
                   {quest.name}
-                </p>
+                </button>
               )}
             </div>
           ))}
