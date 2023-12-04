@@ -55,6 +55,11 @@
 
 .inputLevel {
   width: 50px;
+  margin-left: 5px;
+}
+
+.labelLvl {
+  margin-left: 5px;
 }
 
 .select, .labelLvl, .clearInputCSS option, .inputLevel {

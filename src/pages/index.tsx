@@ -39,7 +39,9 @@ export default function Home() {
                   <option value="USEC">USEC</option>
                 </select>
                 <div className={styles.level}>
-                  <label className={styles.labelLvl} htmlFor="level">Lvl:</label>
+                  <label className={styles.labelLvl} htmlFor="level">
+                    Lvl:
+                  </label>
                   <input
                     className={`${styles.clearInputCSS} ${styles.inputLevel}`}
                     id="level"
