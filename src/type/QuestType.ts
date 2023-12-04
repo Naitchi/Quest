@@ -8,6 +8,7 @@ export default interface QuestType {
   objectifs: Objectif[];
   unlockBy: number[];
   levelNeeded: number;
+  factionNeeded?: faction;
 }
 
 export interface Objectif {

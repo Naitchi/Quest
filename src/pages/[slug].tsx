@@ -4,11 +4,12 @@ import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setQuestArray } from '../redux/questSlice';
+import { setUser } from '../redux/userSlice';
 import { useRouter } from 'next/router';
 
 // Type
 import QuestList from '../components/QuestList/QuestList';
-import QuestType, { map } from '../type/QuestType';
+import QuestType, { map, Info } from '../type/QuestType';
 
 // Components
 const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), {
@@ -18,6 +19,17 @@ const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponen
 export default function Quest() {
   const dispatch = useDispatch();
   const router = useRouter();
+
+  useEffect(() => {
+    const fetchDataUser = () => {
+      const data: any = localStorage.getItem('user');
+      if (data) {
+        const info: Info = JSON.parse(data);
+        dispatch(setUser({ content: info }));
+      }
+    };
+    fetchDataUser();
+  }, []);
 
   useEffect(() => {
     const maps: map[] = [

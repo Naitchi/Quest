@@ -46,14 +46,21 @@ export default function SearchInput() {
   };
 
   const searchQuest = (text: string) => {
-    if (!text.length) return null;
-    return allQuests?.filter(
-      (quest) =>
-        quest.id.toString().includes(text.toLowerCase()) ||
-        quest.name.toLowerCase().includes(text.toLowerCase()),
-    );
+    if (!text.length || !user) return null;
+    console.log(text, user);
+
+    return allQuests?.filter((quest) => {
+      const isMatchingID = quest.id.toString().includes(text.toLowerCase());
+      const isMatchingName = quest.name.toLowerCase().includes(text.toLowerCase());
+      const isMatchingLevel = quest.levelNeeded <= user.level;
+      const isMatchingFaction = quest.factionNeeded ? quest.factionNeeded === user.faction : true;
+
+      return isMatchingID || isMatchingName || (isMatchingLevel && isMatchingFaction);
+    });
   };
+
   const result = searchQuest(searchText);
+  console.log(result);
 
   return (
     <>

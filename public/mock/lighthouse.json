@@ -75,7 +75,8 @@
       }
     ],
     "unlockBy": [0],
-    "levelNeeded": 20
+    "levelNeeded": 20,
+    "factionNeeded": "BEAR"
   },
   {
     "id": 3,
