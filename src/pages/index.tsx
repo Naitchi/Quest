@@ -1,18 +1,29 @@
 import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Info } from '../type/QuestType';
 
 export default function Home() {
-  const [info, setInfo] = useState<Info | undefined>({
-    faction: 'BEAR',
-    level: 13,
-  });
+  const [info, setInfo] = useState<Info | undefined>();
+
+  useEffect(() => {
+    const fetchDataUser = () => {
+      const data: any = localStorage.getItem('user');
+      if (data) {
+        const user: Info = JSON.parse(data);
+        setInfo(user);
+      }
+    };
+    fetchDataUser();
+  }, []);
 
   // Handle onChange for infos inputs, receive well typed value and name of the variable to change (need to clear the type inside to avoid error ? GL futur me :D)
   const infoChange = (value: any, name: string) => {
-    if (info) setInfo({ ...info, [name]: value });
+    if (info) {
+      setInfo({ ...info, [name]: value });
+      localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));
+    }
   };
 
   return (
