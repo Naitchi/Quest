@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getQuestArray, setQuestArray } from '../../redux/questSlice';
+import { getUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
 // Style
@@ -16,6 +17,7 @@ export default function SearchInput() {
   const allQuests = useSelector((state: RootState) => getQuestArray(state, 'all'));
   const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main')); // TODO utilisé main pour grisé/et rendre impossible l'ajout ou la suppression via la recherche
   const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
+  const user = useSelector((state: RootState) => getUser(state));
 
   const [searchText, setSearchText] = useState<string>('');
 

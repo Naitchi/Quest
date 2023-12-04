@@ -3,16 +3,21 @@ import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Info } from '../type/QuestType';
+import { setUser } from '../redux/userSlice';
+import { useDispatch } from 'react-redux';
 
 export default function Home() {
+  const dispatch = useDispatch();
+
   const [info, setInfo] = useState<Info | undefined>();
 
   useEffect(() => {
     const fetchDataUser = () => {
       const data: any = localStorage.getItem('user');
       if (data) {
-        const user: Info = JSON.parse(data);
-        setInfo(user);
+        const info: Info = JSON.parse(data);
+        setInfo(info);
+        dispatch(setUser({ content: info }));
       }
     };
     fetchDataUser();
