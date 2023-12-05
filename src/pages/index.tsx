@@ -27,6 +27,7 @@ export default function Home() {
   const infoChange = (value: any, name: string) => {
     if (info) {
       setInfo({ ...info, [name]: value });
+      dispatch(setUser({ content: info }));
       localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));
     }
   };
@@ -72,6 +73,7 @@ export default function Home() {
             )}
           </div>
         </div>
+        {/** TODO faire de la map un composant à part entier  */}
         <div className={styles.map}>
           <Link className={styles.customs} href="/customs"></Link>
           <Link className={styles.factory} href="/factory"></Link>

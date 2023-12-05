@@ -75,4 +75,5 @@ type faction = 'BEAR' | 'USEC';
 export interface Info {
   faction: faction;
   level: number;
+  multiplayer: boolean; // see if need to add matching level/faction to search input. default: fasle.
 }

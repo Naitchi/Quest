@@ -8,10 +8,11 @@ import { setUser } from '../redux/userSlice';
 import { useRouter } from 'next/router';
 
 // Type
-import QuestList from '../components/QuestList/QuestList';
 import QuestType, { map, Info } from '../type/QuestType';
 
 // Components
+import QuestList from '../components/QuestList/QuestList';
+import MultiplayerBtn from '@/components/MultiplayerBtn/MultiplayerBtn';
 const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), {
   ssr: false,
 });
@@ -80,6 +81,7 @@ export default function Quest() {
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
         <script src="https://kit.fontawesome.com/bf63fdfe50.js"></script>
       </Head>
+      <MultiplayerBtn />
       <QuestList />
       {router?.query?.slug && <MapComponent />}
     </React.Fragment>
