@@ -9,15 +9,21 @@ import { RootState } from '../../redux/store';
 import styles from './SearchInput.module.css';
 
 // Type
-import QuestType from '../../type/QuestType';
+import QuestType, { Info } from '../../type/QuestType';
 
 export default function SearchInput() {
   const dispatch = useDispatch();
 
-  const allQuests = useSelector((state: RootState) => getQuestArray(state, 'all'));
-  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main')); // TODO utilisé main pour grisé/et rendre impossible l'ajout ou la suppression via la recherche
-  const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
-  const user = useSelector((state: RootState) => getUser(state));
+  const allQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'all'),
+  );
+  const mainQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'main'),
+  ); // TODO utilisé main pour grisé/et rendre impossible l'ajout ou la suppression via la recherche
+  const temporaryQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'temporary'),
+  );
+  const user: Info | undefined = useSelector((state: RootState) => getUser(state));
 
   const [searchText, setSearchText] = useState<string>('');
 
@@ -47,7 +53,6 @@ export default function SearchInput() {
 
   const searchQuest = (text: string) => {
     if (!text.length || !user) return null;
-    console.log(text, user);
 
     return allQuests?.filter((quest) => {
       const isMatchingID = quest.id.toString().includes(text.toLowerCase());
@@ -60,7 +65,6 @@ export default function SearchInput() {
   };
 
   const result = searchQuest(searchText);
-  console.log(result);
 
   return (
     <>
