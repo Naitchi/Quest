@@ -9,7 +9,7 @@ import styles from './Eye.module.css';
 
 export default function Eye({ show, onClick }: Readonly<EyeProps>) {
   return (
-    <div className={styles.mainDiv} onClick={onClick}>
+    <button className={styles.mainDiv} onClick={onClick}>
       {show ? (
         <div className={styles.openedEye}>
           <img
@@ -34,6 +34,6 @@ export default function Eye({ show, onClick }: Readonly<EyeProps>) {
           </div>
         </div>
       )}
-    </div>
+    </button>
   );
 }
