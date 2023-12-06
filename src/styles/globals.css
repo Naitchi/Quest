@@ -96,3 +96,10 @@ a {
 .MS2000 {
   transform: rotateZ(160deg);
 }
+
+@font-face {
+  font-family: 'Bender';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bender'), url('/fonts/Bender.woff') format('woff');
+}
