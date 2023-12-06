@@ -36,7 +36,10 @@ export default function Home() {
     <React.Fragment>
       <Head>
         <title>Quest-eft</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content=" Toujours perdu dans toutes les Quêtes de Escape From Tarkov ? Ce site est la solution !"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
         <script src="https://kit.fontawesome.com/bf63fdfe50.js"></script>
