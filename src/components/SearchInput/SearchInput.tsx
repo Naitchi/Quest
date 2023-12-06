@@ -55,12 +55,12 @@ export default function SearchInput() {
     if (!text.length || !user) return null;
 
     return allQuests?.filter((quest) => {
-      const isMatchingID = quest.id.toString().includes(text.toLowerCase());
       const isMatchingName = quest.name.toLowerCase().includes(text.toLowerCase());
       const isMatchingLevel = quest.levelNeeded <= user.level;
       const isMatchingFaction = quest.factionNeeded ? quest.factionNeeded === user.faction : true;
 
-      return isMatchingID || isMatchingName || (isMatchingLevel && isMatchingFaction);
+      if (user.multiplayer) return isMatchingName;
+      return isMatchingName && isMatchingLevel && isMatchingFaction;
     });
   };
 

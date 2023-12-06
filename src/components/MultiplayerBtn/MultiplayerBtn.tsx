@@ -1,5 +1,5 @@
 // Import React/Redux
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser, setUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
@@ -11,6 +11,7 @@ import { Info } from '../../type/QuestType';
 import styles from './MultiplayerBtn.module.css';
 
 export default function MultiplayerBtn() {
+  const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
   const info: Info | undefined = useSelector((state: RootState) => getUser(state));
 
@@ -20,6 +21,10 @@ export default function MultiplayerBtn() {
       dispatch(setUser({ content: { ...info, [name]: value } }));
       localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));
     }
+  };
+
+  const handleMouseEvent = (value: boolean) => {
+    setIsHovered(value);
   };
 
   return (
@@ -40,7 +45,30 @@ export default function MultiplayerBtn() {
         <i className="fa-solid fa-circle" style={{ color: '#8e2929' }}></i>
       )}
       Playing with Friends
-      <p className={styles.info}>?</p>
+      <p
+        onMouseEnter={() => handleMouseEvent(true)}
+        onMouseLeave={() => handleMouseEvent(false)}
+        className={styles.info}
+      >
+        ?
+      </p>
+      {isHovered && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '100%',
+            minWidth: '250px',
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            color: '#fff',
+            padding: '7px',
+            borderRadius: '5px',
+            zIndex: 1,
+          }}
+        >
+          Lève les restrictions de level et de faction pour pouvoir ajouter les quêtes de tes amis
+        </div>
+      )}
     </button>
   );
 }
