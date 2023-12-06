@@ -1,10 +1,17 @@
-import styles from '@/styles/Home.module.css';
+// Import React/Redux
 import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Info } from '../type/QuestType';
 import { setUser } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
+
+// Types
+import { Info } from '../type/QuestType';
+
+// Styles
+import styles from '@/styles/Home.module.css';
+
+// Components
+import NavMap from '@/components/NavMap/NavMap';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -76,17 +83,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        {/** TODO faire de la map un composant à part entier  */}
-        <div className={styles.map}>
-          <Link className={styles.customs} href="/customs"></Link>
-          <Link className={styles.factory} href="/factory"></Link>
-          <Link className={styles.woods} href="/woods"></Link>
-          <Link className={styles.reserve} href="/reserve"></Link>
-          <Link className={styles.lighthouse} href="/lighthouse"></Link>
-          <Link className={styles.shoreline} href="/shoreline"></Link>
-          <Link className={styles.interchange} href="/interchange"></Link>
-          <Link className={styles.streets} href="/streets"></Link>
-        </div>
+        <NavMap />
         {/* TODO faire le onClick avec la modale */}
         <button className={styles.infosBulle}>?</button>
         <p className={styles.credit}>Site by naitchi</p>
