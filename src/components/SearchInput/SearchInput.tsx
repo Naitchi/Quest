@@ -19,7 +19,7 @@ export default function SearchInput() {
   );
   const mainQuests: QuestType[] | null = useSelector((state: RootState) =>
     getQuestArray(state, 'main'),
-  ); // TODO utilisé main pour grisé/et rendre impossible l'ajout ou la suppression via la recherche
+  );
   const temporaryQuests: QuestType[] | null = useSelector((state: RootState) =>
     getQuestArray(state, 'temporary'),
   );

@@ -81,7 +81,7 @@ export default function MapComponent() {
         minZoom: slugProperties.defaultZoom,
         maxZoom: 2,
       }).setView([slugProperties.lat / 2, slugProperties.lng / 2], slugProperties.defaultZoom); // Latitude, Longitude, Default Zoom
-      // TODO ajouter de la couche d'image personnalisée avec le parseUrl string
+      // ajout de la couche d'image personnalisée avec le parseUrl string
       const imageUrl = `assets/${router.query.slug}.webp`;
       const imageBounds: L.LatLngBoundsExpression = [
         [0, 0],
