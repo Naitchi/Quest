@@ -113,14 +113,13 @@
     padding: 0 0 0 38px;
     width: 298px;
     height: 32px;
-    bottom: 345px;
-
-    left: 269px;
+    bottom: 345.4px;
+    left: 270px;
     letter-spacing: 0.1px;
 }
 
 .tarkov {
-    padding-left: 9px;
+    padding-left: 8px;
     letter-spacing: 0.7px;
 }
 
@@ -129,7 +128,7 @@
 
     padding: 2px 25px 1px 24px;
     height: 27px;
-    bottom: 387px;
-    left: -101.9px;
+    bottom: 386px;
+    left: -100.9px;
     letter-spacing: 0.2px;
 }

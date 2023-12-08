@@ -12,12 +12,17 @@ import styles from '@/styles/Home.module.css';
 
 // Components
 import NavMap from '@/components/NavMap/NavMap';
+import ModalInfo from '@/components/ModalNewPlayer/ModalInfo';
 
 export default function Home() {
   const dispatch = useDispatch();
 
   const [info, setInfo] = useState<Info | undefined>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   useEffect(() => {
     const fetchDataUser = () => {
       const data: any = localStorage.getItem('user');
@@ -84,9 +89,13 @@ export default function Home() {
           </div>
         </div>
         <NavMap />
-        {/* TODO faire le onClick avec la modale */}
-        <button className={styles.infosBulle}>?</button>
-        <p className={styles.credit}>Site by naitchi</p>
+        <button onClick={toggleModal} className={styles.infosBulle}>
+          ?
+        </button>
+        {isModalOpen && <ModalInfo onClose={toggleModal} />}
+        <p className={styles.credit}>
+          Site 100% free by <a href="https://github.com/Naitchi">Naitchi</a> (looking for work)
+        </p>
       </div>
     </React.Fragment>
   );

@@ -1,0 +1,80 @@
+.window {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100svw;
+    height: 100svh;
+
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.closeButton {
+    align-self: flex-end;
+    color: rgb(232, 230, 227);
+    opacity: .6;
+    background: none;
+    border: none;
+
+    margin-bottom: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+    height: auto;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 100%;
+}
+
+.previous, .next {
+    height: 50px;
+    width: 65px;
+    border-radius: 25px;
+    border: 2px solid gray;
+    margin: 0 20px;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 33svw;
+    height: 33svw;
+
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+    box-shadow: 0 0 15px rgba(65, 61, 52, 1), 0 0 6px rgba(232, 190, 107, 0.8);
+}
+
+.bullets button {
+    background: none;
+    border: none;
+
+    font-size: 1.5rem;
+    cursor: pointer;
+}
