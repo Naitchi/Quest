@@ -44,8 +44,18 @@
     height: 50px;
     width: 65px;
     border-radius: 25px;
-    border: 2px solid gray;
+    background-color: #121314;
+    border: 3px solid rgba(255, 211, 123, 0.8);
     margin: 0 20px;
+    font-size: 30px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+.previous:hover, .next:hover {
+    background-color: #212325;
+    border: 3px solid rgba(218, 189, 132, 0.8);
 }
 
 .slider {
@@ -55,26 +65,56 @@
 
     width: 33svw;
     height: 33svw;
-
 }
 
 .slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
+    z-index: 1;
     width: 100%;
     height: 100%;
+    border: solid 5px rgba(232, 190, 107, 0.8);
+    background-color: #23272a;
+    border-radius: 8px;
+    border-left: none;
+    border-top: none;
+}
 
-    background-color: black;
-    box-shadow: 0 0 15px rgba(65, 61, 52, 1), 0 0 6px rgba(232, 190, 107, 0.8);
+.img {
+    width: 40%;
+}
+
+.welcome {
+    padding: 20px;
+    color: rgba(232, 190, 107);
+}
+
+.desc {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 70px;
+    width: 90%;
+}
+
+.bullet {
+    color: rgba(232, 190, 107, 0.8);
+    transition: font-size 0.2s ease, margin 0.2s ease;
+    margin: 5px 5px;
 }
 
 .bullets button {
     background: none;
     border: none;
+    font-size: 30px;
 
-    font-size: 1.5rem;
     cursor: pointer;
+}
+
+.bullet:hover {
+    color: rgb(224, 191, 124);
+    font-size: 35px;
+    margin: 0px 5px;
 }

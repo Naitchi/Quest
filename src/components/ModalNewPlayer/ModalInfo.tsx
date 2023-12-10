@@ -36,33 +36,33 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
 
   const slides = [
     <div className={styles.slide} key={1}>
-      <img src="/assets/iconQuest.svg" alt="Logo Quest EFT" />
-      <h2>
-        Bienvenue sur Quest-eft
-        <br />
+      <img className={styles.img} src="/assets/iconQuest.svg" alt="Logo Quest EFT" />
+      <h2 className={styles.welcome}>Bienvenue sur Quest-eft</h2>
+      <p className={styles.desc}>
         Le site qui te vas te permettre de te retrouver dans la jungle de quête de Escape From
-        Tarkov
-      </h2>
-      <p>Suis ces quelques indiquations pour avoir de quoi utilisé le site</p>
+        Tarkov. <br /> Suis ces quelques indiquations pour avoir de quoi utilisé le site
+      </p>
     </div>,
     <div className={styles.slide} key={2}>
-      <h3>Des maps intéractives avec toutes les infos de tes quêtes.</h3>
-      <p>
+      <h3 className={styles.welcome}>Des maps intéractives avec toutes les infos de tes quêtes.</h3>
+      <p className={styles.desc}>
         Sélectionne la map que tu veux jouer, puis ajoute les quêtes que tu as. Ensuite les
         objectifs des quêtes seront indiqué via des icones coloré sur la map!
       </p>
     </div>,
     <div className={styles.slide} key={3}>
-      <h3>Les options ma passion</h3>
-      <p>
+      <h3 className={styles.welcome}>Les options ma passion</h3>
+      <p className={styles.desc}>
         Sur la page d'acceuil tu peux changer ta faction, ton niveau actuel pour que les quêtes
         proposé soit adapté à ces facteurs. Et pas de panique, si tu veux regrouper tes quetes avec
         celles de tes amis, tu peux activé le mode multi-joueurs.
       </p>
     </div>,
     <div className={styles.slide} key={4}>
-      <h3>Tout ça 100% Gratuit</h3>
-      <p>Juste un site pour aider les joueurs de EFT à s'y retrouver dans les quêtes.</p>
+      <h3 className={styles.welcome}>Tout ça 100% Gratuit</h3>
+      <p className={styles.desc}>
+        Juste un site pour aider les joueurs de EFT à s'y retrouver dans les quêtes.
+      </p>
     </div>,
   ];
 
@@ -70,7 +70,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     <div className={styles.window}>
       <div className={styles.container}>
         <button className={styles.previous} onClick={prevSlide}>
-          &lt;
+          &lt; {/* TODO Changer par un icone font-awesome un peu plus grande*/}
         </button>
         <div className={styles.center}>
           <button className={styles.closeButton} onClick={onClose}>
@@ -78,16 +78,18 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
           </button>
           <div className={styles.slider}>{slides[currentSlide]}</div>
           <div className={styles.bullets}>
+            {/** TODO faires des transitions css */}
             {slides.map((_, index) => (
-              <button key={index} onClick={() => setCurrentSlide(index)}>
+              <button className={styles.bullet} key={index} onClick={() => setCurrentSlide(index)}>
                 {index === currentSlide ? '●' : '○'}
               </button>
             ))}
           </div>
         </div>
         <button className={styles.next} onClick={nextSlide}>
-          &gt;
+          &gt; {/* TODO Changer par un icone font-awesome un peu plus grande*/}
         </button>
+        {/* TODO Remplacé par un bouton fermer quand c'est la derniere slide*/}
       </div>
     </div>
   );
