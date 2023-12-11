@@ -4,13 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUser, setUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
+// Import Fontawesome
+import { faAngleRight, faTimes, faAngleLeft, faCog } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // Styles
 import styles from './ModalInfo.module.css';
 
 // Type
 import { Info } from '../../type/QuestType';
 interface ModalInfoProps {
-  onClose: () => void; // Add this line
+  onClose: () => void;
 }
 
 export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
@@ -27,6 +31,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
   };
 
+  // TODO lié avec le boutons fermé
   const infoChange = (value: any, name: string) => {
     if (info) {
       dispatch(setUser({ content: { ...info, [name]: value } }));
@@ -57,9 +62,12 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     </div>,
     <div className={styles.slide} key={3}>
       <div className={styles.gears}>
-        <i className="fa-solid fa-gear fa-3x fa-spin"></i>
-        <i className="fa-solid fa-gear fa-3x fa-spin fa-spin-reverse"></i>
-        <i className="fa-solid fa-gear fa-3x fa-spin"></i>
+        <FontAwesomeIcon icon={faCog} className="fa-3x fa-spin" />
+        <FontAwesomeIcon
+          icon={faCog}
+          className={`fa-3x fa-spin fa-spin-reverse ${styles.MidleGear}`}
+        />
+        <FontAwesomeIcon icon={faCog} className={`fa-3x fa-spin ${styles.LastGear}`} />
       </div>
       <h3 className={styles.welcome}>Les options ma passion</h3>
       <p className={styles.desc}>
@@ -80,7 +88,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     <div className={styles.window}>
       <div className={styles.container}>
         <button className={styles.previous} onClick={prevSlide}>
-          <i className="fa-solid fa-2x fa-angle-left"></i>
+          <FontAwesomeIcon icon={faAngleLeft} />
         </button>
         <div className={styles.center}>
           <button className={styles.closeButton} onClick={onClose}>
@@ -96,13 +104,13 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
             ))}
           </div>
         </div>
-        {slides.length - 1 === currentSlide ? (
-          <button className={`${styles.next} ${styles.close}`} onClick={onClose}>
-            X
+        {slides.length === currentSlide + 1 ? (
+          <button className={styles.close} onClick={onClose}>
+            <FontAwesomeIcon icon={faTimes} />
           </button>
         ) : (
           <button className={styles.next} onClick={nextSlide}>
-            <i className="fa-solid fa-2x fa-angle-right"></i>
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         )}
         {/* TODO Remplacé par un bouton fermer quand c'est la derniere slide*/}
