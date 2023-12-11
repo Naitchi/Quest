@@ -36,7 +36,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
 
   const slides = [
     <div className={styles.slide} key={1}>
-      <img className={styles.img} src="/assets/iconQuest.svg" alt="Logo Quest EFT" />
+      <img className={styles.icon} src="/assets/iconQuest.svg" alt="Logo Quest EFT" />
       <h2 className={styles.welcome}>Bienvenue sur Quest-eft</h2>
       <p className={styles.desc}>
         Le site qui te vas te permettre de te retrouver dans la jungle de quête de Escape From
@@ -44,6 +44,11 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
       </p>
     </div>,
     <div className={styles.slide} key={2}>
+      <img
+        className={styles.screenshot}
+        src="/assets/screenMap.jpg"
+        alt="carte interractive de EFT"
+      />
       <h3 className={styles.welcome}>Des maps intéractives avec toutes les infos de tes quêtes.</h3>
       <p className={styles.desc}>
         Sélectionne la map que tu veux jouer, puis ajoute les quêtes que tu as. Ensuite les
@@ -51,6 +56,11 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
       </p>
     </div>,
     <div className={styles.slide} key={3}>
+      <div className={styles.gears}>
+        <i className="fa-solid fa-gear fa-3x fa-spin"></i>
+        <i className="fa-solid fa-gear fa-3x fa-spin fa-spin-reverse"></i>
+        <i className="fa-solid fa-gear fa-3x fa-spin"></i>
+      </div>
       <h3 className={styles.welcome}>Les options ma passion</h3>
       <p className={styles.desc}>
         Sur la page d'acceuil tu peux changer ta faction, ton niveau actuel pour que les quêtes
@@ -70,7 +80,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     <div className={styles.window}>
       <div className={styles.container}>
         <button className={styles.previous} onClick={prevSlide}>
-          &lt; {/* TODO Changer par un icone font-awesome un peu plus grande*/}
+          <i className="fa-solid fa-2x fa-angle-left"></i>
         </button>
         <div className={styles.center}>
           <button className={styles.closeButton} onClick={onClose}>
@@ -86,9 +96,15 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
             ))}
           </div>
         </div>
-        <button className={styles.next} onClick={nextSlide}>
-          &gt; {/* TODO Changer par un icone font-awesome un peu plus grande*/}
-        </button>
+        {slides.length - 1 === currentSlide ? (
+          <button className={`${styles.next} ${styles.close}`} onClick={onClose}>
+            X
+          </button>
+        ) : (
+          <button className={styles.next} onClick={nextSlide}>
+            <i className="fa-solid fa-2x fa-angle-right"></i>
+          </button>
+        )}
         {/* TODO Remplacé par un bouton fermer quand c'est la derniere slide*/}
       </div>
     </div>
