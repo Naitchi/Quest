@@ -75,3 +75,11 @@
   font-size: 1.3rem;
 }
 
+.link {
+  font-weight: bold;
+}
+
+.link:hover {
+  color: #e8be6b;
+  text-decoration: underline;
+}

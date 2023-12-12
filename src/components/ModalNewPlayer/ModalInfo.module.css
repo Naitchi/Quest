@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-.previous, .next {
+.previous, .next, .close {
     height: 50px;
     width: 65px;
     border-radius: 25px;
