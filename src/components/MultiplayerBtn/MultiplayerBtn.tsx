@@ -4,6 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUser, setUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
+// Import Fontawesome
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // Type
 import { Info } from '../../type/QuestType';
 
@@ -40,9 +44,9 @@ export default function MultiplayerBtn() {
       }}
     >
       {info?.multiplayer ? (
-        <i className="fa-solid fa-circle" style={{ color: '#298e30' }}></i>
+        <FontAwesomeIcon icon={faCircle} style={{ color: '#298e30' }} />
       ) : (
-        <i className="fa-solid fa-circle" style={{ color: '#8e2929' }}></i>
+        <FontAwesomeIcon icon={faCircle} style={{ color: '#8e2929' }} />
       )}
       Playing with Friends
       <p

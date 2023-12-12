@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { setUser } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
 
+// Import Fontawesome
+import { faUser, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // Types
 import { Info } from '../type/QuestType';
 
@@ -59,7 +63,7 @@ export default function Home() {
       <div className={styles.body}>
         <div className={styles.left}>
           <div className={styles.user}>
-            <i className="fa-solid fa-user fa-3x"></i>
+            <FontAwesomeIcon icon={faUser} className="fa-3x" />
             {typeof info !== 'undefined' ? (
               <div className={styles.info}>
                 <select
@@ -84,7 +88,7 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              <i className="fa-solid fa-spinner fa-spin"></i>
+              <FontAwesomeIcon icon={faSpinner} spin />
             )}
           </div>
         </div>
@@ -94,7 +98,11 @@ export default function Home() {
         </button>
         {isModalOpen && <ModalInfo onClose={toggleModal} />}
         <p className={styles.credit}>
-          Site 100% free by <a href="https://github.com/Naitchi">Naitchi</a> (looking for work)
+          Site 100% free by{' '}
+          <a className={styles.link} href="https://github.com/Naitchi">
+            Naitchi
+          </a>{' '}
+          (looking for work)
         </p>
       </div>
     </React.Fragment>

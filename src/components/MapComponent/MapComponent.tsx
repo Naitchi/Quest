@@ -4,6 +4,18 @@ import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 import { useRouter } from 'next/router';
+import ReactDOMServer from 'react-dom/server';
+
+// Import Fontawesome
+import {
+  faPersonHiking,
+  faBox,
+  faKey,
+  faSkull,
+  faMobile,
+  faHandLizard,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Styles
 import 'leaflet/dist/leaflet.css';
@@ -116,8 +128,14 @@ export default function MapComponent() {
 
     const createQuestItem = (objectif: Objectif, color: string | undefined) => {
       return L.divIcon({
-        html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
-      ${!objectif.show ? 'display:none;' : ''}"></i>`,
+        html: ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={objectif.action}
+            className={`fa-2x`}
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        ),
+
         iconSize: [24, 24], // Taille de l'icône en pixels
         iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
         className: styles.questItem,
