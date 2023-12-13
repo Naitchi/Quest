@@ -12,10 +12,11 @@ import {
   faBox,
   faKey,
   faSkull,
-  faMobile,
+  faMobileScreen,
   faHandLizard,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Styles
 import 'leaflet/dist/leaflet.css';
@@ -115,6 +116,64 @@ export default function MapComponent() {
     };
   }, []);
 
+  const createIcon = (objectif: Objectif, color: string | undefined) => {
+    switch (objectif.action) {
+      case 'faPersonHiking':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faPersonHiking}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faBox':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faBox}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faKey':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faKey}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faSkull':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faSkull}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faMobileScreen':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faMobileScreen}
+            className="MS2000"
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faHandLizard':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faHandLizard}
+            size="2xl"
+            rotation={270}
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      default:
+        console.error('Unknown Icon name in switch createIcon');
+        return false;
+    }
+  };
+
   useEffect(() => {
     const clearPreviousElements = () => {
       markersRef.current.forEach((marker) => marker.remove());
@@ -127,19 +186,13 @@ export default function MapComponent() {
     };
 
     const createQuestItem = (objectif: Objectif, color: string | undefined) => {
-      return L.divIcon({
-        html: ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={objectif.action}
-            className={`fa-2x`}
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
-        ),
-
-        iconSize: [24, 24], // Taille de l'icône en pixels
-        iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
-        className: styles.questItem,
-      });
+      if (objectif.action)
+        return L.divIcon({
+          html: createIcon(objectif, color),
+          iconSize: [24, 24], // Taille de l'icône en pixels
+          iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
+          className: styles.questItem,
+        });
     };
 
     const handleObjectifPosition = (

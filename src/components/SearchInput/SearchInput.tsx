@@ -5,6 +5,11 @@ import { getQuestArray, setQuestArray } from '../../redux/questSlice';
 import { getUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
+// Import Fontawesome
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 // Style
 import styles from './SearchInput.module.css';
 
@@ -80,7 +85,7 @@ export default function SearchInput() {
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
-          <i className="fa-regular fa-circle-xmark"></i>
+          <FontAwesomeIcon icon={faCircleXmark} size="lg" />
         </button>
       )}
       {result && (

@@ -10,7 +10,7 @@
       {
         "id": 0,
         "description": "Find Prapor's missing convoy on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [{ "x": 5168, "y": 2316 }],
         "show": true,
         "popUp": "<p></p>"
@@ -18,7 +18,7 @@
       {
         "id": 1,
         "description": "Locate the temporary USEC camp",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [{ "x": 4409, "y": 1890 }],
         "show": true,
         "popUp": "<p></p>"
@@ -46,7 +46,7 @@
       {
         "id": 1,
         "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Secure_Folder_0052' target='_blank'>Secure Folder 0052</a> in the sawmill cabin on <a href='https://escapefromtarkov.fandom.com/wiki/Woods' target='_blank'>Woods</a>",
-        "action": "fa-hand-lizard fa-rotate-270",
+        "action": "faHandLizard",
         "position": [{ "x": 5168, "y": 2316 }],
         "show": true,
         "popUp": "<p></p>"

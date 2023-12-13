@@ -25,7 +25,7 @@
       {
         "id": 0,
         "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Registered_letter' target='_blank'>registered mail</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
-        "action": "fa-hand-lizard fa-rotate-270",
+        "action": "faHandLizard",
         "position": [],
         "show": true,
         "popUp": "<p></p>"
@@ -49,7 +49,7 @@
       {
         "id": 0,
         "description": "Locate the apartment of Prapor's friend on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets_of_Tarkov</a>.",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [],
         "show": true,
         "popUp": "<p></p>"
@@ -93,7 +93,7 @@
       {
         "id": 1,
         "description": "Locate the cargo convoy on on <a href='https://escapefromtarkov.fandom.com/wiki/Streets_of_Tarkov' target='_blank'>Streets_of_Tarkov</a>.",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [],
         "show": true,
         "popUp": "<p></p>"
@@ -101,7 +101,7 @@
       {
         "id": 2,
         "description": "Locate the ambush emplacement",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [],
         "show": true,
         "popUp": "<p></p>"

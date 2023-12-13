@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 // Import Fontawesome
 import { faUser, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Types
 import { Info } from '../type/QuestType';
@@ -58,12 +59,11 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
-        <script src="https://kit.fontawesome.com/bf63fdfe50.js"></script>
       </Head>
       <div className={styles.body}>
         <div className={styles.left}>
           <div className={styles.user}>
-            <FontAwesomeIcon icon={faUser} className="fa-3x" />
+            <FontAwesomeIcon icon={faUser} size="3x" />
             {typeof info !== 'undefined' ? (
               <div className={styles.info}>
                 <select
@@ -88,7 +88,7 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              <FontAwesomeIcon icon={faSpinner} spin />
+              <FontAwesomeIcon icon={faSpinner} size="3x" spin />
             )}
           </div>
         </div>

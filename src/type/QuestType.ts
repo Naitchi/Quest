@@ -1,5 +1,3 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-
 export default interface QuestType {
   id: number;
   name: string;
@@ -19,7 +17,7 @@ export interface Objectif {
   map?: map;
   position?: Position[];
   polygon?: Position[];
-  action?: IconProp;
+  action?: action;
   show?: boolean;
   popUp?: string;
   subtask?: boolean;
@@ -45,14 +43,13 @@ export type map =
 // | 'terminal'
 // | 'suburbs'
 
-
 type action =
-  | 'fa-hand-lizard fa-rotate-270' // PickUp
-  | 'fa-person-hiking' // Scouting
-  | 'fa-box' // Delivary
-  | 'fa-key' // Key
-  | 'fa-skull' // Kill
-  | 'fa-mobile-screen MS2000'; // Marker
+  | 'faHandLizard' // PickUp
+  | 'faPersonHiking' // Scouting
+  | 'faBox' // Delivary
+  | 'faKey' // Key
+  | 'faSkull' // Kill
+  | 'faMobileScreen'; // Marker
 
 type traders =
   | 'prapor'

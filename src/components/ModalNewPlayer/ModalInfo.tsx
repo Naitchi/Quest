@@ -5,8 +5,9 @@ import { getUser, setUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
 // Import Fontawesome
-import { faAngleRight, faTimes, faAngleLeft, faCog } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog, faAngleRight, faTimes, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Styles
 import styles from './ModalInfo.module.css';
@@ -62,12 +63,9 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     </div>,
     <div className={styles.slide} key={3}>
       <div className={styles.gears}>
-        <FontAwesomeIcon icon={faCog} className="fa-3x fa-spin" />
-        <FontAwesomeIcon
-          icon={faCog}
-          className={`fa-3x fa-spin fa-spin-reverse ${styles.MidleGear}`}
-        />
-        <FontAwesomeIcon icon={faCog} className={`fa-3x fa-spin ${styles.LastGear}`} />
+        <FontAwesomeIcon icon={faCog} spin size="3x" />
+        <FontAwesomeIcon icon={faCog} spin size="3x" spinReverse className={styles.MidleGear} />
+        <FontAwesomeIcon icon={faCog} spin size="3x" className={styles.LastGear} />
       </div>
       <h3 className={styles.welcome}>Les options ma passion</h3>
       <p className={styles.desc}>
@@ -88,7 +86,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     <div className={styles.window}>
       <div className={styles.container}>
         <button className={styles.previous} onClick={prevSlide}>
-          <FontAwesomeIcon icon={faAngleLeft} />
+          <FontAwesomeIcon size="3x" icon={faAngleLeft} />
         </button>
         <div className={styles.center}>
           <button className={styles.closeButton} onClick={onClose}>
@@ -106,11 +104,11 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
         </div>
         {slides.length === currentSlide + 1 ? (
           <button className={styles.close} onClick={onClose}>
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon size="3x" className={styles.iconNavModal} icon={faTimes} />
           </button>
         ) : (
           <button className={styles.next} onClick={nextSlide}>
-            <FontAwesomeIcon icon={faAngleRight} />
+            <FontAwesomeIcon size="3x" className={styles.iconNavModal} icon={faAngleRight} />
           </button>
         )}
         {/* TODO Remplacé par un bouton fermer quand c'est la derniere slide*/}

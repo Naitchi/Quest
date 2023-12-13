@@ -10,7 +10,7 @@
       {
         "id": 0,
         "description": "Obtain the <a href='https://escapefromtarkov.fandom.com/wiki/Sealed_letter' target='_blank'>letter</a> on the messenger's body on <a href='https://escapefromtarkov.fandom.com/wiki/Factory' target='_blank'>Factory</a>",
-        "action": "fa-hand-lizard fa-rotate-270",
+        "action": "faHandLizard",
         "position": [{ "x": 1376, "y": 3406 }],
         "show": true,
         "popUp": "<p></p>"
