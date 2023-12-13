@@ -13,7 +13,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Info } from '../../type/QuestType';
 
 // Style
-import styles from './MultiplayerBtn.module.css';
+import styles from './MultiplayerBtn.module.scss';
 
 export default function MultiplayerBtn() {
   const [isHovered, setIsHovered] = useState(false);

@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Style
-import styles from './SearchInput.module.css';
+import styles from './SearchInput.module.scss';
 
 // Type
 import QuestType, { Info } from '../../type/QuestType';

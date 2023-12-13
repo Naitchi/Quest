@@ -1,23 +1,22 @@
 .map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 789px;
+  height: 561px;
+
+  background-image: url('/assets/TarkovMap.webp');
+
+  box-shadow: 0 0 15px rgba(65, 61, 52, 1), 0 0 6px rgba(232, 190, 107, 0.8);
+
+  .lien {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 789px;
-    height: 561px;
-
-    background-image: url("/assets/TarkovMap.webp");
-
-    box-shadow: 0 0 15px rgba(65, 61, 52, 1), 0 0 6px rgba(232, 190, 107, 0.8);
-}
-
-.lien {
-    display: flex;
     justify-content: center;
     align-items: center;
 
-    font-family: "Bender", sans-serif;
+    font-family: 'Bender', sans-serif;
     color: darkgrey;
 
     height: 28px;
@@ -27,26 +26,24 @@
 
     background-color: transparent;
     transition: color 0.2s ease-in, background-color 0.2s ease-in;
-}
 
-.lien:hover {
-    color: black;
-    text-shadow: 1px 1px 1px black;
-    background-image: url("/assets/TarkovMapLocationBG.png");
-    background-size: cover;
-    transition: color 0.2s ease-in, background-color 0.4s ease-in;
-}
-
-.customs {
+    &:hover {
+      color: black;
+      text-shadow: 1px 1px 1px black;
+      background-image: url('/assets/TarkovMapLocationBG.png');
+      background-size: cover;
+      transition: color 0.2s ease-in, background-color 0.4s ease-in;
+    }
+  }
+  .customs {
     position: relative;
     width: 161px;
     bottom: -32px;
     left: 71px;
 
     letter-spacing: 0.3px;
-}
-
-.factory {
+  }
+  .factory {
     position: relative;
     width: 157px;
     height: 32px;
@@ -54,9 +51,8 @@
     left: -68px;
 
     letter-spacing: 0.6px;
-}
-
-.woods {
+  }
+  .woods {
     position: relative;
 
     width: 138px;
@@ -64,9 +60,8 @@
     bottom: 50px;
     left: -142px;
     letter-spacing: 0.4px;
-}
-
-.reserve {
+  }
+  .reserve {
     position: relative;
 
     width: 153px;
@@ -74,9 +69,8 @@
     bottom: -93px;
     left: -229px;
     letter-spacing: 0.3px;
-}
-
-.lighthouse {
+  }
+  .lighthouse {
     position: relative;
 
     width: 201px;
@@ -84,9 +78,8 @@
     bottom: -173px;
     left: -226px;
     letter-spacing: 0.2px;
-}
-
-.shoreline {
+  }
+  .shoreline {
     position: relative;
 
     width: 188px;
@@ -94,9 +87,8 @@
     bottom: -227px;
     left: -134px;
     letter-spacing: 0.2px;
-}
-
-.interchange {
+  }
+  .interchange {
     position: relative;
 
     width: 217px;
@@ -104,9 +96,8 @@
     left: 146px;
     bottom: 217px;
     letter-spacing: 0.1px;
-}
-
-.streets {
+  }
+  .streets {
     position: relative;
 
     justify-content: unset;
@@ -116,15 +107,14 @@
     bottom: 345.4px;
     left: 270px;
     letter-spacing: 0.1px;
-}
 
-.tarkov {
-    padding-left: 8px;
-    letter-spacing: 0.6px;
-    font-family: "Bender", sans-serif;
-}
-
-.lab {
+    .tarkov {
+      padding-left: 8px;
+      letter-spacing: 0.6px;
+      font-family: 'Bender', sans-serif;
+    }
+  }
+  .lab {
     position: relative;
 
     padding: 2px 25px 1px 24px;
@@ -132,4 +122,5 @@
     bottom: 386px;
     left: -100.9px;
     letter-spacing: 0.2px;
+  }
 }

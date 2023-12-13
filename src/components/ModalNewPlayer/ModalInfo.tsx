@@ -10,7 +10,7 @@ import { faCog, faAngleRight, faTimes, faAngleLeft } from '@fortawesome/free-sol
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Styles
-import styles from './ModalInfo.module.css';
+import styles from './ModalInfo.module.scss';
 
 // Type
 import { Info } from '../../type/QuestType';

@@ -1,0 +1,83 @@
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  width: 100vw;
+
+  .left {
+    display: flex;
+
+    .user {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+
+      display: flex;
+      background: #23272a;
+      padding: 10px;
+      border-radius: 8px;
+      border: solid 4px rgba(232, 190, 107, 0.8);
+      border-right: none;
+      border-bottom: none;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        margin-left: 20px;
+
+        .labelLvl {
+          margin-left: 5px;
+          font-size: 1.3rem;
+        }
+        .inputLevel {
+          font-size: 1.3rem;
+          width: 50px;
+          margin-left: 5px;
+        }
+        .select {
+          font-size: 1.3rem;
+        }
+        .clearInputCSS {
+          background: none;
+          border: none;
+
+          option {
+            background-color: grey;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+  .infosBulle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(232, 190, 107, 0.8);
+    background-color: #23272a;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+  .credit {
+    position: absolute;
+    bottom: 10px;
+    opacity: 0.6;
+
+    .link {
+      font-weight: bold;
+
+      &:hover {
+        color: #e8be6b;
+        text-decoration: underline;
+      }
+    }
+  }
+}

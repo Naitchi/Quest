@@ -20,7 +20,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Styles
 import 'leaflet/dist/leaflet.css';
-import styles from './MapComponent.module.css';
+import styles from './MapComponent.module.scss';
 
 // Types
 import L from 'leaflet';

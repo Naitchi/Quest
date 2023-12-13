@@ -13,7 +13,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Info } from '../type/QuestType';
 
 // Styles
-import styles from '@/styles/Home.module.css';
+import styles from '@/styles/index.module.scss';
 
 // Components
 import NavMap from '@/components/NavMap/NavMap';

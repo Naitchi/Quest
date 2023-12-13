@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 // Style
-import styles from './NavMap.module.css';
+import styles from './NavMap.module.scss';
 
 export default function NavMap() {
   return (

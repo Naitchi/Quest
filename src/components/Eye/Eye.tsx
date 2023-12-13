@@ -5,7 +5,7 @@ type EyeProps = {
 };
 
 // Style
-import styles from './Eye.module.css';
+import styles from './Eye.module.scss';
 
 export default function Eye({ show, onClick }: Readonly<EyeProps>) {
   return (
