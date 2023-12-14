@@ -8,6 +8,7 @@ export default interface QuestType {
   objectifs: Objectif[];
   unlockBy: number[];
   levelNeeded: number;
+  factionNeeded?: faction;
 }
 
 export interface Objectif {
@@ -43,12 +44,12 @@ export type map =
 // | 'suburbs'
 
 type action =
-  | 'fa-hand-lizard fa-rotate-270' // PickUp
-  | 'fa-person-hiking' // Scouting
-  | 'fa-box' // Delivary
-  | 'fa-key' // Key
-  | 'fa-skull' // Kill
-  | 'fa-mobile-screen MS2000'; // Marker
+  | 'faHandLizard' // PickUp
+  | 'faPersonHiking' // Scouting
+  | 'faBox' // Delivary
+  | 'faKey' // Key
+  | 'faSkull' // Kill
+  | 'faMobileScreen'; // Marker
 
 type traders =
   | 'prapor'
@@ -68,3 +69,11 @@ export type MapProperties = {
     defaultZoom: number;
   };
 };
+
+type faction = 'BEAR' | 'USEC';
+
+export interface Info {
+  faction: faction;
+  level: number;
+  multiplayer: boolean; // see if need to add matching level/faction to search input. default: fasle.
+}

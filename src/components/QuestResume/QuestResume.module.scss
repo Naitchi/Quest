@@ -1,0 +1,50 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+
+  width: 90%;
+  margin: 15px 0;
+
+  .name {
+    display: flex;
+    align-items: center;
+
+    text-decoration: underline;
+    color: #8a7c64;
+
+    .link {
+      color: #8a7c64;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #b7ad9c;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  div {
+    .ul {
+      margin-left: 25px;
+      list-style: none;
+
+      .row {
+        display: inline-flex;
+
+        li {
+          .tabulation {
+            margin-left: 25px;
+          }
+          &::before {
+            content: '\2022';
+            color: #8a7c64;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+          }
+        }
+      }
+    }
+  }
+}

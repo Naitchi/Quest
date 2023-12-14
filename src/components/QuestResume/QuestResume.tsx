@@ -8,12 +8,15 @@ import { useRouter } from 'next/router';
 import QuestType, { Objectif } from '@/type/QuestType';
 
 // Style
-import styles from './QuestResume.module.css';
+import styles from './QuestResume.module.scss';
 
 // Components
 import Eye from '../Eye/Eye';
 
-export default function QuestResume({ type, quest }: { type: QuestArrayName; quest: QuestType }) {
+export default function QuestResume({
+  type,
+  quest,
+}: Readonly<{ type: QuestArrayName; quest: QuestType }>) {
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -25,13 +28,16 @@ export default function QuestResume({ type, quest }: { type: QuestArrayName; que
       return null;
     return <Eye show={objectif.show} onClick={() => toggleObjectif(quest, index)} />;
   };
+
   const showMainEyes = (quest: QuestType) => {
     if (quest.show === undefined) return null;
     return <Eye show={quest.show} onClick={() => toggleQuest(quest)} />;
   };
+
   const updateQuest = (quest: QuestType) => {
     dispatch(modifyAQuest({ name: type, content: quest }));
   };
+
   const toggleQuest = (quest: QuestType) => {
     const newShow = !quest.show;
     const newQuest = {
@@ -44,6 +50,7 @@ export default function QuestResume({ type, quest }: { type: QuestArrayName; que
     };
     updateQuest(newQuest);
   };
+  
   const toggleObjectif = (quest: QuestType, index: number) => {
     const newQuest = {
       ...quest,
@@ -61,7 +68,6 @@ export default function QuestResume({ type, quest }: { type: QuestArrayName; que
       <div className={styles.name}>
         {showMainEyes(quest)}
         <h3>
-          {/* TODO faire une fonction pour formaté le nom => replacer tout les espaces par des underscores */}
           <Link
             className={styles.link}
             href={`https://escapefromtarkov.fandom.com/wiki/${quest.name}`}

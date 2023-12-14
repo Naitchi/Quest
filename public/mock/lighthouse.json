@@ -14,7 +14,7 @@
       {
         "id": 1,
         "description": "Mark the helicopter with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a>",
-        "action": "fa-mobile-screen MS2000",
+        "action": "faMobileScreen",
         "position": [{ "x": 2566, "y": 1288 }],
         "show": true,
         "popUp": "<p></p>"
@@ -38,7 +38,7 @@
       {
         "id": 0,
         "description": "Kill 20 <a href='https://escapefromtarkov.fandom.com/wiki/Rogues' target='_blank'>Rogues</a>, <a href='https://escapefromtarkov.fandom.com/wiki/Scavs' target='_blank'>Scavs</a>, or PMC's in a specific area of the water treatment plant on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
-        "action": "fa-skull",
+        "action": "faSkull",
         "position": [{ "x": 2664, "y": 1232 }],
         "polygon": [
           { "x": 2936, "y": 974 },
@@ -75,7 +75,8 @@
       }
     ],
     "unlockBy": [0],
-    "levelNeeded": 20
+    "levelNeeded": 20,
+    "factionNeeded": "BEAR"
   },
   {
     "id": 3,
@@ -88,7 +89,7 @@
       {
         "id": 0,
         "description": "Look for the ladder on the roof of the first office building on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [
           { "x": 2720, "y": 1006 },
           { "x": 3110, "y": 194 }
@@ -99,7 +100,7 @@
       {
         "id": 1,
         "description": "Look for the ladder on the roof of the second office building on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [
           { "x": 3054, "y": 382 },
           { "x": 2968, "y": 1288 }
@@ -110,7 +111,7 @@
       {
         "id": 2,
         "description": "Look for the ladder on the roof of the third office building on <a href='https://escapefromtarkov.fandom.com/wiki/Lighthouse' target='_blank'>Lighthouse</a>.",
-        "action": "fa-person-hiking",
+        "action": "faPersonHiking",
         "position": [
           { "x": 2814, "y": 1476 },
           { "x": 3106, "y": 628 }

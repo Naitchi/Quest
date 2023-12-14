@@ -2,20 +2,33 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getQuestArray, setQuestArray } from '../../redux/questSlice';
+import { getUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
+// Import Fontawesome
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 // Style
-import styles from './SearchInput.module.css';
+import styles from './SearchInput.module.scss';
 
 // Type
-import QuestType from '../../type/QuestType';
+import QuestType, { Info } from '../../type/QuestType';
 
 export default function SearchInput() {
   const dispatch = useDispatch();
 
-  const allQuests = useSelector((state: RootState) => getQuestArray(state, 'all'));
-  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main')); // TODO utilisé main pour grisé/et rendre impossible l'ajout ou la suppression via la recherche
-  const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
+  const allQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'all'),
+  );
+  const mainQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'main'),
+  );
+  const temporaryQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'temporary'),
+  );
+  const user: Info | undefined = useSelector((state: RootState) => getUser(state));
 
   const [searchText, setSearchText] = useState<string>('');
 
@@ -43,15 +56,19 @@ export default function SearchInput() {
     }
   };
 
-  // TODO faire une fonction pour proposé les quetes mutltiple de la map actuelle
   const searchQuest = (text: string) => {
-    if (!text.length) return null;
-    return allQuests?.filter(
-      (quest) =>
-        quest.id.toString().includes(text.toLowerCase()) ||
-        quest.name.toLowerCase().includes(text.toLowerCase()),
-    );
+    if (!text.length || !user) return null;
+
+    return allQuests?.filter((quest) => {
+      const isMatchingName = quest.name.toLowerCase().includes(text.toLowerCase());
+      const isMatchingLevel = quest.levelNeeded <= user.level;
+      const isMatchingFaction = quest.factionNeeded ? quest.factionNeeded === user.faction : true;
+
+      if (user.multiplayer) return isMatchingName;
+      return isMatchingName && isMatchingLevel && isMatchingFaction;
+    });
   };
+
   const result = searchQuest(searchText);
 
   return (
@@ -68,7 +85,7 @@ export default function SearchInput() {
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
-          <i className="fa-regular fa-circle-xmark"></i>
+          <FontAwesomeIcon icon={faCircleXmark} size="lg" />
         </button>
       )}
       {result && (
@@ -76,16 +93,16 @@ export default function SearchInput() {
           {result?.map((quest) => (
             <div key={quest.id}>
               {checkForDouble(temporaryQuests, quest) ? (
-                <p
+                <button
                   className={`${styles.result} ${styles.unavailable}`}
                   onClick={() => removeTemporary(quest)}
                 >
                   {quest.name}
-                </p>
+                </button>
               ) : (
-                <p className={`${styles.result}`} onClick={() => addTemporary(quest)}>
+                <button className={`${styles.result}`} onClick={() => addTemporary(quest)}>
                   {quest.name}
-                </p>
+                </button>
               )}
             </div>
           ))}

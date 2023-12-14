@@ -5,7 +5,7 @@ import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 
 // Style
-import styles from './QuestList.module.css';
+import styles from './QuestList.module.scss';
 
 // Type
 import QuestType from '../../type/QuestType';

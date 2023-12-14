@@ -76,7 +76,7 @@
       {
         "id": 0,
         "description": "Mark the first trading post with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> ",
-        "action": "fa-mobile-screen MS2000",
+        "action": "faMobileScreen",
         "position": [{ "x": 1363, "y": 1492 }],
         "show": true,
         "popUp": "<p></p>"
@@ -84,7 +84,7 @@
       {
         "id": 1,
         "description": "Mark the second trading post with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> ",
-        "action": "fa-mobile-screen MS2000",
+        "action": "faMobileScreen",
         "position": [{ "x": 1010, "y": 774 }],
         "show": true,
         "popUp": "<p></p>"
@@ -92,7 +92,7 @@
       {
         "id": 2,
         "description": "Mark the third trading post with an <a href='https://escapefromtarkov.fandom.com/wiki/MS2000_Marker' target='_blank'>MS2000 Marker</a> on <a href='https://escapefromtarkov.fandom.com/wiki/Shoreline' target='_blank'>Shoreline</a> ",
-        "action": "fa-mobile-screen MS2000",
+        "action": "faMobileScreen",
         "position": [{ "x": 238, "y": 1577 }],
         "show": true,
         "popUp": "<p></p>"

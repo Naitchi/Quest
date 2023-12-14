@@ -5,11 +5,11 @@ type EyeProps = {
 };
 
 // Style
-import styles from './Eye.module.css';
+import styles from './Eye.module.scss';
 
-export default function Eye({ show, onClick }: EyeProps) {
+export default function Eye({ show, onClick }: Readonly<EyeProps>) {
   return (
-    <div className={styles.mainDiv} onClick={onClick}>
+    <button className={styles.mainDiv} onClick={onClick}>
       {show ? (
         <div className={styles.openedEye}>
           <img
@@ -34,6 +34,6 @@ export default function Eye({ show, onClick }: EyeProps) {
           </div>
         </div>
       )}
-    </div>
+    </button>
   );
 }

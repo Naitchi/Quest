@@ -4,10 +4,23 @@ import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 import { useRouter } from 'next/router';
+import ReactDOMServer from 'react-dom/server';
+
+// Import Fontawesome
+import {
+  faPersonHiking,
+  faBox,
+  faKey,
+  faSkull,
+  faMobileScreen,
+  faHandLizard,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Styles
 import 'leaflet/dist/leaflet.css';
-import styles from './MapComponent.module.css';
+import styles from './MapComponent.module.scss';
 
 // Types
 import L from 'leaflet';
@@ -81,7 +94,7 @@ export default function MapComponent() {
         minZoom: slugProperties.defaultZoom,
         maxZoom: 2,
       }).setView([slugProperties.lat / 2, slugProperties.lng / 2], slugProperties.defaultZoom); // Latitude, Longitude, Default Zoom
-      // TODO ajouter de la couche d'image personnalisée avec le parseUrl string
+      // ajout de la couche d'image personnalisée avec le parseUrl string
       const imageUrl = `assets/${router.query.slug}.webp`;
       const imageBounds: L.LatLngBoundsExpression = [
         [0, 0],
@@ -103,6 +116,64 @@ export default function MapComponent() {
     };
   }, []);
 
+  const createIcon = (objectif: Objectif, color: string | undefined) => {
+    switch (objectif.action) {
+      case 'faPersonHiking':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faPersonHiking}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faBox':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faBox}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faKey':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faKey}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faSkull':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faSkull}
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faMobileScreen':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faMobileScreen}
+            className="MS2000"
+            size="2xl"
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      case 'faHandLizard':
+        return ReactDOMServer.renderToString(
+          <FontAwesomeIcon
+            icon={faHandLizard}
+            size="2xl"
+            rotation={270}
+            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+          />,
+        );
+      default:
+        console.error('Unknown Icon name in switch createIcon');
+        return false;
+    }
+  };
+
   useEffect(() => {
     const clearPreviousElements = () => {
       markersRef.current.forEach((marker) => marker.remove());
@@ -115,13 +186,13 @@ export default function MapComponent() {
     };
 
     const createQuestItem = (objectif: Objectif, color: string | undefined) => {
-      return L.divIcon({
-        html: `<i class="fas ${objectif.action} fa-2x" style="color:${color}; 
-      ${!objectif.show ? 'display:none;' : ''}"></i>`,
-        iconSize: [24, 24], // Taille de l'icône en pixels
-        iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
-        className: styles.questItem,
-      });
+      if (objectif.action)
+        return L.divIcon({
+          html: createIcon(objectif, color),
+          iconSize: [24, 24], // Taille de l'icône en pixels
+          iconAnchor: [12, 12], // Point d'ancrage de l'icône au milieu
+          className: styles.questItem,
+        });
     };
 
     const handleObjectifPosition = (
