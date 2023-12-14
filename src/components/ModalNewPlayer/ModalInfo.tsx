@@ -1,5 +1,5 @@
 // Import React/Redux
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser, setUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
@@ -19,6 +19,8 @@ interface ModalInfoProps {
 }
 
 export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
+  const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [Info, setInfo] = useState();
   const dispatch = useDispatch();
@@ -38,6 +40,15 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
       dispatch(setUser({ content: { ...info, [name]: value } }));
       localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));
     }
+  };
+
+  // Fonction pour jouer le son
+  const playHoverSound = () => {
+    const newAudioRef = document.createElement('audio');
+    newAudioRef.src = '/sounds/hoverButton.wav';
+
+    audioRefs.current.push(newAudioRef);
+    newAudioRef.play();
   };
 
   const slides = [
@@ -83,15 +94,12 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
   ];
 
   return (
-    <div className={styles.window}>
-      <div className={styles.container}>
-        <button className={styles.previous} onClick={prevSlide}>
+    <button className={styles.window} onClick={onClose}>
+      <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.previous} onMouseEnter={playHoverSound} onClick={prevSlide}>
           <FontAwesomeIcon size="3x" icon={faAngleLeft} />
         </button>
         <div className={styles.center}>
-          <button className={styles.closeButton} onClick={onClose}>
-            Fermer
-          </button>
           <div className={styles.slider}>{slides[currentSlide]}</div>
           <div className={styles.bullets}>
             {/** TODO faires des transitions css */}
@@ -103,16 +111,15 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
           </div>
         </div>
         {slides.length === currentSlide + 1 ? (
-          <button className={styles.close} onClick={onClose}>
+          <button className={styles.close} onMouseEnter={playHoverSound} onClick={onClose}>
             <FontAwesomeIcon size="3x" className={styles.iconNavModal} icon={faTimes} />
           </button>
         ) : (
-          <button className={styles.next} onClick={nextSlide}>
+          <button className={styles.next} onMouseEnter={playHoverSound} onClick={nextSlide}>
             <FontAwesomeIcon size="3x" className={styles.iconNavModal} icon={faAngleRight} />
           </button>
         )}
-        {/* TODO Remplacé par un bouton fermer quand c'est la derniere slide*/}
       </div>
-    </div>
+    </button>
   );
 }
