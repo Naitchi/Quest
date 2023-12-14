@@ -22,7 +22,6 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [Info, setInfo] = useState();
   const dispatch = useDispatch();
   const info: Info | undefined = useSelector((state: RootState) => getUser(state));
 
@@ -34,11 +33,13 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
   };
 
-  // TODO lié avec le boutons fermé
-  const infoChange = (value: any, name: string) => {
-    if (info) {
-      dispatch(setUser({ content: { ...info, [name]: value } }));
-      localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));
+  const addInfo = () => {
+    if (!info) {
+      dispatch(setUser({ content: { faction: 'BEAR', level: 20, multiplayer: false } }));
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ faction: 'BEAR', level: 20, multiplayer: false }),
+      );
     }
   };
 
@@ -94,7 +95,13 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
   ];
 
   return (
-    <button className={styles.window} onClick={onClose}>
+    <button
+      className={styles.window}
+      onClick={() => {
+        addInfo();
+        onClose();
+      }}
+    >
       <div className={styles.container} onClick={(e) => e.stopPropagation()}>
         <button className={styles.previous} onMouseEnter={playHoverSound} onClick={prevSlide}>
           <FontAwesomeIcon size="3x" icon={faAngleLeft} />
@@ -111,7 +118,14 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
           </div>
         </div>
         {slides.length === currentSlide + 1 ? (
-          <button className={styles.close} onMouseEnter={playHoverSound} onClick={onClose}>
+          <button
+            className={styles.close}
+            onMouseEnter={playHoverSound}
+            onClick={() => {
+              addInfo();
+              onClose();
+            }}
+          >
             <FontAwesomeIcon size="3x" className={styles.iconNavModal} icon={faTimes} />
           </button>
         ) : (
