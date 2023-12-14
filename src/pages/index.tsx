@@ -18,7 +18,7 @@ import styles from '@/styles/index.module.scss';
 
 // Components
 import NavMap from '@/components/NavMap/NavMap';
-import ModalInfo from '@/components/ModalNewPlayer/ModalInfo';
+import ModalInfo from '@/components/ModalInfo/ModalInfo';
 
 export default function Home() {
   const dispatch = useDispatch();
