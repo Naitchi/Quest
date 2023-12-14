@@ -1,8 +1,9 @@
 // Import React/Redux
 import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
-import { setUser } from '../redux/userSlice';
-import { useDispatch } from 'react-redux';
+import { setUser, getUser } from '../redux/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../redux/store';
 
 // Import Fontawesome
 import { faUser, faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -22,8 +23,8 @@ import ModalInfo from '@/components/ModalNewPlayer/ModalInfo';
 export default function Home() {
   const dispatch = useDispatch();
 
-  const [info, setInfo] = useState<Info | undefined>();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const user: Info | undefined = useSelector((state: RootState) => getUser(state));
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -33,19 +34,17 @@ export default function Home() {
       const data: any = localStorage.getItem('user');
       if (data) {
         const info: Info = JSON.parse(data);
-        setInfo(info);
         dispatch(setUser({ content: info }));
-      }
+      } else setIsModalOpen(true);
     };
     fetchDataUser();
   }, []);
 
   // Handle onChange for infos inputs, receive well typed value and name of the variable to change (need to clear the type inside to avoid error ? GL futur me :D)
   const infoChange = (value: any, name: string) => {
-    if (info) {
-      setInfo({ ...info, [name]: value });
-      dispatch(setUser({ content: info }));
-      localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));
+    if (user) {
+      dispatch(setUser({ content: { ...user, [name]: value } }));
+      localStorage.setItem('user', JSON.stringify({ ...user, [name]: value }));
     }
   };
 
@@ -64,11 +63,11 @@ export default function Home() {
         <div className={styles.left}>
           <div className={styles.user}>
             <FontAwesomeIcon icon={faUser} size="3x" />
-            {typeof info !== 'undefined' ? (
+            {typeof user !== 'undefined' ? (
               <div className={styles.info}>
                 <select
                   className={`${styles.clearInputCSS} ${styles.select}`}
-                  value={info.faction}
+                  value={user.faction}
                   onChange={(e) => infoChange(e.target.value, 'faction')}
                 >
                   <option value="BEAR">BEAR</option>
@@ -82,7 +81,7 @@ export default function Home() {
                     className={`${styles.clearInputCSS} ${styles.inputLevel}`}
                     id="level"
                     type="number"
-                    value={info.level}
+                    value={user.level}
                     onChange={(e) => infoChange(Number(e.target.value), 'level')}
                   />
                 </div>
