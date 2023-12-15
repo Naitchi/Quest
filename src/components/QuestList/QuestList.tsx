@@ -15,8 +15,12 @@ import SearchInput from '../SearchInput/SearchInput';
 import QuestResume from '../QuestResume/QuestResume';
 
 export default function QuestList() {
-  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
-  const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
+  const mainQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'main'),
+  );
+  const temporaryQuests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'temporary'),
+  );
 
   const [temporary, setTemporary] = useState<QuestType[] | null>();
   const [main, setMain] = useState<QuestType[]>([]);
