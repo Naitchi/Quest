@@ -35,6 +35,10 @@
           font-size: 1.3rem;
           width: 50px;
           margin-left: 5px;
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            opacity: 1;
+          }
         }
         .select {
           font-size: 1.3rem;
