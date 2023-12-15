@@ -22,21 +22,18 @@ export default function SearchInput() {
   const allQuests: QuestType[] | null = useSelector((state: RootState) =>
     getQuestArray(state, 'all'),
   );
-  const mainQuests: QuestType[] | null = useSelector((state: RootState) =>
-    getQuestArray(state, 'main'),
-  );
-  const temporaryQuests: QuestType[] | null = useSelector((state: RootState) =>
-    getQuestArray(state, 'temporary'),
+  const quests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'quests'),
   );
   const user: Info | undefined = useSelector((state: RootState) => getUser(state));
 
   const [searchText, setSearchText] = useState<string>('');
 
-  const removeTemporary = (itemToDelete: QuestType) => {
+  const removeQuest = (itemToDelete: QuestType) => {
     dispatch(
       setQuestArray({
-        name: 'temporary',
-        content: temporaryQuests?.filter((item) => item.id !== itemToDelete.id) ?? null,
+        name: 'quests',
+        content: quests?.filter((item) => item.id !== itemToDelete.id) ?? null,
       }),
     );
   };
@@ -46,11 +43,11 @@ export default function SearchInput() {
   };
 
   const addTemporary = (item: QuestType) => {
-    if (!checkForDouble(temporaryQuests, item)) {
+    if (!checkForDouble(quests, item)) {
       dispatch(
         setQuestArray({
-          name: 'temporary',
-          content: [...(temporaryQuests ?? []), item],
+          name: 'quests',
+          content: [...(quests ?? []), item],
         }),
       );
     }
@@ -92,10 +89,10 @@ export default function SearchInput() {
         <div className={styles.dropdown}>
           {result?.map((quest) => (
             <div key={quest.id}>
-              {checkForDouble(temporaryQuests, quest) ? (
+              {checkForDouble(quests, quest) ? (
                 <button
                   className={`${styles.result} ${styles.unavailable}`}
-                  onClick={() => removeTemporary(quest)}
+                  onClick={() => removeQuest(quest)}
                 >
                   {quest.name}
                 </button>

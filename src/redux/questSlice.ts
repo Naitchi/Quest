@@ -6,10 +6,9 @@ import { RootState } from './store';
 import QuestType from '@/type/QuestType';
 interface QuestsType {
   all: QuestType[] | null;
-  main: QuestType[] | null;
-  temporary: QuestType[] | null;
+  quests: QuestType[] | null;
 }
-export type QuestArrayName = 'all' | 'main' | 'temporary';
+export type QuestArrayName = 'all' | 'quests';
 
 interface SetQuestArrayPayload {
   name: QuestArrayName;
@@ -23,8 +22,7 @@ interface ModifyQuestPayload {
 
 const initialState: QuestsType = {
   all: null,
-  main: null,
-  temporary: null,
+  quests: null,
 };
 
 const questSlice = createSlice({

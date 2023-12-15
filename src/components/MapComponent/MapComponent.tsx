@@ -54,8 +54,7 @@ const colorPicker = (index: number): string | undefined => {
 export default function MapComponent() {
   const router = useRouter();
 
-  const mainQuests = useSelector((state: RootState) => getQuestArray(state, 'main'));
-  const temporaryQuests = useSelector((state: RootState) => getQuestArray(state, 'temporary'));
+  const quests = useSelector((state: RootState) => getQuestArray(state, 'quests'));
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -76,6 +75,7 @@ export default function MapComponent() {
   };
 
   useEffect(() => {
+    // Fonction pour trouver les coordonnées des points via un click
     const onMapClick = (e: any) => {
       console.log('You clicked the map at ' + e.latlng);
     };
@@ -240,10 +240,8 @@ export default function MapComponent() {
     };
 
     // Affichage des objectifs
-    // showMarker(mainQuests);
-    showMarker(temporaryQuests);
-    // Fonction pour trouver les coordonnées des points via un click
-  }, [mainQuests, temporaryQuests]);
+    showMarker(quests);
+  }, [quests]);
 
   return <div ref={mapContainerRef} id="map" style={{ height: '100vh', width: '100vw' }}></div>;
 }

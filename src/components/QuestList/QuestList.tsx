@@ -15,9 +15,8 @@ import SearchInput from '../SearchInput/SearchInput';
 import QuestResume from '../QuestResume/QuestResume';
 
 export default function QuestList() {
-  // const main: QuestType[] | null = useSelector((state: RootState) => getQuestArray(state, 'main'));
-  const temporary: QuestType[] | null = useSelector((state: RootState) =>
-    getQuestArray(state, 'temporary'),
+  const quests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'quests'),
   );
 
   const [show, setShow] = useState<boolean>(false);
@@ -29,19 +28,14 @@ export default function QuestList() {
       </button>
       <div className={styles.main}>
         <SearchInput />
-        {temporary && temporary.length > 0 && (
+        {quests && quests.length > 0 && (
           <div className={styles.temporary}>
-            <h2 className={styles.title}>Quêtes temporaire{temporary.length > 1 ? 's' : ''} :</h2>
-            {temporary?.map((quest) => (
-              <QuestResume key={quest.id} type={'temporary'} quest={quest} />
+            <h2 className={styles.title}>Quêtes temporaire{quests.length > 1 ? 's' : ''} :</h2>
+            {quests?.map((quest) => (
+              <QuestResume key={quest.id} type={'quests'} quest={quest} />
             ))}
           </div>
         )}
-        {/* <div className={styles.mainQuest}>
-          <h2>Vos Quêtes :</h2>
-          {!main?.length &&
-            main?.map((quest) => <QuestResume key={quest.id} type={'main'} quest={quest} />)}
-        </div> */}
       </div>
     </div>
   );
