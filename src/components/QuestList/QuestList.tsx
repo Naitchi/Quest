@@ -1,5 +1,5 @@
 // Import React/Redux
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
@@ -15,22 +15,12 @@ import SearchInput from '../SearchInput/SearchInput';
 import QuestResume from '../QuestResume/QuestResume';
 
 export default function QuestList() {
-  const mainQuests: QuestType[] | null = useSelector((state: RootState) =>
-    getQuestArray(state, 'main'),
-  );
-  const temporaryQuests: QuestType[] | null = useSelector((state: RootState) =>
+  // const main: QuestType[] | null = useSelector((state: RootState) => getQuestArray(state, 'main'));
+  const temporary: QuestType[] | null = useSelector((state: RootState) =>
     getQuestArray(state, 'temporary'),
   );
 
-  const [temporary, setTemporary] = useState<QuestType[] | null>();
-  const [main, setMain] = useState<QuestType[]>([]);
-
   const [show, setShow] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (mainQuests) setMain(mainQuests);
-    if (temporaryQuests) setTemporary(temporaryQuests);
-  }, [mainQuests, temporaryQuests]);
 
   return (
     <div className={`${styles.questList} ${show ? styles.show : ''}`}>
