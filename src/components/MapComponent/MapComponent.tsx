@@ -243,5 +243,11 @@ export default function MapComponent() {
     showMarker(quests);
   }, [quests]);
 
-  return <div ref={mapContainerRef} id="map" style={{ height: '100vh', width: '100vw' }}></div>;
+  return (
+    <div
+      ref={mapContainerRef}
+      id="map"
+      style={{ height: '100vh', width: '100vw', backgroundColor: '#23272a' }}
+    ></div>
+  );
 }
