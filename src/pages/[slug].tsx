@@ -29,7 +29,20 @@ export default function Quest() {
         dispatch(setUser({ content: info }));
       }
     };
+    const fetchQuestsUser = () => {
+      const data: any = localStorage.getItem('quests');
+      if (data) {
+        const quests: QuestType[] = JSON.parse(data);
+        dispatch(
+          setQuestArray({
+            name: 'quests',
+            content: quests,
+          }),
+        );
+      }
+    };
     fetchDataUser();
+    fetchQuestsUser();
   }, []);
 
   useEffect(() => {

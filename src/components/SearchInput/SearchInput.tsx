@@ -42,7 +42,7 @@ export default function SearchInput() {
     return array?.some((obj) => obj.id === target.id) ?? false;
   };
 
-  const addTemporary = (item: QuestType) => {
+  const addQuest = (item: QuestType) => {
     if (!checkForDouble(quests, item)) {
       dispatch(
         setQuestArray({
@@ -50,6 +50,7 @@ export default function SearchInput() {
           content: [...(quests ?? []), item],
         }),
       );
+      localStorage.setItem('quests', JSON.stringify([...(quests ?? []), item]));
     }
   };
 
@@ -97,7 +98,7 @@ export default function SearchInput() {
                   {quest.name}
                 </button>
               ) : (
-                <button className={`${styles.result}`} onClick={() => addTemporary(quest)}>
+                <button className={`${styles.result}`} onClick={() => addQuest(quest)}>
                   {quest.name}
                 </button>
               )}
