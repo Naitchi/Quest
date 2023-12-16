@@ -6,6 +6,12 @@ import { useDispatch } from 'react-redux';
 import { setQuestArray } from '../redux/questSlice';
 import { setUser } from '../redux/userSlice';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+// Import Fontawesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Type
 import QuestType, { map, Info } from '../type/QuestType';
@@ -13,6 +19,10 @@ import QuestType, { map, Info } from '../type/QuestType';
 // Components
 import QuestList from '../components/QuestList/QuestList';
 import MultiplayerBtn from '@/components/MultiplayerBtn/MultiplayerBtn';
+
+// Styles
+import styles from '../styles/slug.module.scss';
+
 const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), {
   ssr: false,
 });
@@ -95,6 +105,9 @@ export default function Quest() {
       </Head>
       <MultiplayerBtn />
       <QuestList />
+      <Link className={styles.home} href={'/'}>
+        <FontAwesomeIcon size="2x" icon={faHouse} />
+      </Link>
       {router?.query?.slug && <MapComponent />}
     </React.Fragment>
   );

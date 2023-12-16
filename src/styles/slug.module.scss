@@ -1,0 +1,15 @@
+.home {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+
+  color: black;
+
+  transition: filter 0.3s ease;
+
+  &:hover {
+    filter: drop-shadow(0 0 10px rgb(192, 156, 83));
+  }
+}
