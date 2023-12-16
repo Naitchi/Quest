@@ -11,15 +11,30 @@
 
     text-decoration: underline;
     color: #8a7c64;
+    h3 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-    .link {
-      color: #8a7c64;
-      text-decoration: none;
-      transition: color 0.3s;
+      width: 100%;
 
-      &:hover {
-        color: #b7ad9c;
-        text-decoration: underline;
+      .remove {
+        background-color: unset;
+        border: none;
+        color: rgb(182, 52, 52);
+
+        cursor: pointer;
+      }
+
+      .link {
+        color: #8a7c64;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #b7ad9c;
+          text-decoration: underline;
+        }
       }
     }
   }

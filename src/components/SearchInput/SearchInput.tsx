@@ -30,12 +30,14 @@ export default function SearchInput() {
   const [searchText, setSearchText] = useState<string>('');
 
   const removeQuest = (itemToDelete: QuestType) => {
+    const data: QuestType[] | null = quests?.filter((item) => item.id !== itemToDelete.id) ?? null;
     dispatch(
       setQuestArray({
         name: 'quests',
-        content: quests?.filter((item) => item.id !== itemToDelete.id) ?? null,
+        content: data,
       }),
     );
+    localStorage.setItem('quests', JSON.stringify(data));
   };
 
   const checkForDouble = (array: QuestType[] | null | undefined, target: QuestType) => {
