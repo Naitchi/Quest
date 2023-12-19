@@ -1,5 +1,5 @@
 .window {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,6 +7,8 @@
 
   width: 100svw;
   height: 100svh;
+  z-index: 2;
+  top: 1px;
 
   background-color: rgba(0, 0, 0, 0.9);
   border: none;
@@ -62,9 +64,8 @@
       flex-direction: column;
       align-items: center;
 
-      width: 33svw;
-      height: 33svw;
-
+      width: 435px;
+      height: 435px;
       .slide {
         display: flex;
         flex-direction: column;
@@ -131,6 +132,125 @@
           color: rgb(224, 191, 124);
           font-size: 35px;
           margin: 0px 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 550px) {
+  .window {
+    .center {
+      .slider {
+        height: 200px;
+        .slide {
+          .icon {
+            display: none;
+          }
+          .screenshot {
+            display: none;
+          }
+          .gears {
+            margin: 0px 0 0px 30px;
+
+            .MidleGear {
+              top: -9px;
+              left: -4px;
+            }
+            .LastGear {
+              right: 20px;
+              top: 19px;
+            }
+          }
+          .welcome {
+            padding: 16px 0 5px 0;
+            font-size: 20px;
+          }
+          .desc {
+            font-size: 1rem;
+            margin-bottom: 0px;
+            width: 90%;
+          }
+        }
+      }
+      .bullets {
+        .bullet {
+          margin: 5px 5px;
+          font-size: 30px;
+
+          &:hover {
+            font-size: 35px;
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .window {
+    .previous {
+      position: fixed;
+      bottom: 10px;
+      left: 15px;
+    }
+    .next,
+    .close {
+      height: 50px;
+      width: 65px;
+      margin: 0 20px;
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+    }
+    .center {
+      .closeButton {
+        margin-bottom: 5px;
+      }
+      .slider {
+        width: 90%;
+        height: 70svh;
+        .slide {
+          .icon {
+            width: 40%;
+          }
+          .screenshot {
+            width: 84%;
+            margin-top: 70px;
+          }
+          .gears {
+            margin: 70px 0 20px 30px;
+
+            .MidleGear {
+              top: -9px;
+              left: -4px;
+            }
+            .LastGear {
+              right: 22px;
+              top: 24px;
+            }
+          }
+          .welcome {
+            padding: 10px;
+            font-size: 24px;
+          }
+          .desc {
+            font-size: 1.3rem;
+            margin-bottom: 70px;
+            width: 90%;
+          }
+        }
+      }
+      .bullets {
+        .bullet {
+          margin: 5px 5px;
+          font-size: 30px;
+
+          &:hover {
+            font-size: 35px;
+            margin: 0px 5px;
+          }
         }
       }
     }

@@ -6,6 +6,7 @@
 
   width: 789px;
   height: 561px;
+  margin: 90px 0;
 
   background-image: url('/assets/TarkovMap.webp');
 
@@ -150,13 +151,11 @@
       letter-spacing: 0.2px;
     }
     .woods {
-      position: relative;
-
-      width: 138px;
+      width: 98px;
       height: 32px;
-      bottom: 50px;
-      left: -142px;
-      letter-spacing: 0.4px;
+      bottom: 19px;
+      left: -98px;
+      letter-spacing: 0.3px;
     }
     .reserve {
       width: 103px;
@@ -189,10 +188,10 @@
     }
     .streets {
       padding: 0px 0 0 22px;
-      width: 268px;
+      width: 188px;
       height: 32px;
       bottom: 271px;
-      left: 221px;
+      left: 181px;
       letter-spacing: 0.1px;
       .tarkov {
         padding-left: 6px;
