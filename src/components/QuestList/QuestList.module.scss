@@ -40,8 +40,29 @@
     .temporary {
       display: flex;
       flex-direction: column;
-
       align-items: center;
+
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: #8a7c64 #f3c808;
+      /* This will change the scrollbar track */
+      &::-webkit-scrollbar-track {
+        background: #8a7c64;
+        border-radius: 10px;
+      }
+      /* This will change the scrollbar itself */
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+      /* This will change the "handle" of the scrollbar */
+      &::-webkit-scrollbar-thumb {
+        background: #f3c808;
+        border-radius: 10px;
+      }
+      /* This will change the "handle" of the scrollbar when hovered */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #d4ae5c;
+      }
     }
     .mainQuest {
       display: flex;

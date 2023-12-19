@@ -30,7 +30,6 @@ export default function QuestList() {
         <SearchInput />
         {quests && quests.length > 0 && (
           <div className={styles.temporary}>
-            <h2 className={styles.title}>Quêtes temporaire{quests.length > 1 ? 's' : ''} :</h2>
             {quests?.map((quest) => (
               <QuestResume key={quest.id} type={'quests'} quest={quest} />
             ))}
