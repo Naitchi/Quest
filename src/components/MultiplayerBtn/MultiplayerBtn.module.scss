@@ -23,3 +23,15 @@
     cursor: help;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .mainDiv {
+    width: 185px;
+    font-size: 1rem;
+    left: 55px;
+
+    .info {
+      display: none;
+    }
+  }
+}
