@@ -18,7 +18,6 @@ import QuestType, { map, Info } from '../type/QuestType';
 
 // Components
 import QuestList from '../components/QuestList/QuestList';
-import MultiplayerBtn from '@/components/MultiplayerBtn/MultiplayerBtn';
 
 // Styles
 import styles from '../styles/slug.module.scss';
@@ -103,7 +102,6 @@ export default function Quest() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
       </Head>
-      <MultiplayerBtn />
       <QuestList />
       <Link className={styles.home} href={'/'}>
         <FontAwesomeIcon size="2x" icon={faHouse} />

@@ -1,20 +1,16 @@
 .mainDiv {
   display: flex;
-  width: 65px;
+  width: 55px;
   height: 40px;
   font-size: 1.1rem;
   align-items: center;
   justify-content: space-around;
   background: black;
-  border-radius: 0 0 10px 10px;
-  position: absolute;
-  top: -4px;
-  left: 65px;
-  z-index: 401;
+  border-radius: 10px;
 
   cursor: pointer;
 
-  border: solid 4px;
+  border: solid 3px;
 }
 
 @media screen and (max-width: 550px) {

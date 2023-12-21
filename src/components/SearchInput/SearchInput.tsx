@@ -72,7 +72,7 @@ export default function SearchInput() {
   const result = searchQuest(searchText);
 
   return (
-    <>
+    <div className={styles.component}>
       <input
         className={styles.search}
         value={searchText}
@@ -89,25 +89,27 @@ export default function SearchInput() {
         </button>
       )}
       {result && (
-        <div className={styles.dropdown}>
-          {result?.map((quest) => (
-            <div key={quest.id}>
-              {checkForDouble(quests, quest) ? (
-                <button
-                  className={`${styles.result} ${styles.unavailable}`}
-                  onClick={() => removeQuest(quest)}
-                >
-                  {quest.name}
-                </button>
-              ) : (
-                <button className={`${styles.result}`} onClick={() => addQuest(quest)}>
-                  {quest.name}
-                </button>
-              )}
-            </div>
-          ))}
+        <div className={styles.hide}>
+          <div className={styles.dropdown}>
+            {result?.map((quest) => (
+              <div key={quest.id}>
+                {checkForDouble(quests, quest) ? (
+                  <button
+                    className={`${styles.result} ${styles.unavailable}`}
+                    onClick={() => removeQuest(quest)}
+                  >
+                    {quest.name}
+                  </button>
+                ) : (
+                  <button className={`${styles.result}`} onClick={() => addQuest(quest)}>
+                    {quest.name}
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

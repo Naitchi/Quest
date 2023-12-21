@@ -10,9 +10,10 @@ import styles from './QuestList.module.scss';
 // Type
 import QuestType from '../../type/QuestType';
 
-// Import Composents
+// Import Components
 import SearchInput from '../SearchInput/SearchInput';
 import QuestResume from '../QuestResume/QuestResume';
+import MultiplayerBtn from '@/components/MultiplayerBtn/MultiplayerBtn';
 
 export default function QuestList() {
   const quests: QuestType[] | null = useSelector((state: RootState) =>
@@ -27,7 +28,10 @@ export default function QuestList() {
         <img src="/assets/iconQuest.svg" alt="icone Quest" />
       </button>
       <div className={styles.main}>
-        <SearchInput />
+        <div className={styles.head}>
+          <MultiplayerBtn />
+          <SearchInput />
+        </div>
         {quests && quests.length > 0 && (
           <div className={styles.temporary}>
             {quests?.map((quest) => (
