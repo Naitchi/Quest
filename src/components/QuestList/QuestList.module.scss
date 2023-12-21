@@ -44,29 +44,45 @@
 
       overflow-y: scroll;
       scrollbar-width: thin;
-      scrollbar-color: #8a7c64 #f3c808;
-      /* This will change the scrollbar track */
+      scrollbar-color: black #f3c808;
       &::-webkit-scrollbar-track {
-        background: #8a7c64;
-        border-radius: 10px;
+        background: black;
+        border-radius: 5px;
       }
-      /* This will change the scrollbar itself */
       &::-webkit-scrollbar {
-        width: 7px;
+        width: 10px;
       }
-      /* This will change the "handle" of the scrollbar */
       &::-webkit-scrollbar-thumb {
         background: #f3c808;
-        border-radius: 10px;
+        border-radius: 5px;
+        cursor: pointer;
       }
-      /* This will change the "handle" of the scrollbar when hovered */
       &::-webkit-scrollbar-thumb:hover {
-        background: #d4ae5c;
+        background: #9c7e3e;
       }
     }
     .mainQuest {
       display: flex;
       flex-direction: column;
+    }
+  }
+}
+
+@media (max-height: 550px) or (max-width: 550px) {
+  .show {
+    transform: translateX(90vw);
+  }
+
+  .questList {
+    width: 90vw;
+    height: 100vh;
+    top: 0px;
+    left: -90vw;
+    z-index: 1001;
+
+    .onglet {
+      left: 90vw;
+      top: 90px;
     }
   }
 }
