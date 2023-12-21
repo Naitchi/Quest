@@ -1,6 +1,6 @@
 .mainDiv {
   display: flex;
-  width: 265px;
+  width: 65px;
   height: 40px;
   font-size: 1.1rem;
   align-items: center;
@@ -15,23 +15,10 @@
   cursor: pointer;
 
   border: solid 4px;
-
-  .info {
-    padding-left: 15px;
-    font-style: italic;
-
-    cursor: help;
-  }
 }
 
 @media screen and (max-width: 550px) {
   .mainDiv {
-    width: 185px;
-    font-size: 1rem;
     left: 55px;
-
-    .info {
-      display: none;
-    }
   }
 }
