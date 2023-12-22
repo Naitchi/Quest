@@ -18,6 +18,7 @@ import QuestType, { Info } from '../../type/QuestType';
 
 export default function SearchInput() {
   const dispatch = useDispatch();
+  const [isFocused, setIsFocused] = useState(false);
 
   const allQuests: QuestType[] | null = useSelector((state: RootState) =>
     getQuestArray(state, 'all'),
@@ -82,31 +83,37 @@ export default function SearchInput() {
         }}
         type="text"
         placeholder="Rechercher une quête"
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
           <FontAwesomeIcon icon={faCircleXmark} size="lg" />
         </button>
       )}
-      {result && (
+      {isFocused && result && (
         <div className={styles.hide}>
           <div className={styles.dropdown}>
-            {result?.map((quest) => (
-              <div key={quest.id}>
-                {checkForDouble(quests, quest) ? (
-                  <button
-                    className={`${styles.result} ${styles.unavailable}`}
-                    onClick={() => removeQuest(quest)}
-                  >
-                    {quest.name}
-                  </button>
-                ) : (
-                  <button className={`${styles.result}`} onClick={() => addQuest(quest)}>
-                    {quest.name}
-                  </button>
-                )}
-              </div>
-            ))}
+            {result.length > 0 ? (
+              result.map((quest) => (
+                <div key={quest.id}>
+                  {checkForDouble(quests, quest) ? (
+                    <button
+                      className={`${styles.result} ${styles.unavailable}`}
+                      onClick={() => removeQuest(quest)}
+                    >
+                      {quest.name}
+                    </button>
+                  ) : (
+                    <button className={`${styles.result}`} onClick={() => addQuest(quest)}>
+                      {quest.name}
+                    </button>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className={styles.noResults}>Aucune quêtes trouvé</p>
+            )}
           </div>
         </div>
       )}
