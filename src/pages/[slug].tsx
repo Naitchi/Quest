@@ -14,7 +14,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Type
-import QuestType, { map, Info } from '../type/QuestType';
+import QuestType, { maps, Info } from '../type/QuestType';
 
 // Components
 import QuestList from '../components/QuestList/QuestList';
@@ -55,7 +55,7 @@ export default function Quest() {
   }, []);
 
   useEffect(() => {
-    const maps: map[] = [
+    const maps: maps[] = [
       'customs',
       'factory',
       'woods',
@@ -67,7 +67,7 @@ export default function Quest() {
       'lab',
     ];
 
-    const estDeTypeMap = (value: any): value is map => {
+    const estDeTypeMap = (value: any): value is maps => {
       if (maps.includes(value)) {
         return true;
       } else {
@@ -75,7 +75,7 @@ export default function Quest() {
         return false;
       }
     };
-    const fetchData = async (map: map) => {
+    const fetchData = async (map: maps) => {
       const mapQuests: Response = await fetch(`/mock/${map}.json`);
       const multipuleQuests: Response = await fetch(`/mock/multiples.json`);
 

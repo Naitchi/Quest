@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
+import { useRouter } from 'next/router';
 
 // Style
 import styles from './QuestList.module.scss';
 
 // Type
-import QuestType from '../../type/QuestType';
+import QuestType, { maps } from '../../type/QuestType';
 
 // Import Components
 import SearchInput from '../SearchInput/SearchInput';
@@ -19,7 +20,8 @@ export default function QuestList() {
   const quests: QuestType[] | null = useSelector((state: RootState) =>
     getQuestArray(state, 'quests'),
   );
-
+  const router = useRouter();
+  const slug: maps = router.query.slug as maps;
   const [show, setShow] = useState<boolean>(false);
 
   return (
@@ -34,9 +36,10 @@ export default function QuestList() {
         </div>
         {quests && quests.length > 0 && (
           <div className={styles.temporary}>
-            {quests?.map((quest) => (
-              <QuestResume key={quest.id} type={'quests'} quest={quest} />
-            ))}
+            {quests?.map((quest) => {
+              if (slug && quest?.maps?.includes(slug))
+                return <QuestResume key={quest.id} type={'quests'} quest={quest} />;
+            })}
           </div>
         )}
       </div>

@@ -84,7 +84,8 @@ export default function SearchInput() {
         type="text"
         placeholder="Rechercher une quête"
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onMouseEnter={() => setIsFocused(true)}
+        onMouseLeave={() => setIsFocused(false)}
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
@@ -93,7 +94,7 @@ export default function SearchInput() {
       )}
       {isFocused && result && (
         <div className={styles.hide}>
-          <div className={styles.dropdown}>
+          <div onMouseEnter={() => setIsFocused(true)} className={styles.dropdown}>
             {result.length > 0 ? (
               result.map((quest) => (
                 <div key={quest.id}>

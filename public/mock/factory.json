@@ -4,7 +4,7 @@
     "name": "Postman Pat - Part 1",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "factory",
+    "maps": "factory",
     "show": true,
     "objectifs": [
       {

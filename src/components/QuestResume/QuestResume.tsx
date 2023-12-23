@@ -32,7 +32,7 @@ export default function QuestResume({
   const showEyes = (index: number, objectif: Objectif, quest: QuestType) => {
     if (
       objectif.show === undefined ||
-      (objectif.map !== undefined && objectif.map !== router.query.slug)
+      (objectif.maps !== undefined && objectif.maps !== router.query.slug)
     )
       return null;
     return <Eye show={objectif.show} onClick={() => toggleObjectif(quest, index)} />;

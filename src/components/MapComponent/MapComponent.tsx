@@ -24,7 +24,7 @@ import styles from './MapComponent.module.scss';
 
 // Types
 import L from 'leaflet';
-import QuestType, { Objectif, Position, MapProperties } from '../../type/QuestType';
+import QuestType, { Objectif, Position, MapProperties, maps } from '../../type/QuestType';
 
 const colorPicker = (index: number): string | undefined => {
   switch (index) {
@@ -53,7 +53,7 @@ const colorPicker = (index: number): string | undefined => {
 
 export default function MapComponent() {
   const router = useRouter();
-
+  const slug: maps = router.query.slug as maps;
   const quests = useSelector((state: RootState) => getQuestArray(state, 'quests'));
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -80,13 +80,8 @@ export default function MapComponent() {
       console.log('You clicked the map at ' + e.latlng);
     };
 
-    if (
-      !mapRef.current &&
-      mapContainerRef.current &&
-      router?.query?.slug &&
-      typeof router.query.slug === 'string'
-    ) {
-      const slugProperties = mapPropreties[router.query.slug];
+    if (!mapRef.current && mapContainerRef.current && slug) {
+      const slugProperties = mapPropreties[slug];
 
       // Initialisation de la carte
       mapRef.current = L.map(mapContainerRef.current, {
@@ -231,7 +226,10 @@ export default function MapComponent() {
 
         item.objectifs.forEach((objectif: Objectif) => {
           objectif.position?.forEach((position: Position) => {
-            if (objectif.map === undefined || objectif.map === router.query.slug) {
+            if (
+              item?.maps?.includes(slug) &&
+              (objectif.maps === undefined || objectif.maps === slug)
+            ) {
               handleObjectifPosition(objectif, color, position);
             }
           });
