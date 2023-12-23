@@ -197,6 +197,8 @@ export default function MapComponent() {
     ) => {
       const questItem = createQuestItem(objectif, color);
       const marker = L.marker([position.x, position.y], { icon: questItem }).addTo(mapRef.current!);
+      if (objectif.popUp) marker.bindPopup(objectif.popUp);
+
       markersRef.current.push(marker);
       if (position.radius && objectif.show) {
         const circle = L.circle([position.x, position.y], {
