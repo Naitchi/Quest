@@ -1,8 +1,14 @@
 // Import React/Redux
 import Link from 'next/link';
-import { modifyAQuest, QuestArrayName } from '../../redux/questSlice';
-import { useDispatch } from 'react-redux';
+import { modifyAQuest, QuestArrayName, getQuestArray, setQuestArray } from '../../redux/questSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { RootState } from '../../redux/store';
+
+// Import Fontawesome
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Type
 import QuestType, { Objectif } from '@/type/QuestType';
@@ -19,11 +25,14 @@ export default function QuestResume({
 }: Readonly<{ type: QuestArrayName; quest: QuestType }>) {
   const dispatch = useDispatch();
   const router = useRouter();
+  const quests: QuestType[] | null = useSelector((state: RootState) =>
+    getQuestArray(state, 'quests'),
+  );
 
   const showEyes = (index: number, objectif: Objectif, quest: QuestType) => {
     if (
       objectif.show === undefined ||
-      (objectif.map !== undefined && objectif.map !== router.query.slug)
+      (objectif.maps !== undefined && objectif.maps !== router.query.slug)
     )
       return null;
     return <Eye show={objectif.show} onClick={() => toggleObjectif(quest, index)} />;
@@ -50,7 +59,7 @@ export default function QuestResume({
     };
     updateQuest(newQuest);
   };
-  
+
   const toggleObjectif = (quest: QuestType, index: number) => {
     const newQuest = {
       ...quest,
@@ -61,6 +70,17 @@ export default function QuestResume({
       ],
     };
     updateQuest(newQuest);
+  };
+
+  const removeQuest = (itemToDelete: QuestType) => {
+    const data: QuestType[] | null = quests?.filter((item) => item.id !== itemToDelete.id) ?? null;
+    dispatch(
+      setQuestArray({
+        name: 'quests',
+        content: data,
+      }),
+    );
+    localStorage.setItem('quests', JSON.stringify(data));
   };
 
   return (
@@ -75,6 +95,9 @@ export default function QuestResume({
           >
             {quest.name}
           </Link>
+          <button className={styles.remove} onClick={() => removeQuest(quest)}>
+            <FontAwesomeIcon icon={faCircleXmark} size="lg" />
+          </button>
         </h3>
       </div>
       <div>

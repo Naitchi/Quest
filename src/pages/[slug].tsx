@@ -6,13 +6,22 @@ import { useDispatch } from 'react-redux';
 import { setQuestArray } from '../redux/questSlice';
 import { setUser } from '../redux/userSlice';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+// Import Fontawesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Type
-import QuestType, { map, Info } from '../type/QuestType';
+import QuestType, { maps, Info } from '../type/QuestType';
 
 // Components
 import QuestList from '../components/QuestList/QuestList';
-import MultiplayerBtn from '@/components/MultiplayerBtn/MultiplayerBtn';
+
+// Styles
+import styles from '../styles/slug.module.scss';
+
 const MapComponent = dynamic(() => import('@/components/MapComponent/MapComponent'), {
   ssr: false,
 });
@@ -29,11 +38,24 @@ export default function Quest() {
         dispatch(setUser({ content: info }));
       }
     };
+    const fetchQuestsUser = () => {
+      const data: any = localStorage.getItem('quests');
+      if (data) {
+        const quests: QuestType[] = JSON.parse(data);
+        dispatch(
+          setQuestArray({
+            name: 'quests',
+            content: quests,
+          }),
+        );
+      }
+    };
     fetchDataUser();
+    fetchQuestsUser();
   }, []);
 
   useEffect(() => {
-    const maps: map[] = [
+    const maps: maps[] = [
       'customs',
       'factory',
       'woods',
@@ -45,7 +67,7 @@ export default function Quest() {
       'lab',
     ];
 
-    const estDeTypeMap = (value: any): value is map => {
+    const estDeTypeMap = (value: any): value is maps => {
       if (maps.includes(value)) {
         return true;
       } else {
@@ -53,7 +75,7 @@ export default function Quest() {
         return false;
       }
     };
-    const fetchData = async (map: map) => {
+    const fetchData = async (map: maps) => {
       const mapQuests: Response = await fetch(`/mock/${map}.json`);
       const multipuleQuests: Response = await fetch(`/mock/multiples.json`);
 
@@ -80,8 +102,10 @@ export default function Quest() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
       </Head>
-      <MultiplayerBtn />
       <QuestList />
+      <Link className={styles.home} href={'/'}>
+        <FontAwesomeIcon size="2x" icon={faHouse} />
+      </Link>
       {router?.query?.slug && <MapComponent />}
     </React.Fragment>
   );

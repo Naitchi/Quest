@@ -34,18 +34,63 @@
     align-items: center;
     width: 100%;
 
+    .head {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+    }
     .title {
       width: 90%;
     }
     .temporary {
       display: flex;
       flex-direction: column;
-
       align-items: center;
+
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: black #f3c808;
+      &::-webkit-scrollbar-track {
+        background: black;
+        border-radius: 5px;
+      }
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #f3c808;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: #9c7e3e;
+      }
     }
     .mainQuest {
       display: flex;
       flex-direction: column;
+    }
+  }
+}
+
+@media (max-height: 550px) or (max-width: 550px) {
+  .show {
+    transform: translateX(89vw);
+  }
+
+  .questList {
+    width: 90vw;
+    height: 100vh;
+    top: 0px;
+    left: -90vw;
+    z-index: 1001;
+
+    .onglet {
+      left: 90vw;
+      top: 90px;
+      width: 31px;
     }
   }
 }

@@ -4,7 +4,7 @@
     "name": "The Punisher - Part 1",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "shoreline",
+    "maps": "shoreline",
     "objectifs": [
       {
         "id": 0,
@@ -54,7 +54,7 @@
     "name": "The Punisher - Part 2",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "shoreline",
+    "maps": "shoreline",
     "objectifs": [
       {
         "id": 0,
@@ -69,7 +69,7 @@
     "name": "Anesthesia",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "shoreline",
+    "maps": "shoreline",
     "levelNeeded": 21,
     "unlockBy": [0],
     "objectifs": [

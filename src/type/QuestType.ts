@@ -3,7 +3,7 @@ export default interface QuestType {
   name: string;
   givenBy: traders;
   requiredForKappa: boolean;
-  map: map[] | map;
+  maps: maps[] | maps;
   show?: boolean;
   objectifs: Objectif[];
   unlockBy: number[];
@@ -14,7 +14,7 @@ export default interface QuestType {
 export interface Objectif {
   id: number;
   description: string;
-  map?: map;
+  maps?: maps;
   position?: Position[];
   polygon?: Position[];
   action?: action;
@@ -29,7 +29,7 @@ export interface Position {
   radius?: number;
 }
 
-export type map =
+export type maps =
   | 'customs'
   | 'factory'
   | 'woods'

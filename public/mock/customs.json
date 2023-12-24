@@ -4,7 +4,7 @@
     "name": "Checking",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "customs",
+    "maps": "customs",
     "show": true,
     "objectifs": [
       {
@@ -40,7 +40,7 @@
     "name": "Big Customer",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "customs",
+    "maps": "customs",
     "show": true,
     "objectifs": [
       {
@@ -68,7 +68,7 @@
     "name": "BP Depot",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "customs",
+    "maps": "customs",
     "show": true,
     "objectifs": [
       {
@@ -116,7 +116,7 @@
     "name": "Bad Rep Evidence",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": ["customs"],
+    "maps": ["customs"],
     "show": true,
     "objectifs": [
       {
@@ -145,7 +145,7 @@
     "name": "Shaking up the Teller",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": ["customs"],
+    "maps": ["customs"],
     "show": true,
     "objectifs": [
       {
@@ -184,7 +184,7 @@
     "name": "The Punisher - Part 3",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "customs",
+    "maps": "customs",
     "objectifs": [
       {
         "id": 0,
@@ -219,7 +219,7 @@
     "name": "Polikhim Hobo",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "customs",
+    "maps": "customs",
     "objectifs": [
       {
         "id": 0,
@@ -234,7 +234,7 @@
     "name": "Operation Aquarius - Part 1",
     "givenBy": "therapist",
     "requiredForKappa": true,
-    "map": ["customs"],
+    "maps": ["customs"],
     "show": true,
     "objectifs": [
       {
@@ -261,7 +261,7 @@
     "name": "Operation Aquarius - Part 2",
     "givenBy": "therapist",
     "requiredForKappa": true,
-    "map": ["customs"],
+    "maps": ["customs"],
     "objectifs": [
       {
         "id": 0,
@@ -276,7 +276,7 @@
     "name": "Pharmacist",
     "givenBy": "therapist",
     "requiredForKappa": true,
-    "map": ["customs"],
+    "maps": ["customs"],
     "show": true,
     "objectifs": [
       {

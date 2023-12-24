@@ -6,6 +6,7 @@
 
   width: 789px;
   height: 561px;
+  margin: 90px 0;
 
   background-image: url('/assets/TarkovMap.webp');
 
@@ -122,5 +123,120 @@
     bottom: 386px;
     left: -100.9px;
     letter-spacing: 0.2px;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 800px) {
+  .map {
+    width: 545px;
+    height: 387px;
+
+    background-size: cover;
+
+    .lien {
+      font-size: 1.1rem;
+    }
+    .customs {
+      width: 114px;
+      bottom: -56px;
+      left: 49px;
+      letter-spacing: 0.1px;
+    }
+    .factory {
+      width: 107px;
+      height: 32px;
+      bottom: -84px;
+      left: -47px;
+
+      letter-spacing: 0.2px;
+    }
+    .woods {
+      width: 98px;
+      height: 32px;
+      bottom: 19px;
+      left: -98px;
+      letter-spacing: 0.3px;
+    }
+    .reserve {
+      width: 103px;
+      height: 32px;
+      bottom: -70px;
+      left: -158px;
+
+      letter-spacing: 0.2px;
+    }
+    .lighthouse {
+      width: 133px;
+      height: 32px;
+      bottom: -115px;
+      left: -156px;
+
+      letter-spacing: 0.2px;
+    }
+    .shoreline {
+      width: 128px;
+      height: 30px;
+      bottom: -143px;
+      left: -92px;
+    }
+    .interchange {
+      width: 147px;
+      height: 32px;
+      left: 101px;
+      bottom: 173px;
+      letter-spacing: 0.1px;
+    }
+    .streets {
+      padding: 0px 0 0 22px;
+      width: 188px;
+      height: 32px;
+      bottom: 271px;
+      left: 181px;
+      letter-spacing: 0.1px;
+      .tarkov {
+        padding-left: 6px;
+        letter-spacing: 0.7px;
+      }
+    }
+    .lab {
+      bottom: 305px;
+      left: -70px;
+      letter-spacing: 0.2px;
+      padding: 0px 17px 0px 18px;
+      height: 19px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .map {
+    width: 90%;
+    height: unset;
+
+    background-size: unset;
+    background-color: #23272a;
+    background-image: unset;
+    border-radius: 5px;
+
+    .lien {
+      position: unset !important;
+
+      font-size: 1rem;
+    }
+    .streets {
+      justify-content: center;
+      padding: unset;
+      .tarkov {
+        padding-left: 6px;
+        letter-spacing: 0.7px;
+      }
+    }
+    .lab {
+      bottom: 305px;
+      left: -70px;
+      letter-spacing: 0.2px;
+      padding: 0px 17px 0px 18px;
+      height: 19px;
+    }
   }
 }

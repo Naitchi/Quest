@@ -4,7 +4,7 @@
     "name": "Search Mission",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "woods",
+    "maps": "woods",
     "show": true,
     "objectifs": [
       {
@@ -36,7 +36,7 @@
     "name": "Supply Plans",
     "givenBy": "therapist",
     "requiredForKappa": true,
-    "map": "woods",
+    "maps": "woods",
     "show": true,
     "objectifs": [
       {

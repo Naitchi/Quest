@@ -4,7 +4,7 @@
     "name": "Easy Job - Part 1",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "lighthouse",
+    "maps": "lighthouse",
     "show": true,
     "objectifs": [
       {
@@ -32,7 +32,7 @@
     "name": "Easy Job - Part 2",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "lighthouse",
+    "maps": "lighthouse",
     "show": true,
     "objectifs": [
       {
@@ -58,7 +58,7 @@
     "name": "Our Own Land",
     "givenBy": "prapor",
     "requiredForKappa": false,
-    "map": "lighthouse",
+    "maps": "lighthouse",
     "show": true,
     "objectifs": [
       {
@@ -83,7 +83,7 @@
     "name": "Reconnaissance",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "lighthouse",
+    "maps": "lighthouse",
     "show": true,
     "objectifs": [
       {

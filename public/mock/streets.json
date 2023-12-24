@@ -4,7 +4,7 @@
     "name": "Test Drive - Part 2",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "streets",
+    "maps": "streets",
     "objectifs": [
       {
         "id": 0,
@@ -19,7 +19,7 @@
     "name": "You've Got Mail",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "streets",
+    "maps": "streets",
     "show": true,
     "objectifs": [
       {
@@ -43,7 +43,7 @@
     "name": "Glory to CPSU",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "streets",
+    "maps": "streets",
     "show": true,
     "objectifs": [
       {
@@ -67,7 +67,7 @@
     "name": "Kings of the Rooftops",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "streets",
+    "maps": "streets",
     "objectifs": [
       {
         "id": 0,
@@ -86,7 +86,7 @@
     "name": "Green Corridor",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "streets",
+    "maps": "streets",
     "show": true,
     "objectifs": [
       { "id": 0, "description": "This quest is only obtainable by BEAR PMCs." },

@@ -4,7 +4,7 @@
     "name": "The Bunker - Part 1",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "reserve",
+    "maps": "reserve",
     "show": true,
     "objectifs": [
       {
@@ -32,7 +32,7 @@
     "name": "The Bunker - Part 2",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "reserve",
+    "maps": "reserve",
     "show": true,
     "objectifs": [
       {
@@ -97,7 +97,7 @@
     "name": "No Place for Renegades",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "reserve",
+    "maps": "reserve",
     "show": true,
     "objectifs": [
       {
@@ -123,7 +123,7 @@
     "name": "Documents",
     "givenBy": "prapor",
     "requiredForKappa": true,
-    "map": "reserve",
+    "maps": "reserve",
     "show": true,
     "objectifs": [
       {
@@ -171,7 +171,7 @@
     "name": "Disease History",
     "givenBy": "therapist",
     "requiredForKappa": true,
-    "map": "reserve",
+    "maps": "reserve",
     "show": true,
     "objectifs": [
       {

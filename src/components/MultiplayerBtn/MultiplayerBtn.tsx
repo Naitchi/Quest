@@ -5,7 +5,7 @@ import { getUser, setUser } from '../../redux/userSlice';
 import { RootState } from '../../redux/store';
 
 // Import Fontawesome
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
@@ -35,6 +35,8 @@ export default function MultiplayerBtn() {
   return (
     <button
       className={styles.mainDiv}
+      onMouseEnter={() => handleMouseEvent(true)}
+      onMouseLeave={() => handleMouseEvent(false)}
       style={{ borderColor: info?.multiplayer ? '#298e30' : '#8e2929' }}
       onClick={() => {
         if (info) {
@@ -49,14 +51,7 @@ export default function MultiplayerBtn() {
       ) : (
         <FontAwesomeIcon icon={faCircle} size="sm" style={{ color: '#8e2929' }} />
       )}
-      Playing with Friends
-      <p
-        onMouseEnter={() => handleMouseEvent(true)}
-        onMouseLeave={() => handleMouseEvent(false)}
-        className={styles.info}
-      >
-        ?
-      </p>
+      <FontAwesomeIcon icon={faUserGroup} />
       {isHovered && (
         <div
           style={{
