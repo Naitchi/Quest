@@ -13,7 +13,7 @@
         "action": "faHandLizard",
         "position": [{ "x": 1063, "y": 2294.5 }],
         "show": true,
-        "popUp": "<p></p>"
+        "popUp": "<p> Dans le camion, en bas du siege conducteur </p> <img style='width:100px; height: 100px;' src='/assets/wallpaper1.jpg'/>"
       },
       {
         "id": 1,
@@ -24,7 +24,7 @@
           { "x": 412, "y": 3536 }
         ],
         "show": true,
-        "popUp": "<p></p>",
+        "popUp": "<p> Test 2 </p>",
         "subtask": true
       },
       {
