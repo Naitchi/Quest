@@ -76,7 +76,7 @@ export default function MapComponent() {
 
   useEffect(() => {
     // Fonction pour trouver les coordonnées des points via un click
-    const onMapClick = (e: any) => {
+    const onMapClick = (e: L.LeafletMouseEvent) => {
       console.log('You clicked the map at ' + e.latlng);
     };
 

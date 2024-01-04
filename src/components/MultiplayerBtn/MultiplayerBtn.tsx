@@ -20,8 +20,7 @@ export default function MultiplayerBtn() {
   const dispatch = useDispatch();
   const info: Info | undefined = useSelector((state: RootState) => getUser(state));
 
-  // Handle onChange for infos inputs, receive well typed value and name of the variable to change (need to clear the type inside to avoid error ? GL futur me :D)
-  const infoChange = (value: any, name: string) => {
+  const infoChange = (value: boolean, name: string) => {
     if (info) {
       dispatch(setUser({ content: { ...info, [name]: value } }));
       localStorage.setItem('user', JSON.stringify({ ...info, [name]: value }));

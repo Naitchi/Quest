@@ -81,7 +81,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
       </div>
       <h3 className={styles.welcome}>Les options ma passion</h3>
       <p className={styles.desc}>
-        Sur la page d'acceuil tu peux changer ta faction, ton niveau actuel pour que les quêtes
+        Sur la page d&apos;acceuil tu peux changer ta faction, ton niveau actuel pour que les quêtes
         proposé soit adapté à ces facteurs. Et pas de panique, si tu veux regrouper tes quetes avec
         celles de tes amis, tu peux activé le mode multi-joueurs.
       </p>
@@ -89,7 +89,7 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
     <div className={styles.slide} key={4}>
       <h3 className={styles.welcome}>Tout ça 100% Gratuit</h3>
       <p className={styles.desc}>
-        Juste un site pour aider les joueurs de EFT à s'y retrouver dans les quêtes.
+        Juste un site pour aider les joueurs de EFT à s&apos;y retrouver dans les quêtes.
       </p>
     </div>,
   ];

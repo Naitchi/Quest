@@ -32,14 +32,14 @@ export default function Quest() {
 
   useEffect(() => {
     const fetchDataUser = () => {
-      const data: any = localStorage.getItem('user');
+      const data: string | null = localStorage.getItem('user');
       if (data) {
         const info: Info = JSON.parse(data);
         dispatch(setUser({ content: info }));
       }
     };
     const fetchQuestsUser = () => {
-      const data: any = localStorage.getItem('quests');
+      const data: string | null = localStorage.getItem('quests');
       if (data) {
         const quests: QuestType[] = JSON.parse(data);
         dispatch(
@@ -55,7 +55,7 @@ export default function Quest() {
   }, []);
 
   useEffect(() => {
-    const maps: maps[] = [
+    const mapsArray: maps[] = [
       'customs',
       'factory',
       'woods',
@@ -67,8 +67,8 @@ export default function Quest() {
       'lab',
     ];
 
-    const estDeTypeMap = (value: any): value is maps => {
-      if (maps.includes(value)) {
+    const estDeTypeMap = (value: string | string[]): value is maps => {
+      if (mapsArray.includes(value as maps)) {
         return true;
       } else {
         router.push('/');

@@ -70,7 +70,7 @@ export type MapProperties = {
   };
 };
 
-type faction = 'BEAR' | 'USEC';
+export type faction = 'BEAR' | 'USEC';
 
 export interface Info {
   faction: faction;
