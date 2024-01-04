@@ -111,7 +111,10 @@ export default function MapComponent() {
     };
   }, []);
 
-  const createIcon = (objectif: Objectif, color: string | undefined) => {
+  const createIcon = (
+    objectif: Objectif,
+    color: string | undefined,
+  ): string | false | HTMLElement | undefined => {
     switch (objectif.action) {
       case 'faPersonHiking':
         return ReactDOMServer.renderToString(
