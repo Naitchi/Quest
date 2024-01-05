@@ -126,45 +126,55 @@ export default function MapComponent() {
         );
       case 'faBox':
         return renderToStaticMarkup(
-          <FontAwesomeIcon
-            icon={faBox}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+          <div>
+            <FontAwesomeIcon
+              icon={faBox}
+              size="2xl"
+              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+            />
+          </div>,
         );
       case 'faKey':
         return renderToStaticMarkup(
-          <FontAwesomeIcon
-            icon={faKey}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+          <div>
+            <FontAwesomeIcon
+              icon={faKey}
+              size="2xl"
+              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+            />
+          </div>,
         );
       case 'faSkull':
         return renderToStaticMarkup(
-          <FontAwesomeIcon
-            icon={faSkull}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+          <div>
+            <FontAwesomeIcon
+              icon={faSkull}
+              size="2xl"
+              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+            />
+          </div>,
         );
       case 'faMobileScreen':
         return renderToStaticMarkup(
-          <FontAwesomeIcon
-            icon={faMobileScreen}
-            className="MS2000"
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+          <div>
+            <FontAwesomeIcon
+              icon={faMobileScreen}
+              className="MS2000"
+              size="2xl"
+              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+            />
+          </div>,
         );
       case 'faHandLizard':
         return renderToStaticMarkup(
-          <FontAwesomeIcon
-            icon={faHandLizard}
-            size="2xl"
-            rotation={270}
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+          <div>
+            <FontAwesomeIcon
+              icon={faHandLizard}
+              size="2xl"
+              rotation={270}
+              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+            />
+          </div>,
         );
       default:
         console.error('Unknown Icon name in switch createIcon');
