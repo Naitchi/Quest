@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 import { useRouter } from 'next/router';
-import ReactDOMServer from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 // Import Fontawesome
 import {
@@ -117,7 +117,7 @@ export default function MapComponent() {
   ): string | false | HTMLElement | undefined => {
     switch (objectif.action) {
       case 'faPersonHiking':
-        return ReactDOMServer.renderToString(
+        return renderToStaticMarkup(
           <FontAwesomeIcon
             icon={faPersonHiking}
             size="2xl"
@@ -125,7 +125,7 @@ export default function MapComponent() {
           />,
         );
       case 'faBox':
-        return ReactDOMServer.renderToString(
+        return renderToStaticMarkup(
           <FontAwesomeIcon
             icon={faBox}
             size="2xl"
@@ -133,7 +133,7 @@ export default function MapComponent() {
           />,
         );
       case 'faKey':
-        return ReactDOMServer.renderToString(
+        return renderToStaticMarkup(
           <FontAwesomeIcon
             icon={faKey}
             size="2xl"
@@ -141,7 +141,7 @@ export default function MapComponent() {
           />,
         );
       case 'faSkull':
-        return ReactDOMServer.renderToString(
+        return renderToStaticMarkup(
           <FontAwesomeIcon
             icon={faSkull}
             size="2xl"
@@ -149,7 +149,7 @@ export default function MapComponent() {
           />,
         );
       case 'faMobileScreen':
-        return ReactDOMServer.renderToString(
+        return renderToStaticMarkup(
           <FontAwesomeIcon
             icon={faMobileScreen}
             className="MS2000"
@@ -158,7 +158,7 @@ export default function MapComponent() {
           />,
         );
       case 'faHandLizard':
-        return ReactDOMServer.renderToString(
+        return renderToStaticMarkup(
           <FontAwesomeIcon
             icon={faHandLizard}
             size="2xl"
