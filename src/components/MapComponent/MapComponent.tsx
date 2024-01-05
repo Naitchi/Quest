@@ -118,11 +118,13 @@ export default function MapComponent() {
     switch (objectif.action) {
       case 'faPersonHiking':
         return renderToStaticMarkup(
-          <FontAwesomeIcon
-            icon={faPersonHiking}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+          <div>
+            <FontAwesomeIcon
+              icon={faPersonHiking}
+              size="2xl"
+              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
+            />
+          </div>,
         );
       case 'faBox':
         return renderToStaticMarkup(
