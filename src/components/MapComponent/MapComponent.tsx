@@ -1,10 +1,10 @@
 // Import React/Redux
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 import { useRouter } from 'next/router';
-import { renderToStaticMarkup } from 'react-dom/server';
+import reactdom from 'react-dom/server';
 
 // Import Fontawesome
 import {
@@ -111,76 +111,33 @@ export default function MapComponent() {
     };
   }, []);
 
+  const iconMapping: Record<string, JSX.Element> = {
+    faPersonHiking: <FontAwesomeIcon icon={faPersonHiking} size="2xl" />,
+    faBox: <FontAwesomeIcon icon={faBox} size="2xl" />,
+    faKey: <FontAwesomeIcon icon={faKey} size="2xl" />,
+    faSkull: <FontAwesomeIcon icon={faSkull} size="2xl" />,
+    faMobileScreen: <FontAwesomeIcon icon={faMobileScreen} className="MS2000" size="2xl" />,
+    faHandLizard: <FontAwesomeIcon icon={faHandLizard} size="2xl" rotation={270} />,
+  };
+
   const createIcon = (
     objectif: Objectif,
     color: string | undefined,
-  ): string | false | HTMLElement | undefined => {
-    switch (objectif.action) {
-      case 'faPersonHiking':
-        return renderToStaticMarkup(
+  ): string | false | undefined => {
+    if (objectif.action) {
+      const icon = iconMapping[objectif.action];
+      if (icon) {
+        return reactdom.renderToString(
           <div>
-            <FontAwesomeIcon
-              icon={faPersonHiking}
-              size="2xl"
-              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-            />
+            {React.cloneElement(icon, {
+              style: { color, display: !objectif.show ? 'none' : 'block' },
+            })}
           </div>,
         );
-      case 'faBox':
-        return renderToStaticMarkup(
-          <div>
-            <FontAwesomeIcon
-              icon={faBox}
-              size="2xl"
-              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-            />
-          </div>,
-        );
-      case 'faKey':
-        return renderToStaticMarkup(
-          <div>
-            <FontAwesomeIcon
-              icon={faKey}
-              size="2xl"
-              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-            />
-          </div>,
-        );
-      case 'faSkull':
-        return renderToStaticMarkup(
-          <div>
-            <FontAwesomeIcon
-              icon={faSkull}
-              size="2xl"
-              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-            />
-          </div>,
-        );
-      case 'faMobileScreen':
-        return renderToStaticMarkup(
-          <div>
-            <FontAwesomeIcon
-              icon={faMobileScreen}
-              className="MS2000"
-              size="2xl"
-              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-            />
-          </div>,
-        );
-      case 'faHandLizard':
-        return renderToStaticMarkup(
-          <div>
-            <FontAwesomeIcon
-              icon={faHandLizard}
-              size="2xl"
-              rotation={270}
-              style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-            />
-          </div>,
-        );
-      default:
-        console.error('Unknown Icon name in switch createIcon');
+      } else {
+        console.error('Unknown Icon name in createIcon:', objectif.action);
         return false;
+      }
     }
   };
 
