@@ -111,7 +111,7 @@ export default function MapComponent() {
     };
   }, []);
 
-  const iconMapping: Record<string, JSX.Element> = {
+  const iconMapping: Record<string, React.ReactElement> = {
     faPersonHiking: <FontAwesomeIcon icon={faPersonHiking} size="2xl" />,
     faBox: <FontAwesomeIcon icon={faBox} size="2xl" />,
     faKey: <FontAwesomeIcon icon={faKey} size="2xl" />,
