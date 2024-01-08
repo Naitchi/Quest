@@ -1,10 +1,10 @@
 // Import React/Redux
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 import { useRouter } from 'next/router';
-import ReactDOMServer from 'react-dom/server';
+import reactDOM from 'react-dom/server';
 
 // Import Fontawesome
 import {
@@ -76,7 +76,7 @@ export default function MapComponent() {
 
   useEffect(() => {
     // Fonction pour trouver les coordonnées des points via un click
-    const onMapClick = (e: any) => {
+    const onMapClick = (e: L.LeafletMouseEvent) => {
       console.log('You clicked the map at ' + e.latlng);
     };
 
@@ -110,62 +110,33 @@ export default function MapComponent() {
       }
     };
   }, []);
+  const iconMapping: Record<string, JSX.Element> = {
+    faPersonHiking: <FontAwesomeIcon icon={faPersonHiking} size="2xl" />,
+    faBox: <FontAwesomeIcon icon={faBox} size="2xl" />,
+    faKey: <FontAwesomeIcon icon={faKey} size="2xl" />,
+    faSkull: <FontAwesomeIcon icon={faSkull} size="2xl" />,
+    faMobileScreen: <FontAwesomeIcon icon={faMobileScreen} className="MS2000" size="2xl" />,
+    faHandLizard: <FontAwesomeIcon icon={faHandLizard} size="2xl" rotation={270} />,
+  };
 
-  const createIcon = (objectif: Objectif, color: string | undefined) => {
-    switch (objectif.action) {
-      case 'faPersonHiking':
-        return ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={faPersonHiking}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
+  const createIcon = (
+    objectif: Objectif,
+    color: string | undefined,
+  ): string | false | undefined => {
+    if (objectif.action) {
+      const icon = iconMapping[objectif.action];
+      if (icon) {
+        return reactDOM.renderToString(
+          <div>
+            {React.cloneElement(icon, {
+              style: { color, display: !objectif.show ? 'none' : 'block' },
+            })}
+          </div>,
         );
-      case 'faBox':
-        return ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={faBox}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
-        );
-      case 'faKey':
-        return ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={faKey}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
-        );
-      case 'faSkull':
-        return ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={faSkull}
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
-        );
-      case 'faMobileScreen':
-        return ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={faMobileScreen}
-            className="MS2000"
-            size="2xl"
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
-        );
-      case 'faHandLizard':
-        return ReactDOMServer.renderToString(
-          <FontAwesomeIcon
-            icon={faHandLizard}
-            size="2xl"
-            rotation={270}
-            style={{ color: color, display: !objectif.show ? 'none' : 'block' }}
-          />,
-        );
-      default:
-        console.error('Unknown Icon name in switch createIcon');
+      } else {
+        console.error('Unknown Icon name in createIcon:', objectif.action);
         return false;
+      }
     }
   };
 

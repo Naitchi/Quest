@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Types
-import { Info } from '../type/QuestType';
+import { Info, faction } from '../type/QuestType';
 
 // Styles
 import styles from '@/styles/index.module.scss';
@@ -31,7 +31,7 @@ export default function Home() {
   };
   useEffect(() => {
     const fetchDataUser = () => {
-      const data: any = localStorage.getItem('user');
+      const data: string | null = localStorage.getItem('user');
       if (data) {
         const info: Info = JSON.parse(data);
         dispatch(setUser({ content: info }));
@@ -40,8 +40,7 @@ export default function Home() {
     fetchDataUser();
   }, []);
 
-  // Handle onChange for infos inputs, receive well typed value and name of the variable to change (need to clear the type inside to avoid error ? GL futur me :D)
-  const infoChange = (value: any, name: string) => {
+  const infoChange = (value: faction | number, name: string) => {
     if (user) {
       dispatch(setUser({ content: { ...user, [name]: value } }));
       localStorage.setItem('user', JSON.stringify({ ...user, [name]: value }));
@@ -54,7 +53,7 @@ export default function Home() {
         <title>Quest-eft</title>
         <meta
           name="description"
-          content=" Toujours perdu dans toutes les Quêtes de Escape From Tarkov ? Ce site est la solution !"
+          content="Toujours perdu dans toutes les Quêtes d'Escape From Tarkov ? Ce site est la solution !"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
@@ -68,7 +67,7 @@ export default function Home() {
                 <select
                   className={`${styles.clearInputCSS} ${styles.select}`}
                   value={user.faction}
-                  onChange={(e) => infoChange(e.target.value, 'faction')}
+                  onChange={(e) => infoChange(e.target.value as faction, 'faction')}
                 >
                   <option value="BEAR">BEAR</option>
                   <option value="USEC">USEC</option>

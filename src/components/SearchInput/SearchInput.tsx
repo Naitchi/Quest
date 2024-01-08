@@ -113,7 +113,7 @@ export default function SearchInput() {
                 </div>
               ))
             ) : (
-              <p className={styles.noResults}>Aucune quêtes trouvé</p>
+              <p className={styles.noResults}>Aucune quête trouvé</p>
             )}
           </div>
         </div>
