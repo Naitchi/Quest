@@ -15,22 +15,22 @@ export default function Eye({ show, onClick }: Readonly<EyeProps>) {
           <img
             className={styles.eye}
             src="/assets/openEye.svg"
-            alt="image d'un contour d'oeil ouvert"
+            alt="Image d'un contour d'oeil ouvert"
           />
           <div className={styles.hide}>
-            <img className={styles.pupil} src="/assets/pupil.svg" alt="image d'une Pupille" />
+            <img className={styles.pupil} src="/assets/pupil.svg" alt="Image d'une pupille" />
           </div>
         </div>
       ) : (
         <div className={styles.closedEye}>
-          <img className={styles.eyelid} src="/assets/eyelid.svg" alt="image d'une paupière" />
+          <img className={styles.eyelid} src="/assets/eyelid.svg" alt="Image d'une paupière" />
           <div className={styles.hide}>
             <img
               className={styles.eye}
               src="/assets/openEye.svg"
               alt="image d'un contour d'oeil ouvert"
             />
-            <img className={styles.pupil} src="/assets/pupil.svg" alt="image d'une Pupille" />
+            <img className={styles.pupil} src="/assets/pupil.svg" alt="Image d'une pupille" />
           </div>
         </div>
       )}

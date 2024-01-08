@@ -57,20 +57,22 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
       <img className={styles.icon} src="/assets/iconQuest.svg" alt="Logo Quest EFT" />
       <h2 className={styles.welcome}>Bienvenue sur Quest-eft</h2>
       <p className={styles.desc}>
-        Le site qui te vas te permettre de te retrouver dans la jungle de quête de Escape From
-        Tarkov. <br /> Suis ces quelques indiquations pour avoir de quoi utilisé le site
+        Le site qui te va te permettre de te retrouver dans la jungle de quête d&apos;Escape From
+        Tarkov. <br /> Suis ces quelques indications pour avoir de quoi utilisé le site.
       </p>
     </div>,
     <div className={styles.slide} key={2}>
       <img
         className={styles.screenshot}
         src="/assets/screenMap.jpg"
-        alt="carte interractive de EFT"
+        alt="Carte interactive d'EFT"
       />
-      <h3 className={styles.welcome}>Des maps intéractives avec toutes les infos de tes quêtes.</h3>
+      <h3 className={styles.welcome}>
+        Des cartes interactives avec toutes les infos de tes quêtes.
+      </h3>
       <p className={styles.desc}>
-        Sélectionne la map que tu veux jouer, puis ajoute les quêtes que tu as. Ensuite les
-        objectifs des quêtes seront indiqué via des icones coloré sur la map!
+        Sélectionne la carte que tu veux jouer, puis ajoute les quêtes que tu as. Ensuite les
+        objectifs des quêtes seront indiqué via des icônes colorées sur la carte !
       </p>
     </div>,
     <div className={styles.slide} key={3}>
@@ -79,17 +81,17 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
         <FontAwesomeIcon icon={faCog} spin size="3x" spinReverse className={styles.MidleGear} />
         <FontAwesomeIcon icon={faCog} spin size="3x" className={styles.LastGear} />
       </div>
-      <h3 className={styles.welcome}>Les options ma passion</h3>
+      <h3 className={styles.welcome}>Les options, ma passion</h3>
       <p className={styles.desc}>
-        Sur la page d&apos;acceuil tu peux changer ta faction, ton niveau actuel pour que les quêtes
-        proposé soit adapté à ces facteurs. Et pas de panique, si tu veux regrouper tes quetes avec
-        celles de tes amis, tu peux activé le mode multi-joueurs.
+        Sur la page d&apos;accueil, tu peux changer ta faction, ton niveau actuel pour que les
+        quêtes. Proposer soit adapté à ces facteurs. Et pas de panique, si tu veux regrouper tes
+        quêtes avec celles de tes amis, tu peux activer le mode multi-joueurs.
       </p>
     </div>,
     <div className={styles.slide} key={4}>
-      <h3 className={styles.welcome}>Tout ça 100% Gratuit</h3>
+      <h3 className={styles.welcome}>Tout ça 100% gratuit</h3>
       <p className={styles.desc}>
-        Juste un site pour aider les joueurs de EFT à s&apos;y retrouver dans les quêtes.
+        Juste un site pour aider les joueurs d&apos;EFT à s&apos;y retrouver dans les quêtes.
       </p>
     </div>,
   ];

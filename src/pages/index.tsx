@@ -53,7 +53,7 @@ export default function Home() {
         <title>Quest-eft</title>
         <meta
           name="description"
-          content=" Toujours perdu dans toutes les Quêtes de Escape From Tarkov ? Ce site est la solution !"
+          content="Toujours perdu dans toutes les Quêtes d'Escape From Tarkov ? Ce site est la solution !"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
