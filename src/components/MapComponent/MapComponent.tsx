@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { getQuestArray } from '../../redux/questSlice';
 import { RootState } from '../../redux/store';
 import { useRouter } from 'next/router';
+import reactDOM from 'react-dom/server';
 
 // Import Fontawesome
-import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faPersonHiking,
   faBox,
@@ -15,7 +15,8 @@ import {
   faMobileScreen,
   faHandLizard,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(faPersonHiking, faBox, faKey, faSkull, faMobileScreen, faHandLizard);
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Styles
 import 'leaflet/dist/leaflet.css';
@@ -109,37 +110,33 @@ export default function MapComponent() {
       }
     };
   }, []);
+  const iconMapping: Record<string, JSX.Element> = {
+    faPersonHiking: <FontAwesomeIcon icon={faPersonHiking} size="2xl" />,
+    faBox: <FontAwesomeIcon icon={faBox} size="2xl" />,
+    faKey: <FontAwesomeIcon icon={faKey} size="2xl" />,
+    faSkull: <FontAwesomeIcon icon={faSkull} size="2xl" />,
+    faMobileScreen: <FontAwesomeIcon icon={faMobileScreen} className="MS2000" size="2xl" />,
+    faHandLizard: <FontAwesomeIcon icon={faHandLizard} size="2xl" rotation={270} />,
+  };
 
-  // TODO faire cette partie plus propre avec Leaflet-react
-  const createIcon = (objectif: Objectif, color: string | undefined) => {
-    switch (objectif.action) {
-      case 'faPersonHiking':
-        return `<i class="fas fa-person-hiking fa-2x" style="color: ${color}; display: ${
-          !objectif.show ? 'none' : 'block'
-        };"></i>`;
-      case 'faBox':
-        return `<i class="fas fa-box fa-2x" style="color: ${color}; display: ${
-          !objectif.show ? 'none' : 'block'
-        };"></i>`;
-      case 'faKey':
-        return `<i class="fas fa-key fa-2x" style="color: ${color}; display: ${
-          !objectif.show ? 'none' : 'block'
-        };"></i>`;
-      case 'faSkull':
-        return `<i class="fas fa-skull fa-2x" style="color: ${color}; display: ${
-          !objectif.show ? 'none' : 'block'
-        };"></i>`;
-      case 'faMobileScreen':
-        return `<i class="fas fa-mobile-screen fa-2x" className="MS2000" style="color: ${color}; display: ${
-          !objectif.show ? 'none' : 'block'
-        };"></i>`;
-      case 'faHandLizard':
-        return `<i class="fas fa-hand-lizard fa-2x" style="color: ${color}; display: ${
-          !objectif.show ? 'none' : 'block'
-        };"></i>`;
-      default:
-        console.error('Unknown Icon name in switch createIcon');
+  const createIcon = (
+    objectif: Objectif,
+    color: string | undefined,
+  ): string | false | undefined => {
+    if (objectif.action) {
+      const icon = iconMapping[objectif.action];
+      if (icon) {
+        return reactDOM.renderToString(
+          <div>
+            {React.cloneElement(icon, {
+              style: { color, display: !objectif.show ? 'none' : 'block' },
+            })}
+          </div>,
+        );
+      } else {
+        console.error('Unknown Icon name in createIcon:', objectif.action);
         return false;
+      }
     }
   };
 
