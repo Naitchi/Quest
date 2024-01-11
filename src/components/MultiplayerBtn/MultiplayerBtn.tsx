@@ -65,7 +65,7 @@ export default function MultiplayerBtn() {
             zIndex: 1,
           }}
         >
-          Lève les restrictions de level et de faction pour pouvoir ajouter les quêtes de tes amis.
+          Lift the level and faction restrictions to add your friends&apos; quests.
         </div>
       )}
     </button>

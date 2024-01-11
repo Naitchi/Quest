@@ -82,7 +82,7 @@ export default function SearchInput() {
           searchQuest(e.target.value);
         }}
         type="text"
-        placeholder="Rechercher une quête"
+        placeholder="Search for a Quest"
         onFocus={() => setIsFocused(true)}
         onMouseEnter={() => setIsFocused(true)}
         onMouseLeave={() => setIsFocused(false)}
@@ -113,7 +113,7 @@ export default function SearchInput() {
                 </div>
               ))
             ) : (
-              <p className={styles.noResults}>Aucune quête trouvé</p>
+              <p className={styles.noResults}>No quest found</p>
             )}
           </div>
         </div>
