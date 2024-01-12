@@ -54,33 +54,28 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
 
   const slides = [
     <div className={styles.slide} key={1}>
-      <h3 className={styles.welcome}>Attention site en construction</h3>
+      <h3 className={styles.welcome}>Warning: This site is under construction</h3>
       <p className={styles.desc}>
-        Le site en lui-même n&apos;est pas encore fini et le principal contenu : les quêtes ne sont
-        pas encore toutes à jour/coder.
+        The site is finished, but the content is not completed yet. Many quests have not been coded
+        or updated. And there are many more fonctionalities to come.
       </p>
     </div>,
     <div className={styles.slide} key={4}>
       <img className={styles.icon} src="/assets/iconQuest.svg" alt="Logo Quest EFT" />
-      <h2 className={styles.welcome}>Bienvenue sur Quest-eft</h2>
+      <h2 className={styles.welcome}>Welcome to Quest-eft</h2>
       <p className={styles.desc}>
-        Le site qui te va te permettre de te retrouver dans la jungle de quête d&apos;Escape From
-        Tarkov. <br />
-        Suis ces quelques indications pour avoir de quoi utilisé le site.
+        The site allow you to not be lost in the hundered of quests in Escape From Tarkov. <br />
+        Follow these instructions to understand how to use the site.
       </p>
     </div>,
     <div className={styles.slide} key={2}>
-      <img
-        className={styles.screenshot}
-        src="/assets/screenMap.jpg"
-        alt="Carte interactive d'EFT"
-      />
+      <img className={styles.screenshot} src="/assets/screenMap.jpg" alt="Interactive map of EFT" />
       <h3 className={styles.welcome}>
-        Des cartes interactives avec toutes les infos de tes quêtes.
+        Interactive maps with all the information you need for your quests
       </h3>
       <p className={styles.desc}>
-        Sélectionne la carte que tu veux jouer, puis ajoute les quêtes que tu as. Ensuite les
-        objectifs des quêtes seront indiqué via des icônes colorées sur la carte !
+        Select the map you&apos;d like to play, and add your quests using the menu on the left.
+        After that, the quest objectives will be marked with colored icons on the map.
       </p>
     </div>,
     <div className={styles.slide} key={3}>
@@ -89,11 +84,12 @@ export default function ModalInfo({ onClose }: Readonly<ModalInfoProps>) {
         <FontAwesomeIcon icon={faCog} spin size="3x" spinReverse className={styles.MidleGear} />
         <FontAwesomeIcon icon={faCog} spin size="3x" className={styles.LastGear} />
       </div>
-      <h3 className={styles.welcome}>Les options, ma passion</h3>
+      <h3 className={styles.welcome}>Options</h3>
       <p className={styles.desc}>
-        Sur la page d&apos;accueil, tu peux changer ta faction, ton niveau actuel pour que les
-        quêtes. Proposer soit adapté à ces facteurs. Et pas de panique, si tu veux regrouper tes
-        quêtes avec celles de tes amis, tu peux activer le mode multi-joueurs.
+        On the homepage, you can change your faction and your current level so that the search
+        input will return only quests that you have unlocked instead of those that are locked. And if
+        you want to play with a friend who has a different faction or level, you can click the
+        multiplayer button to remove the restrictions.
       </p>
     </div>,
   ];

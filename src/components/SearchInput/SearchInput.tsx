@@ -18,6 +18,8 @@ import QuestType, { Info } from '../../type/QuestType';
 
 export default function SearchInput() {
   const dispatch = useDispatch();
+  const [onDropdown, setOnDropdown] = useState(false);
+  const [onSearch, setOnSearch] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
   const allQuests: QuestType[] | null = useSelector((state: RootState) =>
@@ -82,19 +84,24 @@ export default function SearchInput() {
           searchQuest(e.target.value);
         }}
         type="text"
-        placeholder="Rechercher une quête"
+        placeholder="Search for a Quest"
         onFocus={() => setIsFocused(true)}
-        onMouseEnter={() => setIsFocused(true)}
-        onMouseLeave={() => setIsFocused(false)}
+        onBlur={() => setIsFocused(false)}
+        onMouseEnter={() => setOnSearch(true)}
+        onMouseLeave={() => setOnSearch(false)}
       />
       {searchText && (
         <button className={styles.reset} onClick={() => setSearchText('')}>
           <FontAwesomeIcon icon={faCircleXmark} size="lg" />
         </button>
       )}
-      {isFocused && result && (
+      {(onSearch || onDropdown || isFocused) && result && (
         <div className={styles.hide}>
-          <div onMouseEnter={() => setIsFocused(true)} className={styles.dropdown}>
+          <div
+            onMouseEnter={() => setOnDropdown(true)}
+            onMouseLeave={() => setOnDropdown(false)}
+            className={styles.dropdown}
+          >
             {result.length > 0 ? (
               result.map((quest) => (
                 <div key={quest.id}>
@@ -113,7 +120,7 @@ export default function SearchInput() {
                 </div>
               ))
             ) : (
-              <p className={styles.noResults}>Aucune quête trouvé</p>
+              <p className={styles.noResults}>No quest found</p>
             )}
           </div>
         </div>

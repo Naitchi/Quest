@@ -48,6 +48,16 @@
         display: inline-flex;
 
         li {
+          a {
+            color: #8a7c64;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #b7ad9c;
+              text-decoration: underline;
+            }
+          }
           .tabulation {
             margin-left: 25px;
           }
