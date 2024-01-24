@@ -99,8 +99,7 @@ export default function Home() {
           Site 100% free by{' '}
           <a className={styles.link} href="https://github.com/Naitchi">
             Naitchi
-          </a>{' '}
-          (looking for work)
+          </a>
         </p>
       </div>
     </React.Fragment>
